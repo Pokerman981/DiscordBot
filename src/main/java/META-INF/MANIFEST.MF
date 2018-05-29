@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Class-Path: okhttp-3.8.1.jar jda-utilities-commons-2.1.jar jda-utiliti
+ es-doc-2.1.jar jsr305-3.0.2.jar nv-websocket-client-2.2.jar json-2016
+ 0810.jar okio-1.13.0.jar trove4j-3.0.3.jar JDA-3.5.1_347.jar jda-util
+ ities-examples-2.1.jar gson-2.8.2.jar jda-utilities-command-2.1.jar j
+ da-utilities-menu-2.1.jar slf4j-api-1.7.25.jar jna-4.4.0.jar commons-
+ collections4-4.1.jar
+Main-Class: DiscordBot.main
+
