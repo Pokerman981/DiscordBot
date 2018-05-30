@@ -30,7 +30,7 @@ public class ForceStarboardCommand extends Command {
         }
 
         if (main.userData.get("starboard").values().contains(event.getArgs())) {
-            event.replyError("This has already been quoted!");
+            event.replyError("This is already on the starboard!");
             return;
         }
 
@@ -48,7 +48,7 @@ public class ForceStarboardCommand extends Command {
 
             TextChannel quotechannel = event.getJDA().getTextChannelsByName("starboard", true).get(0);
             quotechannel.sendMessage(embed.build()).queue();
-            event.reply("Quoted, " + event.getAuthor().getAsMention() + "!");
+            event.reply("Added to the starboard, " + event.getAuthor().getAsMention() + "!");
         } catch (InterruptedException | ExecutionException | IOException e) {
             event.replyError("The ID you supplied is not valid!");
             return;

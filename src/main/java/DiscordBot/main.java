@@ -63,28 +63,30 @@ public class main extends ListenerAdapter {
 	        instance = new main();
 
 	    try {
-			//Login
-			
-			EventWaiter waiter = new EventWaiter();
 
+			//Command builder
 			CommandClientBuilder ccb = new CommandClientBuilder()
-			.setPrefix("!")
-			.setAlternativePrefix("..")
-			.setEmojis("\u2705", "\uD83D\uDCA1", "\uD83D\uDEAB")
-			.setOwnerId(Ref.owner_id)
-			.addCommands(
+			.setPrefix("!") //Prefix
+			.setAlternativePrefix("..") //Alt prefix
+			.setEmojis("\u2705", "\uD83D\uDCA1", "\uD83D\uDEAB") //Unicode emojis
+			.setOwnerId(Ref.owner_id) // Owner ID
+			.addCommands( //Commands
                     new QuoteCommand(),
 					new ListBlockedLinksCommand(),
                     new LinkPermitCommand(),
-					new BanCommand(),
-					new kickCommand(),
+                    new BanCommand(),
+                    new kickCommand(),
                     new BlockLinkCommand(),
                     new ForceStarboardCommand(),
                     new ShutDownCommand(),
                     new Ping(),
                     new EvalCommand()
             );
-			
+
+			//Get an instance of the event waiter
+            EventWaiter waiter = new EventWaiter();
+
+            //Login
 			jda = new JDABuilder(AccountType.BOT).setToken(Ref.main_token).buildBlocking();
 			//Set Status
 			jda.getPresence().setGame(Game.playing("¯\\_(ツ)_/¯"));
@@ -96,12 +98,8 @@ public class main extends ListenerAdapter {
             jda.addEventListener(new testCommand());
             jda.addEventListener(waiter);
             jda.addEventListener(ccb.build());
-			//jda.addEventListener(new CreatePrivate());
-			//jda.addEventListener(new AddPrivate());
-			//jda.addEventListener(new ChangePrivateName());
-            //jda.addEventListener(new RemovePrivate());
-            //jda.addEventListener(new DeletePrivate());
-			//Load the config
+
+            //Make sure the config is there #Going to change to H2 soon
 			Config.init(file);
 			//Start the saving proccess
 			startSave();
@@ -110,11 +108,13 @@ public class main extends ListenerAdapter {
 			e.printStackTrace();
 		}
 	}
-	
+
+	//Start the save task
 	public static void startSave(){
 		Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(new saveTask(), 0, 5, TimeUnit.MINUTES);
 	}
-	
+
+	//Save the file #Going to change to H2 soon
 	public static void Save() throws IOException{
         String json = gson.toJson(main.userData, new TypeToken<Map<String, Map<String, String>>>(){}.getType());
         FileWriter writer = new FileWriter(file);

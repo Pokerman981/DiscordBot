@@ -19,6 +19,11 @@ public class BlockLinkCommand extends Command{
 	@Override
 	protected void execute(CommandEvent event) {
 		String[] cmd = event.getMessage().getContentRaw().split(" ");
+		if (cmd.length == 1) {
+			event.replyError("You need to supply an argument");
+			return;
+		}
+
 		if (cmd.length > 2){
 			event.replyError("You have supplied to many arguments!");
 			return;
