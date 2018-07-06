@@ -40,9 +40,15 @@ public class ReactionEvent implements EventListener {
 
                     embed.setColor(Color.decode("#000000"))
                             .setTimestamp(quote.get().getCreationTime())
-                            .setDescription("\"" + quote.get().getContentRaw() + "\"")
                             .setFooter(quote.get().getAuthor().getName() + "#" + quote.get().getAuthor().getDiscriminator(), quote.get().getAuthor().getAvatarUrl());
 
+                    if (!quote.get().getContentRaw().isEmpty()) {
+                        embed.setDescription("\"" + quote.get().getContentRaw() + "\"");
+                    }
+
+                    if (!quote.get().getAttachments().isEmpty() && quote.get().getAttachments().get(0).isImage()) {
+                        embed.setImage(quote.get().getAttachments().get(0).getUrl());
+                    }
 
                     quotechannel.sendMessage(embed.build()).queue();
                 }

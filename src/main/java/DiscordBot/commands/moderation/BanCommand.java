@@ -1,5 +1,6 @@
 package DiscordBot.commands.moderation;
 
+import DiscordBot.Ref;
 import DiscordBot.main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
@@ -9,6 +10,7 @@ import net.dv8tion.jda.core.entities.Member;
 
 import java.awt.*;
 import java.lang.reflect.Array;
+import java.util.Optional;
 
 public class BanCommand extends Command {
 
@@ -40,6 +42,7 @@ public class BanCommand extends Command {
         }
 
         Member member = event.getGuild().getMemberById(args[0].replaceAll("<@", "").replaceAll(">", "").replaceAll("!", ""));
+
         if (member.hasPermission(Permission.BAN_MEMBERS)){
             event.replyError("You cannot ban another staff member!");
             return;

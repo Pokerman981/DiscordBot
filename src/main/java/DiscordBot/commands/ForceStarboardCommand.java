@@ -43,10 +43,17 @@ public class ForceStarboardCommand extends Command {
 
             embed.setColor(Color.decode("#000000"))
                     .setTimestamp(quote.get().getCreationTime())
-                    .setDescription("\"" + quote.get().getContentRaw() + "\"")
                     .setFooter(quote.get().getAuthor().getName() + "#" + quote.get().getAuthor().getDiscriminator(), quote.get().getAuthor().getAvatarUrl());
 
+            if (!quote.get().getContentRaw().isEmpty()) {
+                embed.setDescription("\"" + quote.get().getContentRaw() + "\"");
+            }
+
+            if (!quote.get().getAttachments().isEmpty() && quote.get().getAttachments().get(0).isImage()) {
+                embed.setImage(quote.get().getAttachments().get(0).getUrl());
+            }
             TextChannel quotechannel = event.getJDA().getTextChannelsByName("starboard", true).get(0);
+
             quotechannel.sendMessage(embed.build()).queue();
             event.reply("Added to the starboard, " + event.getAuthor().getAsMention() + "!");
         } catch (InterruptedException | ExecutionException | IOException e) {

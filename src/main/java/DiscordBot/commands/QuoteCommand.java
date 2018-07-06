@@ -33,8 +33,15 @@ public class QuoteCommand extends Command {
 
             embed.setColor(Color.decode("#000000"))
                     .setTimestamp(quote.get().getCreationTime())
-                    .setDescription("\"" + quote.get().getContentRaw() + "\"")
                     .setFooter(quote.get().getAuthor().getName() + "#" + quote.get().getAuthor().getDiscriminator(), quote.get().getAuthor().getAvatarUrl());
+
+            if (!quote.get().getContentRaw().isEmpty()) {
+                embed.setDescription("\"" + quote.get().getContentRaw() + "\"");
+            }
+
+            if (!quote.get().getAttachments().isEmpty() && quote.get().getAttachments().get(0).isImage()) {
+                embed.setImage(quote.get().getAttachments().get(0).getUrl());
+            }
 
             event.getChannel().sendMessage(embed.build()).queue();
         } catch (InterruptedException | ExecutionException e) {
