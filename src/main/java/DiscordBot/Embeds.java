@@ -49,4 +49,14 @@ public class Embeds {
 
         return reforgedInstallInfo;
     }
+
+    public static EmbedBuilder supplyServer() {
+        EmbedBuilder supplyServer = new EmbedBuilder();
+
+        supplyServer.setColor(Color.red).getDescriptionBuilder().append(
+                "Please supply a server"
+        );
+
+        return supplyServer;
+    }
 }
