@@ -1,22 +1,11 @@
 package DiscordBot;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-
-import javax.security.auth.login.LoginException;
-
 import DiscordBot.commands.*;
 import DiscordBot.commands.moderation.BanCommand;
 import DiscordBot.commands.moderation.kickCommand;
 import DiscordBot.events.GuildJoinEvent;
 import DiscordBot.events.GuildLeaveEvent;
+import DiscordBot.events.LinkBlockerEvent;
 import DiscordBot.events.ReactionEvent;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -26,13 +15,22 @@ import com.google.gson.reflect.TypeToken;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
-
-import DiscordBot.events.LinkBlockerEvent;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+
+import javax.security.auth.login.LoginException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class main extends ListenerAdapter {
 
@@ -64,20 +62,24 @@ public class main extends ListenerAdapter {
 
 	    try {
 
+
 			//Command builder
 			CommandClientBuilder ccb = new CommandClientBuilder()
 			.setPrefix(".") //Prefix
-			.setAlternativePrefix("!!") //Alt prefix
+			.setAlternativePrefix("$$") //Alt prefix
 			.setEmojis("\u2705", "\uD83D\uDCA1", "\uD83D\uDEAB") //Unicode emojis
 			.setOwnerId(Ref.owner_id) // Owner ID
 			.addCommands( //Commands
                     new QuoteCommand(),
+                    new InstallCommand(),
 					new ServerStatusCommand(),
+					new SelfAssignCommand(),
 					new ListBlockedLinksCommand(),
                     new LinkPermitCommand(),
                     new BanCommand(),
                     new kickCommand(),
                     new BlockLinkCommand(),
+					new AllowMentionCommand(),
                     new ForceStarboardCommand(),
                     new ShutDownCommand(),
                     new Ping(),

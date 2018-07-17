@@ -11,7 +11,6 @@ import net.dv8tion.jda.core.EmbedBuilder;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
 
 public class ServerStatusCommand extends Command {
 
@@ -25,10 +24,9 @@ public class ServerStatusCommand extends Command {
     @Override
     protected void execute(CommandEvent event) {
         //make it so the bot doesn't post in the server chats
-        if (event.getChannel().getId().equals("401096720244670464")) return;
-        if (event.getChannel().getId().equals("401097790153031690")) return;
-        if (event.getChannel().getId().equals("462325856250101760")) return;
-        if (event.getChannel().getId().equals("401098015248482314")) return;
+        if (event.getGuild().getCategoriesByName("server chats", true).get(0).getChannels().toString().contains(event.getChannel().getId())) return;
+        //if (event.getGuild().getCategoriesByName("staff", true).get(0).getChannels().toString().contains(event.getChannel().getId())) return;
+
 
        /* try {
             event.getChannel().sendMessage("Getting server status... " + event.getAuthor().getAsMention())
@@ -84,7 +82,6 @@ public class ServerStatusCommand extends Command {
         }
         eb.getDescriptionBuilder().append("\n<:pixelmon:375785337412386828> **Pixelmon+ Total**\n \t\t**"
                 + total + "** players online!\n");
-        //event.getChannel().sendMessage(eb.build()).queue();
 
             event.getChannel().editMessageById(id, eb.build()).queue();
 
