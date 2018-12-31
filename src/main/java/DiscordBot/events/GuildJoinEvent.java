@@ -19,8 +19,10 @@ public class GuildJoinEvent implements EventListener {
 			GuildMemberJoinEvent event = (GuildMemberJoinEvent) e;
 
 			TextChannel channel = event.getGuild().getTextChannelsByName("join-leave-log", true).get(0);
-
 			channel.sendMessage(onJoin((event).getUser(), (event).getGuild()).build()).queue();
+			
+			int memberCount = event.getGuild().getMembers().size();
+                        event.getGuild().getVoiceChannelById("527244427920539688").getManager().setName("Member Count: " + memberCount).queue();
 		}
 		
 	}
