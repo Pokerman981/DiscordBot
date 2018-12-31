@@ -17,10 +17,12 @@ public class GuildLeaveEvent implements EventListener{
 	public void onEvent(Event e) {
 		if (e instanceof GuildMemberLeaveEvent){
 			GuildMemberLeaveEvent event = (GuildMemberLeaveEvent) e;
-			TextChannel channel = event.getGuild().getTextChannelsByName("join-leave-log", true).get(0);
-
 			
+			TextChannel channel = event.getGuild().getTextChannelsByName("join-leave-log", true).get(0);
 			channel.sendMessage(onLeave((event).getUser(), event.getGuild()).build()).queue();
+			
+			int memberCount = event.getGuild().getMembers().size();
+                        event.getGuild().getVoiceChannelById("527244427920539688").getManager().setName("Member Count: " + memberCount).queue(); 
 		}
 		
 	}
