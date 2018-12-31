@@ -42,11 +42,10 @@ public class AssignRoleReactionEvent implements EventListener{
             if (member.getUser().getId().equals("126427288496504834")) return;
             if (!id.equals("282056777003171841")) return;
 
-            System.out.println(event.getGuild().getRoles().toString());
-
             switch (emoteID) {
-                case "375434302730665994": { //Pokeclub
+                case "526264234716299284": { //Pokeclub
                     event.getGuild().getController().addSingleRoleToMember(member, event.getGuild().getRoleById("467459975812218922")).submit();
+                    event.getReaction().removeReaction(member.getUser()).submit();
                     break;
                 }
 
@@ -55,7 +54,7 @@ public class AssignRoleReactionEvent implements EventListener{
                     break;
                 }
 
-                case "375434343071481857": { //Pokeverse
+                case "526264631744790549": { //Pokeverse
                     event.getGuild().getController().addRolesToMember(member, event.getGuild().getRoleById("467459888516431903")).submit();
                     break;
                 }
@@ -65,7 +64,6 @@ public class AssignRoleReactionEvent implements EventListener{
                     break;
                 }
             }
-                event.getReaction().removeReaction(member.getUser()).submit();
         }
 
 
