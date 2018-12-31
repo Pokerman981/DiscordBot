@@ -1,24 +1,92 @@
 package DiscordBot.events;
 
-import java.awt.*;
-import java.io.IOException;
-import java.util.concurrent.ExecutionException;
-
 import DiscordBot.main;
 import net.dv8tion.jda.core.EmbedBuilder;
+import net.dv8tion.jda.core.JDA;
+import net.dv8tion.jda.core.entities.Member;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.TextChannel;
+import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.Event;
 import net.dv8tion.jda.core.events.message.guild.react.GuildMessageReactionAddEvent;
 import net.dv8tion.jda.core.hooks.EventListener;
 import net.dv8tion.jda.core.requests.RequestFuture;
 
-public class AssignRoleReactionEvent implements EventListener {
-    private static final String BotGUID = "435616811602673688";
+import java.awt.*;
+import java.io.IOException;
+import java.util.concurrent.ExecutionException;
+
+public class AssignRoleReactionEvent implements EventListener{
 
     @Override
-    public void onEvent(Event e) {
+    public void onEvent(Event e){
         if (e instanceof GuildMessageReactionAddEvent) {
+            GuildMessageReactionAddEvent event = (GuildMessageReactionAddEvent) e;
+
+            String channelID = event.getChannel().getId();
+            String messageID = event.getMessageId();
+            String emoteID = event.getReactionEmote().getId();
+            String id = null;
+
+            Member member = event.getMember();
+
+            JDA jda = event.getJDA();
+
+            try {
+                id = event.getJDA().getTextChannelById(channelID).getMessageById(messageID).submit().get().getAuthor().getId();
+            } catch (InterruptedException | ExecutionException e1) {
+                e1.printStackTrace();
+            }
+
+
+            if (member.getUser().getId().equals("126427288496504834")) return;
+            if (!id.equals("282056777003171841")) return;
+
+            System.out.println(event.getGuild().getRoles().toString());
+
+            switch (emoteID) {
+                case "375434302730665994": { //Pokeclub
+                    event.getGuild().getController().addSingleRoleToMember(member, event.getGuild().getRoleById("467459975812218922")).submit();
+                    break;
+                }
+
+                case "375433829764169741": { //Pokedash
+                    event.getGuild().getController().addRolesToMember(member, event.getGuild().getRoleById("467459853116375040")).submit();
+                    break;
+                }
+
+                case "375434343071481857": { //Pokeverse
+                    event.getGuild().getController().addRolesToMember(member, event.getGuild().getRoleById("467459888516431903")).submit();
+                    break;
+                }
+
+                case "375434322339168256": { //Pokelegends
+                    event.getGuild().getController().addRolesToMember(member, event.getGuild().getRoleById("467459940093657108")).submit();
+                    break;
+                }
+            }
+                event.getReaction().removeReaction(member.getUser()).submit();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       /* if (e instanceof GuildMessageReactionAddEvent) {
             GuildMessageReactionAddEvent event = (GuildMessageReactionAddEvent) e;
             if (event.getUser().isBot()) return;
             if (!event.getReactionEmote().getName().equals("⭐")) {
@@ -57,9 +125,6 @@ public class AssignRoleReactionEvent implements EventListener {
             }
 
 
-        }
+        } */
     }
-
 }
-
-/*                   */
