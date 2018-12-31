@@ -66,10 +66,11 @@ public class main extends ListenerAdapter {
 			//Command builder
 			CommandClientBuilder ccb = new CommandClientBuilder()
 			.setPrefix(".") //Prefix
-			.setAlternativePrefix("$$") //Alt prefix
+			.setAlternativePrefix("**") //Alt prefix
 			.setEmojis("\u2705", "\uD83D\uDCA1", "\uD83D\uDEAB") //Unicode emojis
 			.setOwnerId(Ref.owner_id) // Owner ID
 			.addCommands( //Commands
+					new IPCommand(),
                     new QuoteCommand(),
                     new InstallCommand(),
 					new ServerStatusCommand(),

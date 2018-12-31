@@ -20,27 +20,27 @@ public class IPCommand extends Command {
     @Override
     protected void execute(CommandEvent event) {
         if(event.getArgs().isEmpty()) {
-            event.reply(Embeds.supplyServer().build());
+            event.reply(Embeds.noArgsIP().build());
             return;
         }
         String[] server = event.getArgs().split(" ");
-        server[0].toLowerCase();
 
-        switch (server[0]) {
+
+        switch (server[0].toLowerCase()) {
             case "pokedash": {
-                event.reply("play.pokedash.org");
+                event.reply(Embeds.IPPD().build());
                 break;
             }
             case "pokeverse": {
-                event.reply("play.pokeverse.org");
+                event.reply(Embeds.IPPV().build());
                 break;
             }
             case "pokelegends": {
-                event.reply("play.pokelegends.org");
+                event.reply(Embeds.IPPL().build());
                 break;
             }
             case "pokeclub": {
-                event.reply("play.pokeclub.net");
+                event.reply(Embeds.IPPC().build());
                 break;
             }
             default: {

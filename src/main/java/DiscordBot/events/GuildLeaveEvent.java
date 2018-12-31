@@ -16,12 +16,11 @@ public class GuildLeaveEvent implements EventListener{
 	@Override
 	public void onEvent(Event e) {
 		if (e instanceof GuildMemberLeaveEvent){
-			if (!((GuildMemberLeaveEvent) e).getGuild().getId().equals("435616811602673688")) return;
-			TextChannel channel = ((GuildMemberLeaveEvent) e).getGuild().getTextChannelById("443166636891963392");
 			GuildMemberLeaveEvent event = (GuildMemberLeaveEvent) e;
+			TextChannel channel = event.getGuild().getTextChannelsByName("join-leave-log", true).get(0);
+
 			
 			channel.sendMessage(onLeave((event).getUser(), event.getGuild()).build()).queue();
-			channel.sendMessage(event.getMember().getUser().getId()).queue();
 		}
 		
 	}

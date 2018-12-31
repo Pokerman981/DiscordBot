@@ -20,30 +20,7 @@ public class InstallCommand extends Command {
     @Override
     protected void execute(CommandEvent event) {
         if (event.getGuild().getCategoriesByName("server chats", true).get(0).getChannels().toString().contains(event.getChannel().getId())) return;
-
-        String[] cmd = event.getArgs().split(" ");
-
-
-
-        if (event.getArgs().isEmpty()) {
-            event.reply(this.noArgsTypes(event.getMessage().getContentRaw().split(" ")[0]).build());
-            return;
-        }
-
-        switch (cmd[0]) {
-            case "1": {
-                event.reply(Embeds.gensInstallInfo().build());
-                break;
-            }
-            case "2": {
-                event.reply(Embeds.reforgedInstallInfo().build());
-                break;
-            }
-            default: {
-                event.reply(Embeds.onUnsupportedTypes().build());
-                break;
-            }
-        }
+        event.reply(Embeds.reforgedInstallInfo().build());
 
 
 

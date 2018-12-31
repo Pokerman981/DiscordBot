@@ -21,10 +21,9 @@ public class SelfAssignCommand extends Command {
             return;
         }
 
-        String[] args = event.getArgs().split(" ");
-        args[0].toLowerCase();
+        String args = event.getArgs().split(" ")[0].toLowerCase();
 
-        switch (args[0]) {
+        switch (args) {
             case "pokedash": {
                 event.getGuild().getController().addRolesToMember(event.getMember(), event.getGuild().getRolesByName("pokedash", true).get(0)).queue();
                 break;
@@ -46,6 +45,6 @@ public class SelfAssignCommand extends Command {
                 return;
             }
         }
-        event.replySuccess("Successfully added " + args[0] + " tag!");
+        event.replySuccess("Successfully added " + args + " tag!");
     }
 }
