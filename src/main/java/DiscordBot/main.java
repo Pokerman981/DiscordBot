@@ -7,6 +7,7 @@ import DiscordBot.events.GuildJoinEvent;
 import DiscordBot.events.GuildLeaveEvent;
 import DiscordBot.events.LinkBlockerEvent;
 import DiscordBot.events.ReactionEvent;
+import DiscordBot.events.AssignRoleReactionEvent;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
@@ -95,6 +96,7 @@ public class main extends ListenerAdapter {
 			//Set Status
 			jda.getPresence().setGame(Game.playing("¯\\_(ツ)_/¯"));
             //Register Events
+			jda.addEventListener(new AssignRoleReactionEvent());
             jda.addEventListener(new GuildLeaveEvent());
             jda.addEventListener(new GuildJoinEvent());
             jda.addEventListener(new LinkBlockerEvent());

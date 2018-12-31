@@ -13,7 +13,7 @@ import net.dv8tion.jda.core.events.message.guild.react.GuildMessageReactionAddEv
 import net.dv8tion.jda.core.hooks.EventListener;
 import net.dv8tion.jda.core.requests.RequestFuture;
 
-public class ReactionEvent implements EventListener {
+public class AssignRoleReactionEvent implements EventListener {
     private static final String BotGUID = "435616811602673688";
 
     @Override
