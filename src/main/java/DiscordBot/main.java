@@ -3,11 +3,7 @@ package DiscordBot;
 import DiscordBot.commands.*;
 import DiscordBot.commands.moderation.BanCommand;
 import DiscordBot.commands.moderation.kickCommand;
-import DiscordBot.events.GuildJoinEvent;
-import DiscordBot.events.GuildLeaveEvent;
-import DiscordBot.events.LinkBlockerEvent;
-import DiscordBot.events.ReactionEvent;
-import DiscordBot.events.AssignRoleReactionEvent;
+import DiscordBot.events.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
@@ -26,10 +22,7 @@ import javax.security.auth.login.LoginException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
@@ -69,7 +62,7 @@ public class main extends ListenerAdapter {
 			.setPrefix(".") //Prefix
 			.setAlternativePrefix("**") //Alt prefix
 			.setEmojis("\u2705", "\uD83D\uDCA1", "\uD83D\uDEAB") //Unicode emojis
-			.setOwnerId(Ref.owner_id) // Owner ID
+			.setOwnerId("126427288496504834") // Owner ID
 			.addCommands( //Commands
 					new IPCommand(),
                     new QuoteCommand(),
@@ -92,7 +85,7 @@ public class main extends ListenerAdapter {
             EventWaiter waiter = new EventWaiter();
 
             //Login
-			jda = new JDABuilder(AccountType.BOT).setToken(Ref.main_token).buildBlocking();
+			jda = new JDABuilder(AccountType.BOT).setToken(args[0]).buildBlocking();
 			//Set Status
 			jda.getPresence().setGame(Game.playing("¯\\_(ツ)_/¯"));
             //Register Events
@@ -104,6 +97,10 @@ public class main extends ListenerAdapter {
             jda.addEventListener(new testCommand());
             jda.addEventListener(waiter);
             jda.addEventListener(ccb.build());
+
+            Timer timer = new Timer();
+            timer.schedule(new StaffCounter(), 0, 50000);
+
 
             //Make sure the config is there #Going to change to H2 soon
 			Config.init(file);

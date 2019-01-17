@@ -1,6 +1,5 @@
 package DiscordBot.commands.moderation;
 
-import DiscordBot.Ref;
 import DiscordBot.main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
