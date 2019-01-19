@@ -85,7 +85,7 @@ public class main extends ListenerAdapter {
             EventWaiter waiter = new EventWaiter();
 
             //Login
-			jda = new JDABuilder(AccountType.BOT).setToken(args[0]).buildBlocking();
+			jda = new JDABuilder(AccountType.BOT).setToken(Ref.token).buildBlocking();
 			//Set Status
 			jda.getPresence().setGame(Game.playing("¯\\_(ツ)_/¯"));
             //Register Events

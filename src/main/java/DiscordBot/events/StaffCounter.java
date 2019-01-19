@@ -18,12 +18,12 @@ public class StaffCounter extends TimerTask {
 
 
         for (Member staff : staffList) {
-            if (staff.getOnlineStatus().getKey() != "offline") {
+            //if (staff.getOnlineStatus().getKey() != "offline")
                 count++;
-            }
+
         }
 
-        guild.getVoiceChannelById("535503921322524673").getManager().setName("Staff Counter: " + count).queue();
+        guild.getVoiceChannelById("535503921322524673").getManager().setName("Staff Count: " + count).queue();
 
 
 
