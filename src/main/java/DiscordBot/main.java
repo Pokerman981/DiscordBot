@@ -78,7 +78,8 @@ public class main extends ListenerAdapter {
                     new ForceStarboardCommand(),
                     new ShutDownCommand(),
                     new Ping(),
-                    new EvalCommand()
+                    new EvalCommand(),
+					new AutoRoleMessageIdentiferCommand()
             );
 
 			//Get an instance of the event waiter
@@ -100,11 +101,12 @@ public class main extends ListenerAdapter {
 
             Timer timer = new Timer();
             timer.schedule(new StaffCounter(), 0, 50000);
+			//timer.schedule(new NetworkCounter(), 0, 30000);
 
 
             //Make sure the config is there #Going to change to H2 soon
 			Config.init(file);
-			//Start the saving proccess
+			//Start the saving process
 			startSave();
 			
 		} catch (LoginException | IllegalArgumentException | InterruptedException | JsonIOException | JsonSyntaxException e) {

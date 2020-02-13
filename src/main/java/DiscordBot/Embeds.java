@@ -84,8 +84,16 @@ public class Embeds {
     public static EmbedBuilder IPPL() {
         EmbedBuilder pokelegends = new EmbedBuilder();
         pokelegends.setTitle("Pokelegends Info").setColor(Color.decode("#FF4500"))
-                .setThumbnail("https://i.gyazo.com/70f77a6428a14045674f94ccd5134941.png").getDescriptionBuilder()
+                .setThumbnail("https://i.gyazo.com/b79efa7c89576238c00ba4ceb503e055.png").getDescriptionBuilder()
                 .append("**IP:**\tplay.pokelegends.net\n**Version:**\t 1.12.2");
+        return pokelegends;
+    }
+
+    public static EmbedBuilder IPPB() {
+        EmbedBuilder pokelegends = new EmbedBuilder();
+        pokelegends.setTitle("Pokebrawl Info").setColor(Color.decode("#8573d1"))
+                .setThumbnail("https://i.gyazo.com/2a48c980b14bebf92f9e22c18b0e4b56.png").getDescriptionBuilder()
+                .append("**IP:**\tplay.poke-brawl.com\n**Version:**\t 1.12.2");
         return pokelegends;
     }
 

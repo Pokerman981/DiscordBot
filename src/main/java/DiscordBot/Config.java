@@ -35,6 +35,13 @@ public class Config {
                 main.userData.put("starboard", temp);
                 main.Save();
             }
+
+            if (!main.userData.containsKey("reactrolemessages")) {
+                Map<String, String> temp = new HashMap<>();
+                temp.put("MESSAGE ID", "CHANNEL ID");
+                main.userData.put("reactrolemessages", temp);
+                main.Save();
+            }
         } catch (IOException e) {
             // Print an error if something fails. Please use a real logger, not System.out.
             System.out.println("Error creating default configuration.");

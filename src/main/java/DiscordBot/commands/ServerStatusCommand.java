@@ -24,7 +24,7 @@ public class ServerStatusCommand extends Command {
     @Override
     protected void execute(CommandEvent event) {
         //make it so the bot doesn't post in the server chats
-        if (event.getGuild().getCategoriesByName("server chats", true).get(0).getChannels().toString().contains(event.getChannel().getId())) return;
+        //if (event.getGuild().getCategoriesByName("━━ Server Chats ━━", true).get(0).getChannels().toString().contains(event.getChannel().getId())) return;
         //if (event.getGuild().getCategoriesByName("staff", true).get(0).getChannels().toString().contains(event.getChannel().getId())) return;
 
 
@@ -38,6 +38,8 @@ public class ServerStatusCommand extends Command {
         MinecraftPingReply pokeverse;
         MinecraftPingReply pokelegends;
         MinecraftPingReply pokeclub;
+        MinecraftPingReply pokebrawl;
+
         int total = 0;
         EmbedBuilder eb = Embeds.onServerStatusEmbed();
 
@@ -64,7 +66,7 @@ public class ServerStatusCommand extends Command {
         }
         try {
             pokelegends = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.pokelegends.net").setPort(25565));
-            eb.getDescriptionBuilder().append("\n<:pokelegends:375434322339168256> **PokeLegends**\n \t\t**"
+            eb.getDescriptionBuilder().append("\n<:pokelegends:628381164939247636> **PokeLegends**\n \t\t**"
                     + pokelegends.getPlayers().getOnline() + "** players online!\n");
             total = total + pokelegends.getPlayers().getOnline();
         } catch (IOException e) {
@@ -80,6 +82,17 @@ public class ServerStatusCommand extends Command {
             eb.getDescriptionBuilder().append("\n:x: **PokeClub**\n \t\t**"
                     + "Server Offline!**\n");
         }
+
+        try {
+            pokebrawl = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.poke-brawl.com").setPort(25565));
+            eb.getDescriptionBuilder().append("\n<:pokebrawl:586480683397152820> **PokeBrawl**\n \t\t**"
+                    + pokebrawl.getPlayers().getOnline() + "** players online!\n");
+            total = total + pokebrawl.getPlayers().getOnline();
+        } catch (IOException e) {
+            eb.getDescriptionBuilder().append("\n:x: **PokeBrawl**\n \t\t**"
+                    + "Server Offline!**\n");
+        }
+
         eb.getDescriptionBuilder().append("\n<:pixelmon:375785337412386828> **Pixelmon+ Total**\n \t\t**"
                 + total + "** players online!\n");
 

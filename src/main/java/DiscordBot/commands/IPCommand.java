@@ -43,6 +43,10 @@ public class IPCommand extends Command {
                 event.reply(Embeds.IPPC().build());
                 break;
             }
+            case "pokebrawl": {
+                event.reply(Embeds.IPPB().build());
+                break;
+            }
             default: {
                 event.replyError("We do not support this server!");
                 return;

@@ -3,10 +3,7 @@ package DiscordBot.events;
 import DiscordBot.main;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.JDA;
-import net.dv8tion.jda.core.entities.Member;
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.User;
+import net.dv8tion.jda.core.entities.*;
 import net.dv8tion.jda.core.events.Event;
 import net.dv8tion.jda.core.events.message.guild.react.GuildMessageReactionAddEvent;
 import net.dv8tion.jda.core.hooks.EventListener;
@@ -14,6 +11,9 @@ import net.dv8tion.jda.core.requests.RequestFuture;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class AssignRoleReactionEvent implements EventListener{
@@ -28,8 +28,9 @@ public class AssignRoleReactionEvent implements EventListener{
             String emoteID = event.getReactionEmote().getId();
             String id = null;
 
-            Member member = event.getMember();
+            if (!main.userData.get("reactrolemessages").containsKey(messageID)) return;
 
+            Member member = event.getMember();
             JDA jda = event.getJDA();
 
             try {
@@ -37,15 +38,14 @@ public class AssignRoleReactionEvent implements EventListener{
             } catch (InterruptedException | ExecutionException e1) {
                 e1.printStackTrace();
             }
-
-
-            if (member.getUser().getId().equals("126427288496504834")) return;
-            if (!id.equals("282056777003171841")) return;
+            //System.out.println(1);
+            //if (member.getUser().getId().equals("126427288496504834")) return;
+            //if (!id.equals("282056777003171841")) return;
 
             switch (emoteID) {
                 case "526264234716299284": { //Pokeclub
                     event.getGuild().getController().addSingleRoleToMember(member, event.getGuild().getRoleById("467459975812218922")).submit();
-                    event.getReaction().removeReaction(member.getUser()).submit();
+                    //event.getReaction().removeReaction(member.getUser()).submit();
                     break;
                 }
 
@@ -61,6 +61,11 @@ public class AssignRoleReactionEvent implements EventListener{
 
                 case "375434322339168256": { //Pokelegends
                     event.getGuild().getController().addRolesToMember(member, event.getGuild().getRoleById("467459940093657108")).submit();
+                    break;
+                }
+
+                case "586480683397152820": { //Pokebrawl
+                    event.getGuild().getController().addRolesToMember(member, event.getGuild().getRoleById("586792372969668613")).submit();
                     break;
                 }
             }
