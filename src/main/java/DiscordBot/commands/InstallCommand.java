@@ -4,9 +4,6 @@ import DiscordBot.Embeds;
 import DiscordBot.main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
-import net.dv8tion.jda.core.EmbedBuilder;
-
-import java.awt.*;
 
 public class InstallCommand extends Command {
 
@@ -19,22 +16,7 @@ public class InstallCommand extends Command {
 
     @Override
     protected void execute(CommandEvent event) {
-        if (event.getGuild().getCategoriesByName("server chats", true).get(0).getChannels().toString().contains(event.getChannel().getId())) return;
+        if (event.getChannel().getName().contains("-chat")) return;
         event.reply(Embeds.reforgedInstallInfo().build());
-
-
-
-
-
     }
-
-    public static EmbedBuilder noArgsTypes(String command) {
-        EmbedBuilder noArgs = new EmbedBuilder();
-        noArgs.setColor(Color.red).getDescriptionBuilder()
-                .append("Which mod would you like to install?\n\n" +
-                        "● Type **"+ command +" 1** to install **Pixelmon Generations** (for PokeDash, Pokeverse, & PokeLegends)\n" +
-                        "● Type **"+ command +" 2** to install **Pixelmon Reforged** (for PokeClub)\n");
-        return noArgs;
-    }
-
 }

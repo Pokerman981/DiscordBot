@@ -9,7 +9,7 @@ public class AllowMentionCommand extends Command {
     public AllowMentionCommand() {
         this.name = "mention";
         this.category = main.ADMIN;
-        this.requiredRole = "admin";
+        this.requiredRole = "seniormod";
         this.guildOnly = true;
         this.arguments = "<server>";
         this.help = "Enable a role to be mentioned";

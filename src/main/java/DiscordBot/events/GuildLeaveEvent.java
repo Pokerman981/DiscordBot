@@ -1,8 +1,5 @@
 package DiscordBot.events;
 
-import java.awt.Color;
-import java.time.OffsetDateTime;
-
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.TextChannel;
@@ -10,6 +7,9 @@ import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.Event;
 import net.dv8tion.jda.core.events.guild.member.GuildMemberLeaveEvent;
 import net.dv8tion.jda.core.hooks.EventListener;
+
+import java.awt.*;
+import java.time.OffsetDateTime;
 
 public class GuildLeaveEvent implements EventListener{
 
@@ -22,51 +22,9 @@ public class GuildLeaveEvent implements EventListener{
 			channel.sendMessage(onLeave((event).getUser(), event.getGuild()).build()).queue();
 			
 			int memberCount = event.getGuild().getMembers().size();
-                        event.getGuild().getVoiceChannelById("527244427920539688").getManager().setName("Member Count: " + memberCount).queue(); 
+			event.getGuild().getVoiceChannelById("527244427920539688").getManager().setName("Member Count: " + memberCount).queue();
 		}
-		
 	}
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	public EmbedBuilder onLeave(User user, Guild guild){
 		EmbedBuilder embed = new EmbedBuilder();
@@ -84,5 +42,4 @@ public class GuildLeaveEvent implements EventListener{
 		embed.setTimestamp(OffsetDateTime.now());
 		return embed;
 	}
-
 }

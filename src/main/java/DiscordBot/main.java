@@ -27,36 +27,25 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class main extends ListenerAdapter {
-
     private static main instance;
     public static main getInstance(){
         return instance;
     }
-
 	public static File file = new File("./userData.json");
-	
     public static Map<String, Map<String, String>> userData = new HashMap<String, Map<String, String>>();
-    public static List<String> bypassfilter = new ArrayList<>();
-
     public static Command.Category NORMAL = new Command.Category("Normal");
     public static Command.Category STAFF = new Command.Category("Staff");
     public static Command.Category ADMIN = new Command.Category("Admin");
     public static Command.Category OWNER = new Command.Category("Bot Owner");
-
     public static String requiredRole = "Staff";
 	public static String requiredAdminRole = "Admin";
-    
     public static Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().disableHtmlEscaping().create();
-	
 	public static JDA jda;
 
 	public static void main(String[] args) {
-
-	        instance = new main();
+		instance = new main();
 
 	    try {
-
-
 			//Command builder
 			CommandClientBuilder ccb = new CommandClientBuilder()
 			.setPrefix(".") //Prefix
@@ -65,19 +54,13 @@ public class main extends ListenerAdapter {
 			.setOwnerId("126427288496504834") // Owner ID
 			.addCommands( //Commands
 					new IPCommand(),
-                    new QuoteCommand(),
                     new InstallCommand(),
 					new ServerStatusCommand(),
-					new SelfAssignCommand(),
-					new ListBlockedLinksCommand(),
-                    new LinkPermitCommand(),
                     new BanCommand(),
                     new kickCommand(),
-                    new BlockLinkCommand(),
+					new PricesCommand(),
 					new AllowMentionCommand(),
-                    new ForceStarboardCommand(),
                     new ShutDownCommand(),
-                    new Ping(),
                     new EvalCommand(),
 					new AutoRoleMessageIdentiferCommand()
             );
@@ -86,15 +69,13 @@ public class main extends ListenerAdapter {
             EventWaiter waiter = new EventWaiter();
 
             //Login
-			jda = new JDABuilder(AccountType.BOT).setToken(Ref.token).buildBlocking();
+			jda = new JDABuilder(AccountType.BOT).setToken("MjgyMDU2Nzc3MDAzMTcxODQx.DyPZbQ.yZKJpaSReSpHMO1fQHrmNbsTFBI").buildBlocking();
 			//Set Status
 			jda.getPresence().setGame(Game.playing("¯\\_(ツ)_/¯"));
             //Register Events
 			jda.addEventListener(new AssignRoleReactionEvent());
             jda.addEventListener(new GuildLeaveEvent());
             jda.addEventListener(new GuildJoinEvent());
-            jda.addEventListener(new LinkBlockerEvent());
-            jda.addEventListener(new ReactionEvent());
             jda.addEventListener(new testCommand());
             jda.addEventListener(waiter);
             jda.addEventListener(ccb.build());
@@ -130,46 +111,4 @@ public class main extends ListenerAdapter {
         //Print that it's done
         System.out.println("Saved config!");
 	}
-
-
-	/*public static void testing(){
-        //int tmnumber = 4942;
-
-        for (int number1 = 1; number1 < 178; number1++){
-            System.out.println("    tm"+ number1 +" {");
-            System.out.println("        Item {\n            Count = 1");
-            System.out.println("            ItemType = \"pixelmon:tm"+ number1 +"\"");
-            System.out.println("            UnsafeDamage = 0\n        }\n    }");
-        }
-
-
-       for (int x = 136; x < 181; x++){
-           System.out.println("    Slot"+ (x-136) +" = [${aliases.tm"+ (x) +"} {");
-           System.out.println("        Item {");
-           System.out.println("            DisplayName = \"&b&l%tm"+ (x) +"%\"");
-           System.out.println("            ItemLore = [");
-           System.out.println("                ${aliases.tm-lore}");
-           System.out.println("            ]");
-           System.out.println("        }");
-           System.out.println("        PrimaryAction {");
-           System.out.println("        Command = \"cost: 3000; console: give %player_name% pixelmon:tm"+ x +" 1\"");
-           System.out.println("        KeepInventoryOpen = true");
-           System.out.println("         }");
-           System.out.println("        Requirements = \"%economy_balance% >= 3000\"");
-           System.out.println("    }, {");
-           System.out.println("        Item {");
-           System.out.println("            ItemType = \"pixelmon:tm"+ (x) + "\"");
-           System.out.println("            Count = 1");
-           System.out.println("            UnsafeDamage = 0");
-           System.out.println("            DisplayName = \"&b&l%tm"+ (x) +"%\"");
-           System.out.println("            ItemLore = [");
-           System.out.println("                ${aliases.tm-lore-nomoney}");
-           System.out.println("            ]");
-           System.out.println("        }");
-           System.out.println("     }]");
-       }
-
-
-	}*/
-
 }

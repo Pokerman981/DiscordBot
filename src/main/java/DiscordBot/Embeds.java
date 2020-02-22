@@ -18,34 +18,18 @@ public class Embeds {
         return error;
     }
 
-    public static EmbedBuilder gensInstallInfo() {
-        EmbedBuilder gensInstallInfo = new EmbedBuilder();
-
-        gensInstallInfo.setColor(Color.green).getDescriptionBuilder().append(
-                "This tutorial will explain how to install the **Pixelmon+** modpack\n" +
-                " \n" +
-                "**Step 1**: Download the Technic Launcher at http://bit.ly/2u9bs2e\n" +
-                "**Step 2**: Open the launcher\n" +
-                "**Step 3**: Click \"Modpacks\" on the top of the launcher\n" +
-                "**Step 4**: Paste \"http://api.technicpack.net/modpack/ultimate-reallife-roleplay\" (without the quotes) into the \"Search\" box\n" +
-                "**Step 5**: Click \"Install\" on the bottom right of the launcher\n" +
-                "**Step 6**: Wait for the download to finish and join a server!");
-
-        return gensInstallInfo;
-    }
-
     public static EmbedBuilder reforgedInstallInfo() {
         EmbedBuilder reforgedInstallInfo = new EmbedBuilder();
 
         reforgedInstallInfo.setColor(Color.green).getDescriptionBuilder().append(
-                "This tutorial will explain how to install the **Pixelmon+** modpack\n" +
+                "This tutorial will explain how to download & install the **Pixelmon+ Modpack**\n" +
                 " \n" +
-                "**Step 1**: Download the Technic Launcher at http://bit.ly/2u9bs2e\n" +
-                "**Step 2**: Open the launcher\n" +
-                "**Step 3**: Click \"Modpacks\" on the top of the launcher\n" +
-                "**Step 4**: Paste \"http://api.technicpack.net/modpack/ultimate-reallife-roleplay\" (without the quotes) into the \"Search\" box\n" +
-                "**Step 5**: Click \"Install\" on the bottom right of the launcher\n" +
-                "**Step 6**: Wait for the download to finish and join the server!");
+                "**1)** Download the Technic Launcher at https://technicpack.net/download\n" +
+                "**2)** Open the launcher\n" +
+                "**3)** Click \"Modpacks\" on the top of the launcher\n" +
+                "**4)** Paste \"http://api.technicpack.net/modpack/ultimate-reallife-roleplay\" (without the quotes) into the \"Search\" box\n" +
+                "**5)** Click \"Install\" on the bottom right of the launcher\n" +
+                "**6)** Wait for the download to finish and join the server!");
 
         return reforgedInstallInfo;
     }
@@ -110,6 +94,4 @@ public class Embeds {
                 .append("**.ip (server name)**\n\n**Servers:**\n\t*pokedash*\n\t*pokeverse*\n\t*pokelegends*\n\t*pokeclub*");
         return noArgs;
     }
-
-
 }

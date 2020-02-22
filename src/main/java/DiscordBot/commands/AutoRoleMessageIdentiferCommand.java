@@ -1,6 +1,5 @@
 package DiscordBot.commands;
 
-import DiscordBot.events.ReactionEvent;
 import DiscordBot.main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
