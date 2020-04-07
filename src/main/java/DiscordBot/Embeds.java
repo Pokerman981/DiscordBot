@@ -91,7 +91,7 @@ public class Embeds {
     public static EmbedBuilder noArgsIP() {
         EmbedBuilder noArgs = new EmbedBuilder();
         noArgs.setTitle("Server IPs").setColor(Color.red).getDescriptionBuilder()
-                .append("**.ip (server name)**\n\n**Servers:**\n\t*pokedash*\n\t*pokeverse*\n\t*pokelegends*\n\t*pokeclub*");
+                .append("**.ip (server name)**\n\n**Servers:**\n\t*pokedash*\n\t*pokeverse*\n\t*pokelegends*\n\t*pokeclub*\n\t*pokebrawl*");
         return noArgs;
     }
 }

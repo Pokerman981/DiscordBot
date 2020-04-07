@@ -53,13 +53,13 @@ public class main extends ListenerAdapter {
 			.setEmojis("\u2705", "\uD83D\uDCA1", "\uD83D\uDEAB") //Unicode emojis
 			.setOwnerId("126427288496504834") // Owner ID
 			.addCommands( //Commands
+					new RamCommand(),
 					new IPCommand(),
                     new InstallCommand(),
 					new ServerStatusCommand(),
                     new BanCommand(),
                     new kickCommand(),
 					new PricesCommand(),
-					new AllowMentionCommand(),
                     new ShutDownCommand(),
                     new EvalCommand(),
 					new AutoRoleMessageIdentiferCommand()

@@ -4,9 +4,6 @@ import DiscordBot.Embeds;
 import DiscordBot.main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
-import javafx.util.Builder;
-import net.dv8tion.jda.core.EmbedBuilder;
-import java.awt.*;
 
 
 public class IPCommand extends Command {
@@ -23,8 +20,8 @@ public class IPCommand extends Command {
             event.reply(Embeds.noArgsIP().build());
             return;
         }
-        String[] server = event.getArgs().split(" ");
 
+        String[] server = event.getArgs().split(" ");
 
         switch (server[0].toLowerCase()) {
             case "pokedash": {
