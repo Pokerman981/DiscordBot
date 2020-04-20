@@ -34,6 +34,92 @@ public class Embeds {
         return reforgedInstallInfo;
     }
 
+    public static EmbedBuilder ramInfo() {
+        EmbedBuilder ramInfo = new EmbedBuilder();
+
+        ramInfo.setColor(Color.green).getDescriptionBuilder().append(
+                "This tutorial will explain how to allocate more ram on **Technic** & **Forge** versions\n" +
+                        " \n" +
+                        "**Note:** Make sure you're Java is updated to the most recent version & that you're running 64-bit Java to do so follow these steps\n" +
+                        "**1)** Go to this link: https://www.java.com/en/download/manual.jsp\n" +
+        "**2)** Download the appropriate link for your computer (3rd link for Windows, only link for Mac)\n" +
+                "**3)** Restart your PC\n" +
+                "**4)** Refer to the following steps\n" +
+                " \n" +
+                "**On Technic**\n" +
+                "**1)** Open the Technic launcher\n" +
+                "**2)** Click on the Launcher Settings button in the top right (Under the cross)\n" +
+                "**3)** Click on the second tab that says 'Java Settings'\n" +
+                "**4)** Click on 'Memory' and make sure that you allocate at least 2GB (2GB-3GB is recommended)\n" +
+                " \n" +
+                "**On Forge**\n" +
+                "**1)** Click on 'Installations' at the top of the launcher\n" +
+                "**2)** Select your correct forge profile\n" +
+                "**3)** Click on 'more options'\n" +
+                "**4)** Under 'JVM Arguments' fine the part that says '-Xmx(Number)G' near the beginning of all the arguments\n" +
+                "**5)** Change the '(Number)' to how many gigabytes of ram you want to use (Note: If you see 'M' instead of 'G' you'll have to set the number in megabytes instead, 1000M = 1GB)\n" +
+                "**6)** Click on 'Save'");
+
+        return ramInfo;
+    }
+
+    public static EmbedBuilder logInfo() {
+        EmbedBuilder logInfo = new EmbedBuilder();
+
+        logInfo.setColor(Color.green).getDescriptionBuilder().append(
+                "This tutorial will explain how to access logs on **Technic** & **Forge** versions\n" +
+                        " \n" +
+                        "**On Technic**\n" +
+                        " \n" +
+                        "**1)** Press Win + R\n" +
+                        "**2)** Type in %appdata%\n" +
+                        "**3)** Go to .technic > modpacks > ultimate-reallife-roleplay > logs\n" +
+                        "**4)** Find your log file (Should be titled like YYYY-MM-DD) (Note: Your lastest.log file will be the log for your latest connection)\n" +
+                        "**5)** Press CTRL + F and search for the item/pokemon/msg you are looking for (e.g Lugia)\n" +
+                        "**6)** Message any SeniorMod+ on your server to get your items back!\n" +
+                        " \n" +
+                        "**On Forge**\n" +
+                        "**1)** Press Win + R\n" +
+                        "**2)** Type in %appdata%\n" +
+                        "**3)** Go to .minecraft > logs\n" +
+                        "**4)** Find your log file (Should be titled like YYYY-MM-DD) (Note: Your lastest.log file will be the log for your latest connection)\n" +
+                        "**5)** Press CTRL + F and search for the item/pokemon/msg you are looking for (e.g Lugia)\n" +
+                        "**6)** Message any SeniorMod+ on your server to get your items back!");
+
+        return logInfo;
+    }
+
+    public static EmbedBuilder appealInfo() {
+        EmbedBuilder appealInfo = new EmbedBuilder();
+
+        appealInfo.setColor(Color.green).getDescriptionBuilder().append(
+                "This tutorial will explain how to appeal your punishments given on the server(s)\n" +
+                "(Note: Pinging/Bothering staff about your appeal will **NOT** reduce the wait time)\n" +
+                        " \n" +
+                        "**Official #1 - PokeBrawl**\n" +
+                        "**1)** Click the following link: 'https://www.poke-brawl.com/appeal'\n" +
+                        "**2)** Fill out the form & wait for staff to reply\n" +
+                        " \n" +
+                        "**Official #2 - PokeLegends**\n" +
+                        "**1)** Click the following link: 'https://www.pokelegends.net/appeal '\n" +
+                        "**2)** Fill out the form & wait for staff to reply\n" +
+                        " \n" +
+                        "**Official #3 - Pokeverse**\n" +
+                        "**1)** Read the Appeal format link before appealing: 'https://www.pokeverse.org/forum/threads/appeal-format-read-me.4/\n" +
+                        "**2)** Click the following link: 'https://www.pokeverse.org/forum/forums/appeals.33/'\n" +
+                        "**3)** Fill out the form & wait for staff to reply\n" +
+                        " \n" +
+                        "**Official #4 - PokeClub**\n" +
+                        "**1)** Click the following link: 'https://www.pokeclub.net/appeal'\n" +
+                        "**2)** Fill out the form & wait for staff to reply\n" +
+                        " \n" +
+                        "**Official #5 - PokeDash**\n" +
+                        "**1)** Click the following link: 'https://www.pokedash.org/appeal'\n" +
+                        "**2)** Fill out the form & wait for staff to reply\n");
+
+        return appealInfo;
+    }
+
     public static EmbedBuilder supplyServer() {
         EmbedBuilder supplyServer = new EmbedBuilder();
         supplyServer.setColor(Color.red).getDescriptionBuilder().append(

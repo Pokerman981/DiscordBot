@@ -9,13 +9,12 @@ import net.dv8tion.jda.core.entities.Member;
 
 import java.awt.*;
 import java.lang.reflect.Array;
-import java.util.Optional;
 
 public class BanCommand extends Command {
 
     public BanCommand(){
         this.name = "ban";
-        this.aliases = new String[] {"b","begonethot"};
+        this.aliases = new String[] {"begonethot"};
         this.guildOnly = true;
         this.userPermissions = new Permission[]{Permission.BAN_MEMBERS};
         this.help = "Ban a specified user";
@@ -55,52 +54,6 @@ public class BanCommand extends Command {
         event.getGuild().getController().ban(member, 7).reason(reason + " - banned by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " (" + event.getAuthor().getId() + ")").queue();
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public EmbedBuilder banUser(Member banid, String reason) {
         EmbedBuilder userBanMessage = new EmbedBuilder();
