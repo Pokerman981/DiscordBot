@@ -62,7 +62,7 @@ public class main extends ListenerAdapter {
                     new BanCommand(),
                     new kickCommand(),
 					new PricesCommand(),
-                    new ShutDownCommand(),
+//                    new ShutDownCommand(),
                     new EvalCommand(),
 					new AutoRoleMessageIdentiferCommand()
             );
@@ -78,7 +78,7 @@ public class main extends ListenerAdapter {
 			jda.addEventListener(new AssignRoleReactionEvent());
             jda.addEventListener(new GuildLeaveEvent());
             jda.addEventListener(new GuildJoinEvent());
-            jda.addEventListener(new testCommand());
+//            jda.addEventListener(new testCommand());
             jda.addEventListener(waiter);
             jda.addEventListener(ccb.build());
 

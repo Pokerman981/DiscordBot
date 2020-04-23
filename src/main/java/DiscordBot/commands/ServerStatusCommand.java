@@ -16,7 +16,7 @@ public class ServerStatusCommand extends Command {
 
     public ServerStatusCommand(){
         this.name = "status";
-        this.help = "Check the status of the servers & how many people are online";
+        this.help = "Displays the status of each server";
         this.guildOnly = false;
         this.category = main.NORMAL;
     }

@@ -11,7 +11,7 @@ public class IPCommand extends Command {
     public IPCommand(){
         this.name = "ip";
         this.category = main.NORMAL;
-        this.help = "Check what the IPs of the servers are";
+        this.help = "Displays a list of each server's IP address";
     }
 
     @Override
