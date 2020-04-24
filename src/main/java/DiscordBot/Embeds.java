@@ -160,11 +160,11 @@ public class Embeds {
     }
 
     public static EmbedBuilder IPPB() {
-        EmbedBuilder pokelegends = new EmbedBuilder();
-        pokelegends.setTitle("Pokebrawl Info").setColor(Color.decode("#8573d1"))
+        EmbedBuilder pokebrawl = new EmbedBuilder();
+        pokebrawl.setTitle("Pokebrawl Info").setColor(Color.decode("#8573d1"))
                 .setThumbnail("https://i.gyazo.com/2a48c980b14bebf92f9e22c18b0e4b56.png").getDescriptionBuilder()
                 .append("**IP:**\tplay.poke-brawl.com\n**Version:**\t 1.12.2");
-        return pokelegends;
+        return pokebrawl;
     }
 
     public EmbedBuilder onUnsupported() {
