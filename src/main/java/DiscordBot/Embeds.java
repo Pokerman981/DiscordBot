@@ -119,25 +119,25 @@ public class Embeds {
         return appealInfo;
     }
 
-    public static EmbedBuilder radarInfo() {
-        EmbedBuilder radarInfo = new EmbedBuilder();
+    public static EmbedBuilder modInfo() {
+        EmbedBuilder modInfo = new EmbedBuilder();
 
-        radarInfo.setColor(Color.green).getDescriptionBuilder().append(
-                "This guide will explain how to install the Pixelradar Mod\n" +
-                "(Note: Before anything, download the Pixelradar Mod, pinned in #general)\n" +
+        modInfo.setColor(Color.green).getDescriptionBuilder().append(
+                "This guide will explain how to install external Mods\n" +
+                "(Note: Before anything, download the selected Mod online or pinned in a channel)\n" +
                         " \n" +
                         "**On Technic**\n" +
                         "**1)** Press Win + R\n" +
                         "**2)** Type in %appdata%\n" +
                         "**3)** Go to .technic/modpacks/ultimate-reallife-roleplay/mods\n" +
-                        "**4)** Drag the downloaded Pixelradar Mod into\n" +
+                        "**4)** Drag the downloaded Mod into the mods folder\n" +
                         " \n" +
                         "**On Forge**\n" +
                         "**1)** Press Win + R\n" +
                         "**2)** Type in %appdata%\n" +
                         "**3)** Go to .minecraft/mods\n" +
-                        "**4)** Drag the downloaded Pixelradar Mod into\n");
-        return radarInfo;
+                        "**4)** Drag the downloaded Mod into the mods folder\n");
+        return modInfo;
     }
 
     public static EmbedBuilder supplyServer() {

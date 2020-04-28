@@ -5,17 +5,17 @@ import DiscordBot.main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 
-public class RadarCommand extends Command {
-    public RadarCommand(){
-        this.name = "radar";
+public class ModCommand extends Command {
+    public ModCommand(){
+        this.name = "mod";
         this.category = main.NORMAL;
-        this.help = "Displays a tutorial on how to install Pixelradar";
-        this.aliases = new String[] {"pokeradar","pixelradar","gameshark"};
+        this.help = "Displays a tutorial on how to install mods";
+        this.aliases = new String[] {"mods"};
     }
 
     @Override
     protected void execute(CommandEvent event) {
         if (event.getChannel().getName().contains("-chat")) return;
-        event.reply(Embeds.radarInfo().build());
+        event.reply(Embeds.modInfo().build());
     }
 }

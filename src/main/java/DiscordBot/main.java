@@ -57,7 +57,7 @@ public class main extends ListenerAdapter {
 					new LogsCommand(),
 					new RamCommand(),
 					new IPCommand(),
-                    new RadarCommand(),
+                    new ModCommand(),
                     new InstallCommand(),
 					new ServerStatusCommand(),
                     new BanCommand(),
