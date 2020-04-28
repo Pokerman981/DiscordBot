@@ -70,10 +70,9 @@ public class Embeds {
                 "This tutorial will explain how to access logs on **Technic** & **Forge** versions\n" +
                         " \n" +
                         "**On Technic**\n" +
-                        " \n" +
                         "**1)** Press Win + R\n" +
                         "**2)** Type in %appdata%\n" +
-                        "**3)** Go to .technic > modpacks > ultimate-reallife-roleplay > logs\n" +
+                        "**3)** Go to .technic/modpacks/ultimate-reallife-roleplay/logs\n" +
                         "**4)** Find your log file (Should be titled like YYYY-MM-DD) (Note: Your lastest.log file will be the log for your latest connection)\n" +
                         "**5)** Press CTRL + F and search for the item/pokemon/msg you are looking for (e.g Lugia)\n" +
                         "**6)** Message any SeniorMod+ on your server to get your items back!\n" +
@@ -81,7 +80,7 @@ public class Embeds {
                         "**On Forge**\n" +
                         "**1)** Press Win + R\n" +
                         "**2)** Type in %appdata%\n" +
-                        "**3)** Go to .minecraft > logs\n" +
+                        "**3)** Go to .minecraft/logs\n" +
                         "**4)** Find your log file (Should be titled like YYYY-MM-DD) (Note: Your lastest.log file will be the log for your latest connection)\n" +
                         "**5)** Press CTRL + F and search for the item/pokemon/msg you are looking for (e.g Lugia)\n" +
                         "**6)** Message any SeniorMod+ on your server to get your items back!");
@@ -118,6 +117,29 @@ public class Embeds {
                         "**2)** Fill out the form & wait for staff to reply\n");
 
         return appealInfo;
+    }
+
+    public static EmbedBuilder radarInfo() {
+        EmbedBuilder radarInfo = new EmbedBuilder();
+
+        radarInfo.setColor(Color.green).getDescriptionBuilder().append(
+                "This guide will explain how to install the Pixelradar Mod\n" +
+                "(Note: Before anything, download the Pixelradar Mod, pinned in #general)\n" +
+                        " \n" +
+                        "**On Technic**\n" +
+                        " \n" +
+                        "**1)** Press Win + R\n" +
+                        "**2)** Type in %appdata%\n" +
+                        "**3)** Go to .technic/modpacks/ultimate-reallife-roleplay/mods\n" +
+                        "**4)** Drag the downloaded Pixelradar Mod into\n" +
+                        " \n" +
+                        "**On Forge**\n" +
+                        " \n" +
+                        "**1)** Press Win + R\n" +
+                        "**2)** Type in %appdata%\n" +
+                        "**3)** Go to .minecraft/mods\n" +
+                        "**4)** Drag the downloaded Pixelradar Mod into\n");
+        return radarInfo;
     }
 
     public static EmbedBuilder supplyServer() {
