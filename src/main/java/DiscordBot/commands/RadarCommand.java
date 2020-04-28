@@ -10,7 +10,7 @@ public class RadarCommand extends Command {
         this.name = "radar";
         this.category = main.NORMAL;
         this.help = "Displays a tutorial on how to install Pixelradar";
-        this.aliases = new String[] {"pokeradar","pixelradar","gameshark"};
+        this.aliases = new String[] {"pokeradar","pixelradar"};
     }
 
     @Override
