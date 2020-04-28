@@ -127,14 +127,12 @@ public class Embeds {
                 "(Note: Before anything, download the Pixelradar Mod, pinned in #general)\n" +
                         " \n" +
                         "**On Technic**\n" +
-                        " \n" +
                         "**1)** Press Win + R\n" +
                         "**2)** Type in %appdata%\n" +
                         "**3)** Go to .technic/modpacks/ultimate-reallife-roleplay/mods\n" +
                         "**4)** Drag the downloaded Pixelradar Mod into\n" +
                         " \n" +
                         "**On Forge**\n" +
-                        " \n" +
                         "**1)** Press Win + R\n" +
                         "**2)** Type in %appdata%\n" +
                         "**3)** Go to .minecraft/mods\n" +
