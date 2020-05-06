@@ -79,6 +79,7 @@ public class main extends ListenerAdapter {
 			jda.getPresence().setGame(Game.playing("¯\\_(ツ)_/¯"));
             //Register Events
 			jda.addEventListener(new AssignRoleReactionEvent());
+			jda.addEventListener(new RoleReactionEvent());
             jda.addEventListener(new GuildLeaveEvent());
             jda.addEventListener(new GuildJoinEvent());
 //            jda.addEventListener(new testCommand());
