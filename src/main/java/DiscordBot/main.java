@@ -2,6 +2,7 @@ package DiscordBot;
 
 import DiscordBot.commands.*;
 import DiscordBot.commands.moderation.BanCommand;
+import DiscordBot.commands.moderation.WarnCommand;
 import DiscordBot.commands.moderation.kickCommand;
 import DiscordBot.events.*;
 import com.google.gson.Gson;
@@ -62,6 +63,7 @@ public class main extends ListenerAdapter {
 					new ServerStatusCommand(),
                     new BanCommand(),
                     new kickCommand(),
+					new WarnCommand(),
 					new PricesCommand(),
 //                    new ShutDownCommand(),
                     new EvalCommand(),
