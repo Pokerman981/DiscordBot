@@ -1,9 +1,7 @@
 package DiscordBot;
 
 import DiscordBot.commands.*;
-import DiscordBot.commands.moderation.BanCommand;
-import DiscordBot.commands.moderation.WarnCommand;
-import DiscordBot.commands.moderation.kickCommand;
+import DiscordBot.commands.moderation.*;
 import DiscordBot.events.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -62,12 +60,15 @@ public class main extends ListenerAdapter {
                     new InstallCommand(),
 					new ServerStatusCommand(),
                     new BanCommand(),
-                    new kickCommand(),
+                    new KickCommand(),
+					new MuteCommand(),
+					new UnmuteCommand(),
 					new WarnCommand(),
 					new PricesCommand(),
 //                    new ShutDownCommand(),
                     new EvalCommand(),
 					new AutoRoleMessageIdentiferCommand()
+//					new TestCommand(),
             );
 
 			//Get an instance of the event waiter

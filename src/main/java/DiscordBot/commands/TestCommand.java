@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
-public class testCommand implements EventListener {
+public class TestCommand implements EventListener {
 
 	@Override
 	public void onEvent(Event event) {
