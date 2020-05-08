@@ -9,6 +9,7 @@ import net.dv8tion.jda.core.entities.Member;
 
 import java.awt.*;
 import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
@@ -50,10 +51,10 @@ public class MuteCommand extends Command {
         }
 
         Member member = event.getGuild().getMemberById(args[0].replaceAll("<@", "").replaceAll(">", "").replaceAll("!", ""));
-        /*if (member.hasPermission(Permission.KICK_MEMBERS)){
+        if (member.hasPermission(Permission.KICK_MEMBERS)){
             event.replyError("You cannot mute another staff member!");
             return;
-        }*/
+        }
 
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
@@ -77,7 +78,7 @@ public class MuteCommand extends Command {
 
 
         Array.set(args, 0, "");
-        String reason = (args[2]);
+        String reason = Arrays.toString(Arrays.copyOfRange(args, 2, args.length)).replaceAll(",","");
         String time = (args[1]);
         event.reply(muteUser(member, time, reason).setFooter("Muted by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build());
         event.getGuild().getController().addRolesToMember(member, event.getGuild().getRoleById("707675201181057084")).queue();
