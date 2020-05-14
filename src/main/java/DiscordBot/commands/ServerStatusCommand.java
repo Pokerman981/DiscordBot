@@ -39,6 +39,8 @@ public class ServerStatusCommand extends Command {
         MinecraftPingReply pokelegends;
         MinecraftPingReply pokeclub;
         MinecraftPingReply pokebrawl;
+//        TODO WHEN RELEASED
+//        MinecraftPingReply pokezone;
 
         int total = 0;
         EmbedBuilder eb = Embeds.onServerStatusEmbed();
@@ -92,6 +94,17 @@ public class ServerStatusCommand extends Command {
             eb.getDescriptionBuilder().append("\n:x: **PokeBrawl**\n \t\t**"
                     + "Server Offline!**\n");
         }
+
+//        TODO WHEN RELEASED
+//        try {
+//            pokezone = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.pokezone.net").setPort(25565));
+//            eb.getDescriptionBuilder().append("\n<:pokezone:> **PokeZone**\n \t\t**"
+//                    + pokezone.getPlayers().getOnline() + "** players online!\n");
+//            total = total + pokezone.getPlayers().getOnline();
+//        } catch (IOException e) {
+//            eb.getDescriptionBuilder().append("\n:x: **PokeZone**\n \t\t**"
+//                    + "Server Offline!**\n");
+//        }
 
         eb.getDescriptionBuilder().append("\n<:pixelmon:375785337412386828> **Pixelmon+ Total**\n \t\t**"
                 + total + "** players online!\n");

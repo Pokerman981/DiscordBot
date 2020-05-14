@@ -150,7 +150,7 @@ public class Embeds {
 
     public static EmbedBuilder IPPD() {
         EmbedBuilder pokedash = new EmbedBuilder();
-        pokedash.setTitle("Pokedash Info").setColor(Color.decode("#3cb0d6"))
+        pokedash.setTitle("PokeDash Info").setColor(Color.decode("#3cb0d6"))
                 .setThumbnail("https://i.gyazo.com/13255ea852d4551df36e9c1c9c3d4e92.png").getDescriptionBuilder()
                 .append("**IP:**\tplay.pokedash.org\n**Version:**\t 1.12.2");
         return pokedash;
@@ -158,7 +158,7 @@ public class Embeds {
 
     public static EmbedBuilder IPPV() {
         EmbedBuilder pokeverse = new EmbedBuilder();
-        pokeverse.setTitle("Pokeverse Info").setColor(Color.yellow)
+        pokeverse.setTitle("Pokeverse Info").setColor(Color.decode("#f1c40f"))
                 .setThumbnail("https://i.gyazo.com/32718ac72c4322e34a16ef25022027c4.png").getDescriptionBuilder()
                 .append("**IP:**\tplay.pokeverse.org\n**Version:**\t 1.12.2");
         return pokeverse;
@@ -166,14 +166,14 @@ public class Embeds {
 
     public static EmbedBuilder IPPC() {
         EmbedBuilder pokeclub = new EmbedBuilder();
-        pokeclub.setTitle("Pokeclub Info").setColor(Color.decode("#1e7d72"))
+        pokeclub.setTitle("PokeClub Info").setColor(Color.decode("#46ff8b"))
                 .setThumbnail("https://i.gyazo.com/21380d908820fc0c78e95a813e66b5cd.png").getDescriptionBuilder()
                 .append("**IP:**\tplay.pokeclub.net\n**Version:**\t 1.12.2");
         return pokeclub;
     }
     public static EmbedBuilder IPPL() {
         EmbedBuilder pokelegends = new EmbedBuilder();
-        pokelegends.setTitle("Pokelegends Info").setColor(Color.decode("#FF4500"))
+        pokelegends.setTitle("PokeLegends Info").setColor(Color.decode("#ff7da1"))
                 .setThumbnail("https://i.gyazo.com/b79efa7c89576238c00ba4ceb503e055.png").getDescriptionBuilder()
                 .append("**IP:**\tplay.pokelegends.net\n**Version:**\t 1.12.2");
         return pokelegends;
@@ -181,16 +181,25 @@ public class Embeds {
 
     public static EmbedBuilder IPPB() {
         EmbedBuilder pokebrawl = new EmbedBuilder();
-        pokebrawl.setTitle("Pokebrawl Info").setColor(Color.decode("#8573d1"))
+        pokebrawl.setTitle("PokeBrawl Info").setColor(Color.decode("#8573d1"))
                 .setThumbnail("https://i.gyazo.com/855beae57e80ced02751a3a046e366e0.png").getDescriptionBuilder()
                 .append("**IP:**\tplay.poke-brawl.com\n**Version:**\t 1.12.2");
         return pokebrawl;
     }
 
+//    TODO WHEN RELEASED
+//    public static EmbedBuilder IPPZ() {
+//        EmbedBuilder pokezone = new EmbedBuilder();
+//        pokezone.setTitle("PokeZone Info").setColor(Color.decode("#89d0e5"))
+//                .setThumbnail("https://i.gyazo.com/5ce03d65da1e0dc3023ad808b04d1810.png").getDescriptionBuilder()
+//                .append("**IP:**\tplay.pokezone.net\n**Version:**\t 1.12.2");
+//        return pokezone;
+//    }
+
     public EmbedBuilder onUnsupported() {
         EmbedBuilder error = new EmbedBuilder();
         error.setColor(Color.RED).setTitle(":x: **Unsupported server!**").getDescriptionBuilder().append(
-                "This server is not supported for this command!\nIf you believe this to be an error contact pokerman99#5742");
+                "This server is not supported for this command!\nIf you believe this to be an error contact pokerman981#9743");
         return error;
     }
 
