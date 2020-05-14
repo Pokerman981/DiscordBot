@@ -52,7 +52,6 @@ public class BanCommand extends Command {
 
         event.reply(banUser(member, reason).setFooter("Banned by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build());
         event.getGuild().getController().ban(member, 7).reason(reason + " - banned by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " (" + event.getAuthor().getId() + ")").queue();
-
     }
 
     public EmbedBuilder banUser(Member banid, String reason) {

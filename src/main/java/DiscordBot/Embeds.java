@@ -159,7 +159,7 @@ public class Embeds {
     public static EmbedBuilder IPPV() {
         EmbedBuilder pokeverse = new EmbedBuilder();
         pokeverse.setTitle("Pokeverse Info").setColor(Color.yellow)
-                .setThumbnail("https://i.gyazo.com/911b1ee65ef59f36343d5bc5da046d12.png").getDescriptionBuilder()
+                .setThumbnail("https://i.gyazo.com/32718ac72c4322e34a16ef25022027c4.png").getDescriptionBuilder()
                 .append("**IP:**\tplay.pokeverse.org\n**Version:**\t 1.12.2");
         return pokeverse;
     }
@@ -182,7 +182,7 @@ public class Embeds {
     public static EmbedBuilder IPPB() {
         EmbedBuilder pokebrawl = new EmbedBuilder();
         pokebrawl.setTitle("Pokebrawl Info").setColor(Color.decode("#8573d1"))
-                .setThumbnail("https://i.gyazo.com/2a48c980b14bebf92f9e22c18b0e4b56.png").getDescriptionBuilder()
+                .setThumbnail("https://i.gyazo.com/855beae57e80ced02751a3a046e366e0.png").getDescriptionBuilder()
                 .append("**IP:**\tplay.poke-brawl.com\n**Version:**\t 1.12.2");
         return pokebrawl;
     }

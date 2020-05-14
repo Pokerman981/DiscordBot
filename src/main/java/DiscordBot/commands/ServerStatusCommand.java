@@ -57,7 +57,7 @@ public class ServerStatusCommand extends Command {
         }
         try {
             pokeverse = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.pokeverse.org").setPort(25565));
-            eb.getDescriptionBuilder().append("\n<:pokeverse:526264631744790549> **Pokeverse**\n \t\t**"
+            eb.getDescriptionBuilder().append("\n<:pokeverse:709644711530463245> **Pokeverse**\n \t\t**"
                     + pokeverse.getPlayers().getOnline() + "** players online!\n");
             total = total + pokeverse.getPlayers().getOnline();
         } catch (IOException e) {
@@ -85,7 +85,7 @@ public class ServerStatusCommand extends Command {
 
         try {
             pokebrawl = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.poke-brawl.com").setPort(25565));
-            eb.getDescriptionBuilder().append("\n<:pokebrawl:586480683397152820> **PokeBrawl**\n \t\t**"
+            eb.getDescriptionBuilder().append("\n<:pokebrawl:707662953926623232> **PokeBrawl**\n \t\t**"
                     + pokebrawl.getPlayers().getOnline() + "** players online!\n");
             total = total + pokebrawl.getPlayers().getOnline();
         } catch (IOException e) {
