@@ -187,14 +187,13 @@ public class Embeds {
         return pokebrawl;
     }
 
-//    TODO WHEN RELEASED
-//    public static EmbedBuilder IPPZ() {
-//        EmbedBuilder pokezone = new EmbedBuilder();
-//        pokezone.setTitle("PokeZone Info").setColor(Color.decode("#89d0e5"))
-//                .setThumbnail("https://i.gyazo.com/5ce03d65da1e0dc3023ad808b04d1810.png").getDescriptionBuilder()
-//                .append("**IP:**\tplay.pokezone.net\n**Version:**\t 1.12.2");
-//        return pokezone;
-//    }
+    public static EmbedBuilder IPPZ() {
+        EmbedBuilder pokezone = new EmbedBuilder();
+        pokezone.setTitle("PokeZone Info").setColor(Color.decode("#89d0e5"))
+                .setThumbnail("https://i.gyazo.com/5ce03d65da1e0dc3023ad808b04d1810.png").getDescriptionBuilder()
+                .append("**IP:**\tplay.pokezone.net\n**Version:**\t 1.12.2");
+        return pokezone;
+    }
 
     public EmbedBuilder onUnsupported() {
         EmbedBuilder error = new EmbedBuilder();
@@ -206,7 +205,7 @@ public class Embeds {
     public static EmbedBuilder noArgsIP() {
         EmbedBuilder noArgs = new EmbedBuilder();
         noArgs.setTitle("Server IPs").setColor(Color.red).getDescriptionBuilder()
-                .append("**.ip (server name)**\n\n**Servers:**\n\t*pokedash*\n\t*pokeverse*\n\t*pokelegends*\n\t*pokeclub*\n\t*pokebrawl*");
+                .append("**.ip (server name)**\n\n**Servers:**\n\t*pokedash*\n\t*pokeverse*\n\t*pokelegends*\n\t*pokeclub*\n\t*pokebrawl*\n\t*pokezone*");
         return noArgs;
     }
 }

@@ -45,10 +45,11 @@ public class IPCommand extends Command {
                 event.reply(Embeds.IPPB().build());
                 break;
             }
-//        TODO WHEN RELEASED
-//          case "pokezone": {
-//              event.reply(Embeds.IPPZ().build());
-//              break;
+            case "pokezone": {
+                event.reply(Embeds.IPPZ().build());
+                break;
+            }
+
             default: {
                 event.replyError("We do not support this server!");
                 return;

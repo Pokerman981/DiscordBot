@@ -30,7 +30,7 @@ public class RoleReactionEvent implements EventListener {
                     break;
                 }
 
-                case "526264631744790549": { //PokeVerse
+                case "526264631744790549": { //Pokeverse
                     event.getGuild().getController().addRolesToMember(member, event.getGuild().getRoleById("467459888516431903")).submit();
                     break;
                 }
@@ -44,7 +44,9 @@ public class RoleReactionEvent implements EventListener {
                     event.getGuild().getController().addRolesToMember(member, event.getGuild().getRoleById("467459853116375040")).submit();
                     break;
                 }
+
             }
         }
     }
+
 }
