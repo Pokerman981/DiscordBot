@@ -59,6 +59,7 @@ public class main extends ListenerAdapter {
                     new ModCommand(),
                     new InstallCommand(),
 					new ServerStatusCommand(),
+                    new StaffStatusCommand(),
                     new BanCommand(),
                     new KickCommand(),
 					new MuteCommand(),
