@@ -58,7 +58,7 @@ public class ServerStatusCommand extends Command {
         }
         try {
             pokeverse = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.pokeverse.org").setPort(25565));
-            eb.getDescriptionBuilder().append("\n<:pokeverse:709644711530463245> **Pokeverse**\n \t\t**"
+            eb.getDescriptionBuilder().append("\n<:pokeverse:714032214245113907> **Pokeverse**\n \t\t**"
                     + pokeverse.getPlayers().getOnline() + "** players online!\n");
             total = total + pokeverse.getPlayers().getOnline();
         } catch (IOException e) {

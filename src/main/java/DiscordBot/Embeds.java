@@ -95,25 +95,29 @@ public class Embeds {
                 "This tutorial will explain how to appeal your punishments given on the server(s)\n" +
                 "(Note: Pinging/Bothering staff about your appeal will **NOT** reduce the wait time)\n" +
                         " \n" +
-                        "**Official #1 - PokeBrawl**\n" +
-                        "**1)** Click the following link: 'https://www.poke-brawl.com/appeal'\n" +
+                        "<:pokedash:375433829764169741> **PokeDash**\n" +
+                        "**1)** Click the following link: https://www.pokedash.org/appeal\n" +
                         "**2)** Fill out the form & wait for staff to reply\n" +
                         " \n" +
-                        "**Official #2 - PokeLegends**\n" +
-                        "**1)** Click the following link: 'https://www.pokelegends.net/appeal '\n" +
-                        "**2)** Fill out the form & wait for staff to reply\n" +
-                        " \n" +
-                        "**Official #3 - Pokeverse**\n" +
-                        "**1)** Read the Appeal format link before appealing: 'https://www.pokeverse.org/forum/threads/appeal-format-read-me.4/\n" +
-                        "**2)** Click the following link: 'https://www.pokeverse.org/forum/forums/appeals.33/'\n" +
+                        "<:pokeverse:714032214245113907> **Pokeverse**\n" +
+                        "**1)** Read the Appeal format link before appealing: https://pxl.plus/pvappealform\n" +
+                        "**2)** Click the following link: https://www.pokeverse.org/appeal\n" +
                         "**3)** Fill out the form & wait for staff to reply\n" +
                         " \n" +
-                        "**Official #4 - PokeClub**\n" +
-                        "**1)** Click the following link: 'https://www.pokeclub.net/appeal'\n" +
+                        "<:pokelegends:628381164939247636> **PokeLegends**\n" +
+                        "**1)** Click the following link: https://www.pokelegends.net/appeal\n" +
                         "**2)** Fill out the form & wait for staff to reply\n" +
                         " \n" +
-                        "**Official #5 - PokeDash**\n" +
-                        "**1)** Click the following link: 'https://www.pokedash.org/appeal'\n" +
+                        "<:pokeclub:526264234716299284> **PokeClub**\n" +
+                        "**1)** Click the following link: https://www.pokeclub.net/appeal\n" +
+                        "**2)** Fill out the form & wait for staff to reply\n" +
+                        " \n" +
+                        "<:pokebrawl:707662953926623232> **PokeBrawl**\n" +
+                        "**1)** Click the following link: https://www.poke-brawl.com/appeal\n" +
+                        "**2)** Fill out the form & wait for staff to reply\n" +
+                        " \n" +
+                        "<:pokezone:711289077491564605> **PokeZone**\n" +
+                        "**1)** Click the following link: https://www.pokezone.net/appeal\n" +
                         "**2)** Fill out the form & wait for staff to reply\n");
 
         return appealInfo;
@@ -159,7 +163,7 @@ public class Embeds {
     public static EmbedBuilder IPPV() {
         EmbedBuilder pokeverse = new EmbedBuilder();
         pokeverse.setTitle("Pokeverse Info").setColor(Color.decode("#f1c40f"))
-                .setThumbnail("https://i.gyazo.com/32718ac72c4322e34a16ef25022027c4.png").getDescriptionBuilder()
+                .setThumbnail("https://i.gyazo.com/d92082e99c3e2c17d675adc130e83091.png").getDescriptionBuilder()
                 .append("**IP:**\tplay.pokeverse.org\n**Version:**\t 1.12.2");
         return pokeverse;
     }
