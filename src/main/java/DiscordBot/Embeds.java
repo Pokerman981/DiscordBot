@@ -194,7 +194,7 @@ public class Embeds {
     public static EmbedBuilder IPPZ() {
         EmbedBuilder pokezone = new EmbedBuilder();
         pokezone.setTitle("PokeZone Info").setColor(Color.decode("#89d0e5"))
-                .setThumbnail("https://i.gyazo.com/5ce03d65da1e0dc3023ad808b04d1810.png").getDescriptionBuilder()
+                .setThumbnail("https://i.gyazo.com/8b16a7d630dc57177328909d78254b5c.png").getDescriptionBuilder()
                 .append("**IP:**\tplay.pokezone.net\n**Version:**\t 1.12.2");
         return pokezone;
     }
