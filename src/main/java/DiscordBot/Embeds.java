@@ -69,7 +69,9 @@ public class Embeds {
         logInfo.setColor(Color.green).getDescriptionBuilder().append(
                 "This tutorial will explain how to access logs on **Technic** & **Forge** versions\n" +
                         " \n" +
-                        "**On Technic**\n" +
+                        " \n" +
+                        "**For Technic**\n" +
+                        "-Windows Guide\n" +
                         "**1)** Press Win + R\n" +
                         "**2)** Type in %appdata%\n" +
                         "**3)** Go to .technic/modpacks/ultimate-reallife-roleplay/logs\n" +
@@ -77,14 +79,24 @@ public class Embeds {
                         "**5)** Press CTRL + F and search for the item/pokemon/msg you are looking for (e.g Lugia)\n" +
                         "**6)** Message any SeniorMod+ on your server to get your items back!\n" +
                         " \n" +
-                        "**On Forge**\n" +
-                        "**1)** Press Win + R\n" +
-                        "**2)** Type in %appdata%\n" +
-                        "**3)** Go to .minecraft/logs\n" +
-                        "**4)** Find your log file (Should be titled like YYYY-MM-DD) (Note: Your lastest.log file will be the log for your latest connection)\n" +
-                        "**5)** Press CTRL + F and search for the item/pokemon/msg you are looking for (e.g Lugia)\n" +
-                        "**6)** Message any SeniorMod+ on your server to get your items back!");
-
+                        "-Mac Guide\n" +
+                        "**1)** Open the Technic Launcher and go to our Modpack\n" +
+                        "**2)** Click on \"Modpack Options\" and it should redirect you to the Modpack files\n" +
+                        "**3)** In the Modpack files, you should be able to see a \"Logs\" folder, click that\n" +
+                        "**4)** Look through your log files and find the appropriate one\n\t" +
+                        "(Pro Tip: Use the shortcut \"Cmd + F\" to search specific keywords!)\n" +
+                        "**5)** Save your evidence and message staff!\n" +
+                        " \n" +
+                        " \n" +
+                        "**For Forge**\n" +
+                        "-Windows Guide\n" +
+                        "**1)** Press on \"Win + R\"\n" +
+                        "**2)** Type in \"%appdata%\" and press Enter/Ok\n" +
+                        "**3)** Go to .minecraft\\logs\n" +
+                        "**4)** Look through your log files and find the appropriate one\n\t" +
+                        "(Pro Tip: Use the shortcut \"Ctrl + F\" to search specific keywords!)\n" +
+                        "**5)** Save your evidence and message staff!"
+        );
         return logInfo;
     }
 
