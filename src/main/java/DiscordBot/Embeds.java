@@ -75,7 +75,7 @@ public class Embeds {
                         "**1)** Press on \"Win + R\"\n" +
                         "**2)** Type in \"%appdata%\" and press Enter/Ok\n" +
                         "**3)** Go to \".technic\\modpacks\\ultimate-reallife-roleplay\\logs\"\n" +
-                        "**4)** Look through your log files and find the appropriate one\n\t\n" +
+                        "**4)** Look through your log files and find the appropriate one\n\t" +
                         "(Pro Tips: Use the shortcut \"Ctrl + F\" to search for specific keywords! These can include player names, pokemon names, or commands!)\n" +
                         "**5)** Save your evidence and message staff!\n" +
                         " \n" +
