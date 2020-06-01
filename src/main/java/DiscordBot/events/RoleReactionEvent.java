@@ -20,9 +20,13 @@ public class RoleReactionEvent implements EventListener {
             if (!main.userData.get("reactrolemessages").containsKey(messageID)) return;
 
             switch (emoteID) {
-                case "707662953926623232": { //Poke-Brawl
-                    event.getGuild().addRoleToMember(member, event.getGuild().getRoleById("586792372969668613")).submit();
-                    //event.getReaction().removeReaction(member.getUser()).submit();
+                case "375433829764169741": { //PokeDash
+                    event.getGuild().getController().addRolesToMember(member, event.getGuild().getRoleById("467459853116375040")).submit();
+                    break;
+                }
+
+                case "714032214245113907": { //PokeVerse
+                    event.getGuild().getController().addRolesToMember(member, event.getGuild().getRoleById("467459888516431903")).submit();
                     break;
                 }
 
@@ -31,18 +35,19 @@ public class RoleReactionEvent implements EventListener {
                     break;
                 }
 
-                case "526264631744790549": { //Pokeverse
-                    event.getGuild().addRoleToMember(member, event.getGuild().getRoleById("467459888516431903")).submit();
-                    break;
-                }
-
                 case "526264234716299284": { //PokeClub
                     event.getGuild().addRoleToMember(member, event.getGuild().getRoleById("467459975812218922")).submit();
                     break;
                 }
 
-                case "375433829764169741": { //PokeDash
-                    event.getGuild().addRoleToMember(member, event.getGuild().getRoleById("467459853116375040")).submit();
+                case "707662953926623232": { //PokeBrawl
+                    event.getGuild().getController().addSingleRoleToMember(member, event.getGuild().getRoleById("586792372969668613")).submit();
+                    //event.getReaction().removeReaction(member.getUser()).submit();
+                    break;
+                }
+
+                case "711289077491564605": { //PokeZone
+                    event.getGuild().getController().addRolesToMember(member, event.getGuild().getRoleById("711157151246057482")).submit();
                     break;
                 }
 

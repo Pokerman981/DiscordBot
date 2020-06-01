@@ -63,28 +63,56 @@ public class Embeds {
         return ramInfo;
     }
 
+    public static EmbedBuilder linkInfo() {
+        EmbedBuilder linkInfo = new EmbedBuilder();
+
+        linkInfo.setColor(Color.green).getDescriptionBuilder().append(
+                "This tutorial will show you how to link your discord account to your Minecraft IGN\n" +
+                "(Note: This is only for donators or veteran ranked players!)\n" +
+                        " \n" +
+                        "**1)** On the server you play on, run the command \"/link\"\n" +
+                        "**2)** Note down the PIN given to you in game (Note: if you lose this PIN, message a staff member and they can recover it for you!)\n" +
+                        "**3)** Look for the bot that matches your server's name (Note: these are <@399343165145874444>, <@399344633861242911>, <@399345474156494848>, <@399345241699778560>, <@532768773980028928> and <@711171634492473404>)\n" +
+                        "**4)** Send a DM to the respective bot for your server saying \"!link <Your IGN> <Your Pin>\" (e.g !link Shmeeb 00000)\n" +
+                        "**5)** Return to our discord and make sure you have received the correct role(s) (Note: If you have any troubles message any staff!)\n"
+        );
+        return linkInfo;
+    }
+
     public static EmbedBuilder logInfo() {
         EmbedBuilder logInfo = new EmbedBuilder();
 
         logInfo.setColor(Color.green).getDescriptionBuilder().append(
                 "This tutorial will explain how to access logs on **Technic** & **Forge** versions\n" +
                         " \n" +
-                        "**On Technic**\n" +
-                        "**1)** Press Win + R\n" +
-                        "**2)** Type in %appdata%\n" +
-                        "**3)** Go to .technic/modpacks/ultimate-reallife-roleplay/logs\n" +
-                        "**4)** Find your log file (Should be titled like YYYY-MM-DD) (Note: Your lastest.log file will be the log for your latest connection)\n" +
-                        "**5)** Press CTRL + F and search for the item/pokemon/msg you are looking for (e.g Lugia)\n" +
-                        "**6)** Message any SeniorMod+ on your server to get your items back!\n" +
                         " \n" +
-                        "**On Forge**\n" +
-                        "**1)** Press Win + R\n" +
-                        "**2)** Type in %appdata%\n" +
-                        "**3)** Go to .minecraft/logs\n" +
-                        "**4)** Find your log file (Should be titled like YYYY-MM-DD) (Note: Your lastest.log file will be the log for your latest connection)\n" +
-                        "**5)** Press CTRL + F and search for the item/pokemon/msg you are looking for (e.g Lugia)\n" +
-                        "**6)** Message any SeniorMod+ on your server to get your items back!");
-
+                        "**For Technic**\n" +
+                        "-Windows Guide\n" +
+                        "**1)** Press on \"Win + R\"\n" +
+                        "**2)** Type in \"%appdata%\" and press Enter/Ok\n" +
+                        "**3)** Go to \".technic\\modpacks\\ultimate-reallife-roleplay\\logs\"\n" +
+                        "**4)** Look through your log files and find the appropriate one\n\t" +
+                        "(Pro Tips: Use the shortcut \"Ctrl + F\" to search for specific keywords! These can include player names, pokemon names, or commands!)\n" +
+                        "**5)** Save your evidence and message staff!\n" +
+                        " \n" +
+                        "-Mac Guide\n" +
+                        "**1)** Open the Technic Launcher and go to our Modpack\n" +
+                        "**2)** Click on \"Modpack Options\" and it should redirect you to the Modpack files\n" +
+                        "**3)** In the Modpack files, you should be able to see a \"Logs\" folder, click that\n" +
+                        "**4)** Look through your log files and find the appropriate one\n\t" +
+                        "(Pro Tips: Use the shortcut \"Cmd + F\" to search for specific keywords! These can include player names, pokemon names, or commands!)\n" +
+                        "**5)** Save your evidence and message staff!\n" +
+                        " \n" +
+                        " \n" +
+                        "**For Forge**\n" +
+                        "-Windows Guide\n" +
+                        "**1)** Press on \"Win + R\"\n" +
+                        "**2)** Type in \"%appdata%\" and press Enter/Ok\n" +
+                        "**3)** Go to \".minecraft\\logs\"\n" +
+                        "**4)** Look through your log files and find the appropriate one\n\t" +
+                        "(Pro Tips: Use the shortcut \"Ctrl + F\" to search for specific keywords! These can include player names, pokemon names, or commands!)\n" +
+                        "**5)** Save your evidence and message staff!"
+        );
         return logInfo;
     }
 
@@ -95,25 +123,29 @@ public class Embeds {
                 "This tutorial will explain how to appeal your punishments given on the server(s)\n" +
                 "(Note: Pinging/Bothering staff about your appeal will **NOT** reduce the wait time)\n" +
                         " \n" +
-                        "**Official #1 - PokeBrawl**\n" +
-                        "**1)** Click the following link: 'https://www.poke-brawl.com/appeal'\n" +
+                        "<:pokedash:375433829764169741> **PokeDash**\n" +
+                        "**1)** Click the following link: https://www.pokedash.org/appeal\n" +
                         "**2)** Fill out the form & wait for staff to reply\n" +
                         " \n" +
-                        "**Official #2 - PokeLegends**\n" +
-                        "**1)** Click the following link: 'https://www.pokelegends.net/appeal '\n" +
-                        "**2)** Fill out the form & wait for staff to reply\n" +
-                        " \n" +
-                        "**Official #3 - Pokeverse**\n" +
-                        "**1)** Read the Appeal format link before appealing: 'https://www.pokeverse.org/forum/threads/appeal-format-read-me.4/\n" +
-                        "**2)** Click the following link: 'https://www.pokeverse.org/forum/forums/appeals.33/'\n" +
+                        "<:pokeverse:714032214245113907> **Pokeverse**\n" +
+                        "**1)** Read the Appeal format link before appealing: https://pxl.plus/pvappealform\n" +
+                        "**2)** Click the following link: https://www.pokeverse.org/appeal\n" +
                         "**3)** Fill out the form & wait for staff to reply\n" +
                         " \n" +
-                        "**Official #4 - PokeClub**\n" +
-                        "**1)** Click the following link: 'https://www.pokeclub.net/appeal'\n" +
+                        "<:pokelegends:628381164939247636> **PokeLegends**\n" +
+                        "**1)** Click the following link: https://www.pokelegends.net/appeal\n" +
                         "**2)** Fill out the form & wait for staff to reply\n" +
                         " \n" +
-                        "**Official #5 - PokeDash**\n" +
-                        "**1)** Click the following link: 'https://www.pokedash.org/appeal'\n" +
+                        "<:pokeclub:526264234716299284> **PokeClub**\n" +
+                        "**1)** Click the following link: https://www.pokeclub.net/appeal\n" +
+                        "**2)** Fill out the form & wait for staff to reply\n" +
+                        " \n" +
+                        "<:pokebrawl:707662953926623232> **PokeBrawl**\n" +
+                        "**1)** Click the following link: https://www.poke-brawl.com/appeal\n" +
+                        "**2)** Fill out the form & wait for staff to reply\n" +
+                        " \n" +
+                        "<:pokezone:711289077491564605> **PokeZone**\n" +
+                        "**1)** Click the following link: https://www.pokezone.net/appeal\n" +
                         "**2)** Fill out the form & wait for staff to reply\n");
 
         return appealInfo;
@@ -159,7 +191,7 @@ public class Embeds {
     public static EmbedBuilder IPPV() {
         EmbedBuilder pokeverse = new EmbedBuilder();
         pokeverse.setTitle("Pokeverse Info").setColor(Color.decode("#f1c40f"))
-                .setThumbnail("https://i.gyazo.com/32718ac72c4322e34a16ef25022027c4.png").getDescriptionBuilder()
+                .setThumbnail("https://i.gyazo.com/d92082e99c3e2c17d675adc130e83091.png").getDescriptionBuilder()
                 .append("**IP:**\tplay.pokeverse.org\n**Version:**\t 1.12.2");
         return pokeverse;
     }
@@ -190,7 +222,7 @@ public class Embeds {
     public static EmbedBuilder IPPZ() {
         EmbedBuilder pokezone = new EmbedBuilder();
         pokezone.setTitle("PokeZone Info").setColor(Color.decode("#89d0e5"))
-                .setThumbnail("https://i.gyazo.com/5ce03d65da1e0dc3023ad808b04d1810.png").getDescriptionBuilder()
+                .setThumbnail("https://i.gyazo.com/8b16a7d630dc57177328909d78254b5c.png").getDescriptionBuilder()
                 .append("**IP:**\tplay.pokezone.net\n**Version:**\t 1.12.2");
         return pokezone;
     }
