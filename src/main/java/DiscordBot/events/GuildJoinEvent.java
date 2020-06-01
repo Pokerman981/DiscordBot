@@ -1,12 +1,15 @@
 package DiscordBot.events;
 
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.Event;
-import net.dv8tion.jda.core.events.guild.member.GuildMemberJoinEvent;
-import net.dv8tion.jda.core.hooks.EventListener;
+
+
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.GenericEvent;
+import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
+import net.dv8tion.jda.api.hooks.EventListener;
+import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.time.OffsetDateTime;
@@ -14,7 +17,7 @@ import java.time.OffsetDateTime;
 public class GuildJoinEvent implements EventListener {
 
 	@Override
-	public void onEvent(Event e) {
+	public void onEvent(@NotNull GenericEvent e) {
 		if (e instanceof GuildMemberJoinEvent){
 			GuildMemberJoinEvent event = (GuildMemberJoinEvent) e;
 

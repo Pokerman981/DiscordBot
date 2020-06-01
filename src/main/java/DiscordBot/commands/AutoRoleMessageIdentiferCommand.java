@@ -3,7 +3,10 @@ package DiscordBot.commands;
 import DiscordBot.main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
-import net.dv8tion.jda.core.entities.*;
+import net.dv8tion.jda.api.entities.Emote;
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.TextChannel;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +29,7 @@ public class AutoRoleMessageIdentiferCommand extends Command {
 
             Guild guild = event.getGuild();
             TextChannel textChannel = guild.getTextChannelById(args[0]);
-            Message message = textChannel.getMessageById(args[1]).complete();
+            Message message = textChannel.retrieveMessageById(args[0]).complete();
             //System.out.println(message.getContentRaw());
             Emote pokeverse = event.getGuild().getEmoteById("526264631744790549");
             Emote pokedash = event.getGuild().getEmoteById("375433829764169741");

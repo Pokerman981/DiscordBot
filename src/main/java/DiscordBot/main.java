@@ -2,7 +2,10 @@ package DiscordBot;
 
 import DiscordBot.commands.*;
 import DiscordBot.commands.moderation.*;
-import DiscordBot.events.*;
+import DiscordBot.events.AssignRoleReactionEvent;
+import DiscordBot.events.GuildJoinEvent;
+import DiscordBot.events.GuildLeaveEvent;
+import DiscordBot.events.StaffCounter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
@@ -11,17 +14,18 @@ import com.google.gson.reflect.TypeToken;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
-import net.dv8tion.jda.core.AccountType;
-import net.dv8tion.jda.core.JDA;
-import net.dv8tion.jda.core.JDABuilder;
-import net.dv8tion.jda.core.entities.Game;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import javax.security.auth.login.LoginException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Timer;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
@@ -51,6 +55,8 @@ public class main extends ListenerAdapter {
 			.setAlternativePrefix("**") //Alt prefix
 			.setEmojis("\u2705", "\uD83D\uDCA1", "\uD83D\uDEAB") //Unicode emojis
 			.setOwnerId("126427288496504834") // Owner ID
+			.useHelpBuilder(false)
+			.setActivity(Activity.playing("¯\\_(ツ)_/¯"))
 			.addCommands( //Commands
 					new AppealCommand(),
 					new LogsCommand(),
@@ -76,12 +82,10 @@ public class main extends ListenerAdapter {
             EventWaiter waiter = new EventWaiter();
 
             //Login
-			jda = new JDABuilder(AccountType.BOT).setToken("MjgyMDU2Nzc3MDAzMTcxODQx.DyPZbQ.yZKJpaSReSpHMO1fQHrmNbsTFBI").buildBlocking();
-			//Set Status
-			jda.getPresence().setGame(Game.playing("¯\\_(ツ)_/¯"));
+			jda = JDABuilder.createDefault(args[0]).build(); // MjgyMDU2Nzc3MDAzMTcxODQx.DyPZbQ.yZKJpaSReSpHMO1fQHrmNbsTFBI // "¯\\_(ツ)_/¯"
             //Register Events
 			jda.addEventListener(new AssignRoleReactionEvent());
-			jda.addEventListener(new RoleReactionEvent());
+			// jda.addEventListener(new RoleReactionEvent());
             jda.addEventListener(new GuildLeaveEvent());
             jda.addEventListener(new GuildJoinEvent());
 //            jda.addEventListener(new testCommand());
@@ -89,7 +93,7 @@ public class main extends ListenerAdapter {
             jda.addEventListener(ccb.build());
 
             Timer timer = new Timer();
-            timer.schedule(new StaffCounter(), 0, 50000);
+            timer.schedule(new StaffCounter(), 5000, 50000);
 			//timer.schedule(new NetworkCounter(), 0, 30000);
 
 
@@ -98,7 +102,7 @@ public class main extends ListenerAdapter {
 			//Start the saving process
 			startSave();
 			
-		} catch (LoginException | IllegalArgumentException | InterruptedException | JsonIOException | JsonSyntaxException e) {
+		} catch (LoginException | IllegalArgumentException | JsonIOException | JsonSyntaxException e) {
 			e.printStackTrace();
 		}
 	}

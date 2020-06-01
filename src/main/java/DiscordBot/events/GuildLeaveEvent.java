@@ -1,22 +1,23 @@
 package DiscordBot.events;
 
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.Event;
-import net.dv8tion.jda.core.events.guild.member.GuildMemberLeaveEvent;
-import net.dv8tion.jda.core.hooks.EventListener;
+
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.GenericEvent;
+import net.dv8tion.jda.api.events.guild.member.GuildMemberRemoveEvent;
+import net.dv8tion.jda.api.hooks.EventListener;
 
 import java.awt.*;
 import java.time.OffsetDateTime;
 
-public class GuildLeaveEvent implements EventListener{
+public class GuildLeaveEvent implements EventListener {
 
 	@Override
-	public void onEvent(Event e) {
-		if (e instanceof GuildMemberLeaveEvent){
-			GuildMemberLeaveEvent event = (GuildMemberLeaveEvent) e;
+	public void onEvent(GenericEvent e) {
+		if (e instanceof GuildMemberRemoveEvent){
+			GuildMemberRemoveEvent event = (GuildMemberRemoveEvent) e;
 			
 			TextChannel channel = event.getGuild().getTextChannelsByName("join-leave-log", true).get(0);
 			channel.sendMessage(onLeave((event).getUser(), event.getGuild()).build()).queue();

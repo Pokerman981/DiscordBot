@@ -3,8 +3,6 @@ package DiscordBot.commands;
 import DiscordBot.main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
-import net.dv8tion.jda.core.entities.MessageType;
-import net.dv8tion.jda.core.requests.Route;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -32,8 +30,6 @@ public class EvalCommand extends Command {
         try
         {
             event.reply(event.getClient().getSuccess()+" Evaluated Successfully:\n```\n"+se.eval(event.getArgs())+" ```");
-
-            event.getChannel().getMessageById("").submit().get();
         }
         catch(Exception e)
         {

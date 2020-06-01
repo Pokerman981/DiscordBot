@@ -1,7 +1,6 @@
 package DiscordBot.commands;
 
 import DiscordBot.Embeds;
-import DiscordBot.Utils;
 import DiscordBot.main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;

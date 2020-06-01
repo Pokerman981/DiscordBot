@@ -3,9 +3,9 @@ package DiscordBot.commands.moderation;
 import DiscordBot.main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.Permission;
-import net.dv8tion.jda.core.entities.Member;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.Member;
 
 import java.awt.*;
 import java.lang.reflect.Array;
@@ -62,7 +62,7 @@ public class MuteCommand extends Command {
             public void run() {
                 counter ++;
                 if (counter == 2);
-                    event.getGuild().getController().removeRolesFromMember(member, event.getGuild().getRoleById("707675201181057084")).queue();
+                event.getGuild().removeRoleFromMember(member, event.getGuild().getRoleById("707675201181057084")).queue();
             }
         };
 
@@ -81,7 +81,7 @@ public class MuteCommand extends Command {
         String reason = Arrays.toString(Arrays.copyOfRange(args, 2, args.length)).replaceAll(",","");
         String time = (args[1]);
         event.reply(muteUser(member, time, reason).setFooter("Muted by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build());
-        event.getGuild().getController().addRolesToMember(member, event.getGuild().getRoleById("707675201181057084")).queue();
+        event.getGuild().addRoleToMember(member, event.getGuild().getRoleById("707675201181057084")).queue();
     }
 
     public EmbedBuilder muteUser(Member user, String time, String reason) {

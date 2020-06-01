@@ -1,29 +1,21 @@
 package DiscordBot.events;
 
-import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.entities.Member;
-import net.dv8tion.jda.core.entities.Role;
 
-import java.util.List;
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Role;
+
 import java.util.TimerTask;
+
 import static DiscordBot.main.jda;
 public class StaffCounter extends TimerTask {
 
     public void run() {
-        Guild guild = jda.getGuildsByName("pixelmon+", true).get(0);
-        Role role = guild.getRolesByName("staff", true).get(0);
+        Guild guild = jda.getGuildById("258797004757532672");
+        Role role = guild.getRoleById("322569890093465620");
 
-        List<Member> staffList = guild.getMembersWithRoles(role);
-        int count = 0;
+        int staffListSize = guild.getMembersWithRoles(role).size();
 
-
-        for (Member staff : staffList) {
-            //if (staff.getOnlineStatus().getKey() != "offline")
-                count++;
-
-        }
-
-        guild.getVoiceChannelById("535503921322524673").getManager().setName("Staff Count: " + count).queue();
+        guild.getVoiceChannelById("535503921322524673").getManager().setName("Staff Count: " + staffListSize).queue();
 
 
 

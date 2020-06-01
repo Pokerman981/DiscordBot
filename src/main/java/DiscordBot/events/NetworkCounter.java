@@ -3,7 +3,7 @@ package DiscordBot.events;
 import ch.jamiete.mcping.MinecraftPing;
 import ch.jamiete.mcping.MinecraftPingOptions;
 import ch.jamiete.mcping.MinecraftPingReply;
-import net.dv8tion.jda.core.entities.Guild;
+import net.dv8tion.jda.api.entities.Guild;
 
 import java.io.IOException;
 import java.util.TimerTask;

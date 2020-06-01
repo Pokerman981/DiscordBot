@@ -3,9 +3,9 @@ package DiscordBot.commands.moderation;
 import DiscordBot.main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.Permission;
-import net.dv8tion.jda.core.entities.Member;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.Member;
 
 import java.awt.*;
 import java.lang.reflect.Array;
@@ -51,7 +51,7 @@ public class KickCommand extends Command {
         String reason = String.join(" ", args);
 
         event.reply(kickUser(member, reason).setFooter("Kicked by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build());
-        event.getGuild().getController().kick(member).reason(reason + " - kicked by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " (" + event.getAuthor().getId() + ")").queue();
+        event.getGuild().kick(member).reason(reason + " - kicked by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " (" + event.getAuthor().getId() + ")").queue();
 
     }
 

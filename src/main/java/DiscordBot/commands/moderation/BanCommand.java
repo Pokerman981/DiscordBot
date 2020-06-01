@@ -3,9 +3,9 @@ package DiscordBot.commands.moderation;
 import DiscordBot.main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.Permission;
-import net.dv8tion.jda.core.entities.Member;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.Member;
 
 import java.awt.*;
 import java.lang.reflect.Array;
@@ -51,7 +51,7 @@ public class BanCommand extends Command {
         String reason = String.join(" ", args);
 
         event.reply(banUser(member, reason).setFooter("Banned by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build());
-        event.getGuild().getController().ban(member, 7).reason(reason + " - banned by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " (" + event.getAuthor().getId() + ")").queue();
+        event.getGuild().ban(member, 7).reason(reason + " - banned by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " (" + event.getAuthor().getId() + ")").queue();
     }
 
     public EmbedBuilder banUser(Member banid, String reason) {
