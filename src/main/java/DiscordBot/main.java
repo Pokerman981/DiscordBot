@@ -108,6 +108,7 @@ public class main extends ListenerAdapter {
                     new EvalCommand(),
 					new AssignRoleReactionCommand()
 //					new TestCommand(),
+					new WebsiteCommand()
             );
 
 			//Get an instance of the event waiter
