@@ -2,10 +2,7 @@ package DiscordBot;
 
 import DiscordBot.commands.*;
 import DiscordBot.commands.moderation.*;
-import DiscordBot.events.AssignRoleReactionEvent;
-import DiscordBot.events.GuildJoinEvent;
-import DiscordBot.events.GuildLeaveEvent;
-import DiscordBot.events.StaffCounter;
+import DiscordBot.events.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
@@ -45,6 +42,40 @@ public class main extends ListenerAdapter {
     public static Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().disableHtmlEscaping().create();
 	public static JDA jda;
 
+	public static Map<String, Command.Category> roleCategories = new HashMap<String, Command.Category>() {
+		{
+			put("owner", new Command.Category("Owner"));
+			put("admin", new Command.Category("Admin"));
+			put("staff", new Command.Category("Staff"));
+			put("player", new Command.Category("Player"));
+		}
+	};
+
+	public static Map<String, String> emoteRankID = new HashMap<String, String>() {
+		{
+			put("375433829764169741", "467459853116375040");
+			put("714032214245113907", "467459888516431903");
+			put("628381164939247636", "467459940093657108");
+			put("526264234716299284", "467459975812218922");
+			put("707662953926623232", "586792372969668613");
+			put("711289077491564605", "711157151246057482");
+			put("717636373523464282", "716753331862765608");
+		}
+	};
+
+	public static Map<String, String> emoteIDs = new HashMap<String, String>() {
+		{
+			put("dash", "375433829764169741");
+			put("verse", "714032214245113907");
+			put("legends", "628381164939247636");
+			put("club", "526264234716299284");
+			put("brawl", "707662953926623232");
+			put("zone1", "711289077491564605");
+			put("zone2", "711289077491564605");
+		}
+	};
+
+
 	public static void main(String[] args) {
 		instance = new main();
 
@@ -75,7 +106,7 @@ public class main extends ListenerAdapter {
 					new PricesCommand(),
 //                    new ShutDownCommand(),
                     new EvalCommand(),
-					new AutoRoleMessageIdentiferCommand()
+					new AssignRoleReactionCommand()
 //					new TestCommand(),
             );
 
@@ -85,9 +116,11 @@ public class main extends ListenerAdapter {
             //Login
 			jda = JDABuilder.createDefault(args[0]).build(); // MjgyMDU2Nzc3MDAzMTcxODQx.DyPZbQ.yZKJpaSReSpHMO1fQHrmNbsTFBI // "¯\\_(ツ)_/¯"
             //Register Events
+//			jda.addEventListener(new AssignRoleReactionEvent());
 			jda.addEventListener(new AssignRoleReactionEvent());
-			// jda.addEventListener(new RoleReactionEvent());
-            jda.addEventListener(new GuildLeaveEvent());
+			jda.addEventListener(new RemoveRoleReactionEvent());
+
+			jda.addEventListener(new GuildLeaveEvent());
             jda.addEventListener(new GuildJoinEvent());
 //            jda.addEventListener(new testCommand());
             jda.addEventListener(waiter);
