@@ -69,8 +69,9 @@ public class main extends ListenerAdapter {
 					new PricesCommand(),
 //                    new ShutDownCommand(),
                     new EvalCommand(),
-					new AutoRoleMessageIdentiferCommand()
+					new AutoRoleMessageIdentiferCommand(),
 //					new TestCommand(),
+					new WebsiteCommand()
             );
 
 			//Get an instance of the event waiter

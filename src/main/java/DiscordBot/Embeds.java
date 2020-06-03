@@ -172,11 +172,25 @@ public class Embeds {
         return modInfo;
     }
 
+    public static EmbedBuilder websiteInfo() {
+        EmbedBuilder websiteInfo = new EmbedBuilder();
+
+        websiteInfo.setColor(Color.green).getDescriptionBuilder().append(
+                "This tutorial will display every server's website!\n" +
+                        " \n" +
+                        "<:pokedash:375433829764169741> **PokeDash**: https://www.pokedash.org\n" +
+                        "<:pokeverse:714032214245113907> **Pokeverse**: https://www.pokeverse.org\n" +
+                        "<:pokelegends:628381164939247636> **PokeLegends**: https://www.pokelegends.net\n" +
+                        "<:pokeclub:526264234716299284> **PokeClub**: https://www.pokeclub.net\n" +
+                        "<:pokebrawl:707662953926623232> **PokeBrawl**: https://www.poke-brawl.com\n" +
+                        "<:pokezone:711289077491564605> **PokeZone**: https://www.pokezone.net\n");
+        return websiteInfo;
+    }
+
     public static EmbedBuilder supplyServer() {
         EmbedBuilder supplyServer = new EmbedBuilder();
         supplyServer.setColor(Color.red).getDescriptionBuilder().append(
-                "Please supply a server"
-        );
+                "Please supply a server");
         return supplyServer;
     }
 
