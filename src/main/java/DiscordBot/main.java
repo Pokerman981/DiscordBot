@@ -42,9 +42,19 @@ public class main extends ListenerAdapter {
     public static Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().disableHtmlEscaping().create();
 	public static JDA jda;
 
+	public static Map<String, String> requiredRoles = new HashMap<String, String>() {
+		{
+			put("owner", "Owner");
+			put("manager", "Manager");
+			put("admin", "Admin");
+			put("staff", "Staff");
+		}
+	};
+
 	public static Map<String, Command.Category> roleCategories = new HashMap<String, Command.Category>() {
 		{
 			put("owner", new Command.Category("Owner"));
+			put("manager", new Command.Category("Manager"));
 			put("admin", new Command.Category("Admin"));
 			put("staff", new Command.Category("Staff"));
 			put("player", new Command.Category("Player"));
@@ -108,7 +118,8 @@ public class main extends ListenerAdapter {
                     new EvalCommand(),
 					new AssignRoleReactionCommand(),
 //					new TestCommand(),
-					new WebsiteCommand()
+					new WebsiteCommand(),
+					new sendMessageCommand()
             );
 
 			//Get an instance of the event waiter
