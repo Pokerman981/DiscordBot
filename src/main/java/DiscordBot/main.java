@@ -106,7 +106,7 @@ public class main extends ListenerAdapter {
 					new PricesCommand(),
 //                    new ShutDownCommand(),
                     new EvalCommand(),
-					new AssignRoleReactionCommand()
+					new AssignRoleReactionCommand(),
 //					new TestCommand(),
 					new WebsiteCommand()
             );
