@@ -15,12 +15,14 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.requests.GatewayIntent;
 
 import javax.security.auth.login.LoginException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Timer;
 import java.util.concurrent.Executors;
@@ -37,11 +39,10 @@ public class main extends ListenerAdapter {
     public static Command.Category STAFF = new Command.Category("Staff");
     public static Command.Category ADMIN = new Command.Category("Admin");
     public static Command.Category OWNER = new Command.Category("Bot Owner");
-    public static String requiredRole = "Staff";
-	public static String requiredAdminRole = "Admin";
     public static Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().disableHtmlEscaping().create();
 	public static JDA jda;
 
+	final public static String staffRankID = "322569890093465620";
 	public static Map<String, String> requiredRoles = new HashMap<String, String>() {
 		{
 			put("owner", "Owner");
@@ -61,7 +62,7 @@ public class main extends ListenerAdapter {
 		}
 	};
 
-	public static Map<String, String> emoteRankID = new HashMap<String, String>() {
+	public static Map<String, String> emoteRankID = new LinkedHashMap<String, String>() {
 		{
 			put("375433829764169741", "467459853116375040");
 			put("714032214245113907", "467459888516431903");
@@ -96,7 +97,6 @@ public class main extends ListenerAdapter {
 			.setAlternativePrefix("**") //Alt prefix
 			.setEmojis("\u2705", "\uD83D\uDCA1", "\uD83D\uDEAB") //Unicode emojis
 			.setOwnerId("126427288496504834") // Owner ID
-			.useHelpBuilder(false)
 			.setActivity(Activity.playing("¯\\_(ツ)_/¯"))
 			.addCommands( //Commands
 					new AppealCommand(),
@@ -107,26 +107,28 @@ public class main extends ListenerAdapter {
                     new ModCommand(),
                     new InstallCommand(),
 					new ServerStatusCommand(),
-                    new StaffStatusCommand(),
+					new PricesCommand(),
+					new WebsiteCommand(),
+					new StaffStatusCommand(),
                     new BanCommand(),
                     new KickCommand(),
 					new MuteCommand(),
 					new UnmuteCommand(),
 					new WarnCommand(),
-					new PricesCommand(),
-//                    new ShutDownCommand(),
+                    new ShutDownCommand(),
                     new EvalCommand(),
 					new AssignRoleReactionCommand(),
-//					new TestCommand(),
-					new WebsiteCommand(),
-					new sendMessageCommand()
+					new RemoveRoleReactionCommand(),
+					new SendMessageCommand()
             );
 
 			//Get an instance of the event waiter
             EventWaiter waiter = new EventWaiter();
 
             //Login
-			jda = JDABuilder.createDefault(args[0]).build(); // MjgyMDU2Nzc3MDAzMTcxODQx.DyPZbQ.yZKJpaSReSpHMO1fQHrmNbsTFBI // "¯\\_(ツ)_/¯"
+			jda = JDABuilder.createDefault(args[0])
+					.enableIntents(GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_PRESENCES)
+					.build();
             //Register Events
 //			jda.addEventListener(new AssignRoleReactionEvent());
 			jda.addEventListener(new AssignRoleReactionEvent());

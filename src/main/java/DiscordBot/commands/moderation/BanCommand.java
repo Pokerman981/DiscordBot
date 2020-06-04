@@ -6,19 +6,23 @@ import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Role;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.exceptions.ErrorResponseException;
 
 import java.awt.*;
 import java.lang.reflect.Array;
 
 public class BanCommand extends Command {
 
+
     public BanCommand(){
         this.name = "ban";
         this.aliases = new String[] {"begonethot"};
         this.guildOnly = true;
-        this.userPermissions = new Permission[]{Permission.BAN_MEMBERS};
         this.help = "Ban a specified user";
-        this.category = main.STAFF;
+        this.category = main.roleCategories.get("staff");
+        this.requiredRole = main.requiredRoles.get("staff");
     }
 
     @Override
@@ -34,34 +38,45 @@ public class BanCommand extends Command {
             return;
         }
 
-        try{event.getGuild().getMemberById(args[0].replaceAll("<@", "").replaceAll(">", "").replaceAll("!", ""));} catch (NumberFormatException e) {
-            event.replyError("Invalid User!");
+        long userID;
+        try {
+            userID = Long.parseLong(args[0].replaceAll("<@", "").replaceAll(">", "").replaceAll("!", ""));
+        } catch (NumberFormatException e) {
+            event.replyError("Could not find discord id!");
             return;
         }
-
-        Member member = event.getGuild().getMemberById(args[0].replaceAll("<@", "").replaceAll(">", "").replaceAll("!", ""));
-
-        if (member.hasPermission(Permission.BAN_MEMBERS)){
-            event.replyError("You cannot ban another staff member!");
-            return;
-        }
-
 
         Array.set(args, 0, "");
         String reason = String.join(" ", args);
 
-        event.reply(banUser(member, reason).setFooter("Banned by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build());
-        event.getGuild().ban(member, 7).reason(reason + " - banned by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator() + " (" + event.getAuthor().getId() + ")").queue();
+
+        User resolvedUser = event.getJDA().retrieveUserById(userID).complete();
+        Member resolvedMember;
+        Role resolvedRole;
+        try {
+            resolvedMember = event.getGuild().retrieveMember(resolvedUser).complete();
+            resolvedRole = event.getGuild().getRoleById(main.staffRankID);
+
+            if (resolvedMember.getRoles().contains(resolvedRole) || resolvedMember.hasPermission(Permission.BAN_MEMBERS)) {
+                event.replyError("You cannot ban another staff member!");
+                return;
+            }
+        } catch (ErrorResponseException e) {
+            event.replyWarning("User not found in guild! Attempting to ban..");
+        }
+
+        event.getGuild().ban(resolvedUser,  7).queue();
+        event.reply(banUser(resolvedUser, reason).build());
     }
 
-    public EmbedBuilder banUser(Member banid, String reason) {
+    public EmbedBuilder banUser(User banid, String reason) {
         EmbedBuilder userBanMessage = new EmbedBuilder();
         userBanMessage
                 .setTitle("User Banned!")
-                .setThumbnail(banid.getUser().getAvatarUrl())
+                .setThumbnail(banid.getAvatarUrl())
                 .setColor(Color.red)
                 .getDescriptionBuilder()
-                    .append("Banned user: " + banid.getAsMention() + " (" + banid.getUser().getId() + ")\nReason:" + reason + "");
+                    .append("Banned user: " + banid.getAsMention() + " (" + banid.getName() + "#" + banid.getDiscriminator() + ")\nReason:" + reason + "");
         return userBanMessage;
 
     }

@@ -8,33 +8,17 @@ public class ShutDownCommand extends Command {
 
 	public ShutDownCommand() {
 		this.name = "shutdown";
-		this.aliases = new String[] { "die", "gtfobot" };
-		this.ownerCommand = true;
 		this.help = "Shut down the bot gracefully";
-		this.category = main.OWNER;
+		this.category = main.roleCategories.get("manager");
+		this.requiredRole = main.requiredRoles.get("manager");
 	}
 
 	@Override
 	protected void execute(CommandEvent event) {
-		String[] cmd = event.getMessage().getContentRaw().split(" ");
 
-		switch (cmd[0]) {
-		case "!die": {
-			event.reply("Nooooooooo :skull_crossbones: :ghost:");
-			break;
-		}
-		case "!gtfobot": {
-			event.reply("Fine :middle_finger:");
-			break;
-		}
-		
-		default:{
-			event.reply("Shutting down...");
-		}
-		}
-		//Shut the bot down
+		event.reply("Shutting down...");
 		event.getJDA().shutdown();
+		main.jda.shutdown();
 		System.exit(0);
-
 	}
 }

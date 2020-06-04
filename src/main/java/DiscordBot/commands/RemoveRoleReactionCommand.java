@@ -3,7 +3,6 @@ package DiscordBot.commands;
 import DiscordBot.main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
-import net.dv8tion.jda.api.entities.Emote;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -11,15 +10,13 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class AssignRoleReactionCommand extends Command {
+public class RemoveRoleReactionCommand extends Command {
 
-    final public String rank = "manager";
-
-    public AssignRoleReactionCommand() {
-        this.name = "reactmessage";
-        this.requiredRole = main.requiredRoles.get(rank);
+    public RemoveRoleReactionCommand() {
+        this.name = "removereactmessage";
+        this.requiredRole = main.requiredRoles.get("manager");
         this.guildOnly = true;
-        this.category = main.roleCategories.get(rank);
+        this.category = main.roleCategories.get("manager");
     }
 
     @Override
@@ -31,15 +28,19 @@ public class AssignRoleReactionCommand extends Command {
             Guild guild = event.getGuild();
             TextChannel textChannel = guild.getTextChannelById(args[0]);
             Message message = textChannel.retrieveMessageById(args[1]).complete();
-            //System.out.println(message.getContentRaw());
 
-            main.userData.get("reactrolemessages").put(message.getId(), textChannel.getId());
-
-            System.out.println(main.emoteRankID.keySet());
-            for (String key : main.emoteRankID.keySet()) {
-                Emote emote = event.getGuild().getEmoteById(key);
-                message.addReaction(emote).queue();
+            if (!main.userData.get("reactrolemessages").containsKey(message.getId())) {
+                event.replyError("Unable to find supplied message! *(Prolly not a role react message)*");
+                return;
             }
+
+            main.userData.get("reactrolemessages").remove(message.getId());
+            message.clearReactions().queue();
+
+//            for (String key : main.emoteRankID.keySet()) {
+//                Emote emote = event.getGuild().getEmoteById(key);
+//                message.addReaction(emote).queue();
+//            }
 
             //System.out.println(message.getReactions().get(1).getReactionEmote().getId() + " " + message.getReactions().get(1).getReactionEmote().getName());
 

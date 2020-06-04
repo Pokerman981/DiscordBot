@@ -11,10 +11,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
-public class sendMessageCommand extends Command {
+public class SendMessageCommand extends Command {
 
-    public sendMessageCommand() {
+    public SendMessageCommand() {
         this.name = "sendmessage";
         this.category = main.roleCategories.get("manager");
         this.requiredRole = main.requiredRoles.get("manager");
@@ -100,5 +101,8 @@ public class sendMessageCommand extends Command {
                 e.printStackTrace();
             }
         }
+
+        event.getMessage().delete().queueAfter(5, TimeUnit.SECONDS);
+
     }
 }
