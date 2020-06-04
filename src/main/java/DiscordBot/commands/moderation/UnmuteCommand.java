@@ -4,7 +4,6 @@ import DiscordBot.main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 
 import java.awt.*;
@@ -16,9 +15,10 @@ public class UnmuteCommand extends Command {
         this.name = "unmute";
         this.aliases = new String[]{"um"};
         this.guildOnly = true;
-        this.userPermissions = new Permission[] {Permission.KICK_MEMBERS};
         this.help = "Unmute a specified user";
-        this.category = main.STAFF;
+        this.category = main.roleCategories.get("staff");
+        this.requiredRole = main.requiredRoles.get("staff");
+        this.hidden = true;
     }
 
     @Override

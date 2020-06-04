@@ -8,7 +8,7 @@ import com.jagrosh.jdautilities.command.CommandEvent;
 public class ModCommand extends Command {
     public ModCommand(){
         this.name = "mod";
-        this.category = main.NORMAL;
+        this.category = main.roleCategories.get("player");
         this.help = "Displays a tutorial on how to install mods";
         this.aliases = new String[] {"mods"};
     }

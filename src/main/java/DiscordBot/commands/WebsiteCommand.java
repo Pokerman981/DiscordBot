@@ -9,7 +9,7 @@ public class WebsiteCommand extends Command {
     public WebsiteCommand(){
         this.name = "website";
         this.aliases = new String[] { "site", "sites", "websites" };
-        this.category = main.NORMAL;
+        this.category = main.roleCategories.get("player");
         this.help = "Displays links to all server websites!";
     }
 

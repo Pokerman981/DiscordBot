@@ -15,8 +15,9 @@ public class RemoveRoleReactionCommand extends Command {
     public RemoveRoleReactionCommand() {
         this.name = "removereactmessage";
         this.requiredRole = main.requiredRoles.get("manager");
-        this.guildOnly = true;
         this.category = main.roleCategories.get("manager");
+        this.guildOnly = true;
+        this.hidden = true;
     }
 
     @Override

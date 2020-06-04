@@ -10,7 +10,7 @@ public class LinkCommand extends Command {
     public LinkCommand() {
         this.name = "link";
         this.aliases = new String[]{"donor", "donator", "rank"};
-        this.category = main.NORMAL;
+        this.category = main.roleCategories.get("player");
         this.help = "Displays a list of each server's IP address";
     }
 

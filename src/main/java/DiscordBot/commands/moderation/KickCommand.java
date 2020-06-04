@@ -21,6 +21,7 @@ public class KickCommand extends Command {
         this.help = "Kick a specified user";
         this.category = main.roleCategories.get("staff");
         this.requiredRole = main.requiredRoles.get("staff");
+        this.hidden = true;
     }
 
     @Override

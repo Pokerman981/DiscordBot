@@ -14,6 +14,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
+// TODO Clean up class
 public class MuteCommand extends Command {
 
     int counter = 0;
@@ -22,9 +23,10 @@ public class MuteCommand extends Command {
         this.name = "mute";
         this.aliases = new String[]{"m"};
         this.guildOnly = true;
-        this.userPermissions = new Permission[] {Permission.KICK_MEMBERS};
         this.help = "Mute a specified user";
-        this.category = main.STAFF;
+        this.category = main.roleCategories.get("staff");
+        this.requiredRole = main.requiredRoles.get("staff");
+        this.hidden = true;
     }
 
     @Override

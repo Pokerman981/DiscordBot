@@ -10,7 +10,7 @@ import java.awt.*;
 public class PricesCommand extends Command {
     public PricesCommand(){
         this.name = "prices";
-        this.category = main.NORMAL;
+        this.category = main.roleCategories.get("player");
         this.help = "Displays links to the price list of each server";
     }
 

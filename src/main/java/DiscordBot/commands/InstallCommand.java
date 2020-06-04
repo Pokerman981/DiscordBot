@@ -9,7 +9,7 @@ public class InstallCommand extends Command {
 
     public InstallCommand() {
         this.name = "install";
-        this.category = main.NORMAL;
+        this.category = main.roleCategories.get("player");
         this.help = "Displays a tutorial on how to join our servers";
         this.aliases = new String[] {"download", "modpack"};
     }

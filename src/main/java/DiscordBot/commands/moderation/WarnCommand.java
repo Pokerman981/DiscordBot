@@ -16,9 +16,10 @@ public class WarnCommand extends Command {
         this.name = "warn";
         this.aliases = new String[]{"w"};
         this.guildOnly = true;
-        this.userPermissions = new Permission[] {Permission.KICK_MEMBERS};
         this.help = "Warn a specified user";
-        this.category = main.STAFF;
+        this.category = main.roleCategories.get("staff");
+        this.requiredRole = main.requiredRoles.get("staff");
+        this.hidden = true;
     }
 
     @Override

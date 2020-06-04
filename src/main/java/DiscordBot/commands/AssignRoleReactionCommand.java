@@ -18,8 +18,9 @@ public class AssignRoleReactionCommand extends Command {
     public AssignRoleReactionCommand() {
         this.name = "reactmessage";
         this.requiredRole = main.requiredRoles.get(rank);
-        this.guildOnly = true;
         this.category = main.roleCategories.get(rank);
+        this.guildOnly = true;
+        this.hidden = true;
     }
 
     @Override

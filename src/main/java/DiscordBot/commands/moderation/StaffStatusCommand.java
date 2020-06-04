@@ -3,24 +3,21 @@ package DiscordBot.commands.moderation;
 import DiscordBot.main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
-import net.dv8tion.jda.api.Permission;
 
 
 public class StaffStatusCommand extends Command {
     public StaffStatusCommand() {
         this.name = "sstatus";
         this.guildOnly = true;
-        this.userPermissions = new Permission[] {Permission.KICK_MEMBERS};
         this.help = "Displays information about a specific server";
-        this.category = main.STAFF;
+        this.category = main.roleCategories.get("staff");
+        this.requiredRole = main.requiredRoles.get("staff");
+        this.hidden = true;
     }
 
     @Override
     protected void execute(CommandEvent event) {
-        String[] args = event.getArgs().split(" ");
-        if (event.getArgs().isEmpty()){
+        if (event.getArgs().isEmpty())
             event.replyError("You must specify a server! You can use the 2 letter abbreviation.");
-        }
-        return;
     }
 }

@@ -8,7 +8,7 @@ import com.jagrosh.jdautilities.command.CommandEvent;
 public class LogsCommand extends Command {
     public LogsCommand(){
         this.name = "logs";
-        this.category = main.NORMAL;
+        this.category = main.roleCategories.get("player");
         this.help = "Displays a tutorial on how to view logs";
     }
 

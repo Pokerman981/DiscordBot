@@ -11,6 +11,8 @@ public class ShutDownCommand extends Command {
 		this.help = "Shut down the bot gracefully";
 		this.category = main.roleCategories.get("manager");
 		this.requiredRole = main.requiredRoles.get("manager");
+		this.guildOnly = true;
+		this.hidden = true;
 	}
 
 	@Override

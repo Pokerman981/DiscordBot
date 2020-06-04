@@ -8,7 +8,7 @@ import com.jagrosh.jdautilities.command.CommandEvent;
 public class RamCommand extends Command {
     public RamCommand(){
         this.name = "ram";
-        this.category = main.NORMAL;
+        this.category = main.roleCategories.get("player");
         this.help = "Displays a tutorial on how to allocate more ram";
     }
 

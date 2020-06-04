@@ -33,12 +33,9 @@ public class main extends ListenerAdapter {
     public static main getInstance(){
         return instance;
     }
+    
 	public static File file = new File("./userData.json");
     public static Map<String, Map<String, String>> userData = new HashMap<String, Map<String, String>>();
-    public static Command.Category NORMAL = new Command.Category("Normal");
-    public static Command.Category STAFF = new Command.Category("Staff");
-    public static Command.Category ADMIN = new Command.Category("Admin");
-    public static Command.Category OWNER = new Command.Category("Bot Owner");
     public static Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().disableHtmlEscaping().create();
 	public static JDA jda;
 
@@ -54,11 +51,11 @@ public class main extends ListenerAdapter {
 
 	public static Map<String, Command.Category> roleCategories = new HashMap<String, Command.Category>() {
 		{
-			put("owner", new Command.Category("Owner"));
-			put("manager", new Command.Category("Manager"));
-			put("admin", new Command.Category("Admin"));
-			put("staff", new Command.Category("Staff"));
-			put("player", new Command.Category("Player"));
+			put("owner", new Command.Category("Owner Commands"));
+			put("manager", new Command.Category("Manager Commands"));
+			put("admin", new Command.Category("Admin Commands"));
+			put("staff", new Command.Category("Staff Commands"));
+			put("player", new Command.Category("Player Commands"));
 		}
 	};
 
@@ -116,7 +113,6 @@ public class main extends ListenerAdapter {
 					new UnmuteCommand(),
 					new WarnCommand(),
                     new ShutDownCommand(),
-                    new EvalCommand(),
 					new AssignRoleReactionCommand(),
 					new RemoveRoleReactionCommand(),
 					new SendMessageCommand()
@@ -130,20 +126,15 @@ public class main extends ListenerAdapter {
 					.enableIntents(GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_PRESENCES)
 					.build();
             //Register Events
-//			jda.addEventListener(new AssignRoleReactionEvent());
 			jda.addEventListener(new AssignRoleReactionEvent());
 			jda.addEventListener(new RemoveRoleReactionEvent());
-
 			jda.addEventListener(new GuildLeaveEvent());
             jda.addEventListener(new GuildJoinEvent());
-//            jda.addEventListener(new testCommand());
             jda.addEventListener(waiter);
             jda.addEventListener(ccb.build());
 
             Timer timer = new Timer();
             timer.schedule(new StaffCounter(), 5000, 50000);
-			//timer.schedule(new NetworkCounter(), 0, 30000);
-
 
             //Make sure the config is there #Going to change to H2 soon
 			Config.init(file);

@@ -8,7 +8,7 @@ import com.jagrosh.jdautilities.command.CommandEvent;
 public class AppealCommand extends Command {
     public AppealCommand(){
         this.name = "appeal";
-        this.category = main.NORMAL;
+        this.category = main.roleCategories.get("player");
         this.help = "Displays information about appeals";
     }
 

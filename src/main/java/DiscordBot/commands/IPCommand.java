@@ -10,7 +10,7 @@ public class IPCommand extends Command {
 
     public IPCommand(){
         this.name = "ip";
-        this.category = main.NORMAL;
+        this.category = main.roleCategories.get("player");
         this.help = "Displays a list of each server's IP address";
     }
 

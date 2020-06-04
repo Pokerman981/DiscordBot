@@ -18,7 +18,7 @@ public class ServerStatusCommand extends Command {
         this.name = "status";
         this.help = "Displays the status of each server";
         this.guildOnly = false;
-        this.category = main.NORMAL;
+        this.category = main.roleCategories.get("player");
     }
 
     @Override

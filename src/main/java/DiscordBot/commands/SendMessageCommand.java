@@ -19,6 +19,8 @@ public class SendMessageCommand extends Command {
         this.name = "sendmessage";
         this.category = main.roleCategories.get("manager");
         this.requiredRole = main.requiredRoles.get("manager");
+        this.guildOnly = true;
+        this.hidden = true;
     }
 
     @Override
