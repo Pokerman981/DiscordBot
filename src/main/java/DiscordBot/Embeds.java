@@ -72,7 +72,7 @@ public class Embeds {
                         " \n" +
                         "**1)** On the server you play on, run the command \"/link\"\n" +
                         "**2)** Note down the PIN given to you in game (Note: if you lose this PIN, message a staff member and they can recover it for you!)\n" +
-                        "**3)** Look for the bot that matches your server's name (Note: these are <@399343165145874444>, <@399344633861242911>, <@399345474156494848>, <@399345241699778560>, <@532768773980028928> and <@711171634492473404>)\n" +
+                        "**3)** Look for the bot that matches your server's name (Note: these are <@399343165145874444>, <@399344633861242911>, <@399345474156494848>, <@399345241699778560>, <@532768773980028928>, <@711171634492473404> and <@715424569027985420>)\n" +
                         "**4)** Send a DM to the respective bot for your server saying \"!link <Your IGN> <Your Pin>\" (e.g !link Shmeeb 00000)\n" +
                         "**5)** Return to our discord and make sure you have received the correct role(s) (Note: If you have any troubles message any staff!)\n"
         );
@@ -123,7 +123,7 @@ public class Embeds {
                 "This tutorial will explain how to appeal your punishments given on the server(s)\n" +
                 "(Note: Pinging/Bothering staff about your appeal will **NOT** reduce the wait time)\n" +
                         " \n" +
-                        "<:pokedash:375433829764169741> **PokeDash**\n" +
+                        "<:pokedash:725057210526335127> **PokeDash**\n" +
                         "**1)** Click the following link: https://www.pokedash.org/appeal\n" +
                         "**2)** Fill out the form & wait for staff to reply\n" +
                         " \n" +
@@ -132,19 +132,19 @@ public class Embeds {
                         "**2)** Click the following link: https://www.pokeverse.org/appeal\n" +
                         "**3)** Fill out the form & wait for staff to reply\n" +
                         " \n" +
-                        "<:pokelegends:628381164939247636> **PokeLegends**\n" +
+                        "<:pokelegends:722273123172614166> **PokeLegends**\n" +
                         "**1)** Click the following link: https://www.pokelegends.net/appeal\n" +
                         "**2)** Fill out the form & wait for staff to reply\n" +
                         " \n" +
-                        "<:pokeclub:526264234716299284> **PokeClub**\n" +
+                        "<:pokeclub:725057231971942490> **PokeClub**\n" +
                         "**1)** Click the following link: https://www.pokeclub.net/appeal\n" +
                         "**2)** Fill out the form & wait for staff to reply\n" +
                         " \n" +
-                        "<:pokebrawl:707662953926623232> **PokeBrawl**\n" +
+                        "<:pokebrawl:722273098744987740> **PokeBrawl**\n" +
                         "**1)** Click the following link: https://www.poke-brawl.com/appeal\n" +
                         "**2)** Fill out the form & wait for staff to reply\n" +
                         " \n" +
-                        "<:pokezone:711289077491564605> **PokeZone**\n" +
+                        "<:pokezoneblue:722273150250909706> **PokeZone**\n" +
                         "**1)** Click the following link: https://www.pokezone.net/appeal\n" +
                         "**2)** Fill out the form & wait for staff to reply\n");
 
@@ -178,12 +178,12 @@ public class Embeds {
         websiteInfo.setColor(Color.green).getDescriptionBuilder().append(
                 "This tutorial will display every server's website!\n" +
                         " \n" +
-                        "<:pokedash:375433829764169741> **PokeDash**: https://www.pokedash.org\n" +
+                        "<:pokedash:725057210526335127> **PokeDash**: https://www.pokedash.org\n" +
                         "<:pokeverse:714032214245113907> **Pokeverse**: https://www.pokeverse.org\n" +
-                        "<:pokelegends:628381164939247636> **PokeLegends**: https://www.pokelegends.net\n" +
-                        "<:pokeclub:526264234716299284> **PokeClub**: https://www.pokeclub.net\n" +
-                        "<:pokebrawl:707662953926623232> **PokeBrawl**: https://www.poke-brawl.com\n" +
-                        "<:pokezone:711289077491564605> **PokeZone**: https://www.pokezone.net\n");
+                        "<:pokelegends:722273123172614166> **PokeLegends**: https://www.pokelegends.net\n" +
+                        "<:pokeclub:725057231971942490> **PokeClub**: https://www.pokeclub.net\n" +
+                        "<:pokebrawl:722273098744987740> **PokeBrawl**: https://www.poke-brawl.com\n" +
+                        "<:pokezoneblue:722273150250909706> **PokeZone**: https://www.pokezone.net\n");
         return websiteInfo;
     }
 
@@ -197,7 +197,7 @@ public class Embeds {
     public static EmbedBuilder IPPD() {
         EmbedBuilder pokedash = new EmbedBuilder();
         pokedash.setTitle("PokeDash Info").setColor(Color.decode("#3cb0d6"))
-                .setThumbnail("https://i.gyazo.com/13255ea852d4551df36e9c1c9c3d4e92.png").getDescriptionBuilder()
+                .setThumbnail("https://i.gyazo.com/2169621b4509d80927fd18cc0533ea65.png").getDescriptionBuilder()
                 .append("**IP:**\tplay.pokedash.org\n**Version:**\t 1.12.2");
         return pokedash;
     }
@@ -213,14 +213,14 @@ public class Embeds {
     public static EmbedBuilder IPPC() {
         EmbedBuilder pokeclub = new EmbedBuilder();
         pokeclub.setTitle("PokeClub Info").setColor(Color.decode("#46ff8b"))
-                .setThumbnail("https://i.gyazo.com/21380d908820fc0c78e95a813e66b5cd.png").getDescriptionBuilder()
+                .setThumbnail("https://i.gyazo.com/647fe588ac9316cc53832cf3c4a78bcf.png").getDescriptionBuilder()
                 .append("**IP:**\tplay.pokeclub.net\n**Version:**\t 1.12.2");
         return pokeclub;
     }
     public static EmbedBuilder IPPL() {
         EmbedBuilder pokelegends = new EmbedBuilder();
         pokelegends.setTitle("PokeLegends Info").setColor(Color.decode("#ff7da1"))
-                .setThumbnail("https://i.gyazo.com/b79efa7c89576238c00ba4ceb503e055.png").getDescriptionBuilder()
+                .setThumbnail("https://i.gyazo.com/0ae07820d91399c59af42c152e248323.png").getDescriptionBuilder()
                 .append("**IP:**\tplay.pokelegends.net\n**Version:**\t 1.12.2");
         return pokelegends;
     }
@@ -228,7 +228,7 @@ public class Embeds {
     public static EmbedBuilder IPPB() {
         EmbedBuilder pokebrawl = new EmbedBuilder();
         pokebrawl.setTitle("PokeBrawl Info").setColor(Color.decode("#8573d1"))
-                .setThumbnail("https://i.gyazo.com/855beae57e80ced02751a3a046e366e0.png").getDescriptionBuilder()
+                .setThumbnail("https://i.gyazo.com/ecc1b06ec30234bf4fd70e5b9ef8431f.png").getDescriptionBuilder()
                 .append("**IP:**\tplay.poke-brawl.com\n**Version:**\t 1.12.2");
         return pokebrawl;
     }
@@ -236,7 +236,7 @@ public class Embeds {
     public static EmbedBuilder IPPZ() {
         EmbedBuilder pokezone = new EmbedBuilder();
         pokezone.setTitle("PokeZone Info").setColor(Color.decode("#89d0e5"))
-                .setThumbnail("https://i.gyazo.com/8b16a7d630dc57177328909d78254b5c.png").getDescriptionBuilder()
+                .setThumbnail("https://i.gyazo.com/ee5b702c85849b5f01cf8b9cee44d4fa.png").getDescriptionBuilder()
                 .append("**IP:**\tplay.pokezone.net\n**Version:**\t 1.12.2");
         return pokezone;
     }
