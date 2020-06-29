@@ -63,20 +63,36 @@ public class SendMessageCommand extends Command {
             String description = embedObject.get("description") != null ? embedObject.get("description").getAsString() : null;
             String color = embedObject.get("color") != null ? embedObject.get("color").getAsString() : null;
 
+
+
             JsonObject footerObject = (JsonObject) embedObject.get("footer");
-            String iconUrlFooter = footerObject.get("icon_url") != null ? footerObject.get("icon_url").getAsString() : null;
-            String textFooter = footerObject.get("text") != null ? footerObject.get("text").getAsString() : null;
+            String iconUrlFooter = null;
+            String textFooter = null;
+            if (footerObject != null) {
+                iconUrlFooter = footerObject.get("icon_url") != null ? footerObject.get("icon_url").getAsString() : null;
+                textFooter = footerObject.get("text") != null ? footerObject.get("text").getAsString() : null;
+            }
+
 
             JsonObject thumbnailObject = (JsonObject) embedObject.get("thumbnail");
             String urlThumbnail = thumbnailObject.get("url") != null ? thumbnailObject.get("url").getAsString() : null;
 
             JsonObject imageObject = (JsonObject) embedObject.get("image");
-            String urlImage = imageObject.get("url") != null ? imageObject.get("url").getAsString() : null;
+            String urlImage = null;
+            if (imageObject != null) {
+                urlImage = imageObject.get("url") != null ? imageObject.get("url").getAsString() : null;
+            }
 
             JsonObject authorObject = (JsonObject) embedObject.get("author");
-            String nameAuthor = authorObject.get("name") != null ? authorObject.get("name").getAsString() : null;
-            String urlAuthor = authorObject.get("url") != null ? authorObject.get("url").getAsString() : null;
-            String iconUrlAuthor = authorObject.get("icon_url") != null ? authorObject.get("icon_url").getAsString() : null;
+            String nameAuthor = null;
+            String urlAuthor = null;
+            String iconUrlAuthor = null;
+            if (authorObject != null) {
+                nameAuthor = authorObject.get("name") != null ? authorObject.get("name").getAsString() : null;
+                urlAuthor = authorObject.get("url") != null ? authorObject.get("url").getAsString() : null;
+                iconUrlAuthor = authorObject.get("icon_url") != null ? authorObject.get("icon_url").getAsString() : null;
+            }
+
 
 
             EmbedBuilder embedBuilder = new EmbedBuilder();
