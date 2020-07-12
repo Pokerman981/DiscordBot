@@ -40,25 +40,25 @@ public class Embeds {
         ramInfo.setColor(Color.green).getDescriptionBuilder().append(
                 "This tutorial will explain how to allocate more ram on **Technic** & **Forge** versions\n" +
                         " \n" +
-                        "**Note:** Make sure you're Java is updated to the most recent version & that you're running 64-bit Java to do so follow these steps\n" +
+                        "**Note:** Make sure your Java is updated to the most recent version & that you're running 64-bit Java to do so follow these steps\n" +
                         "**1)** Go to this link: https://www.java.com/en/download/manual.jsp\n" +
-        "**2)** Download the appropriate link for your computer (3rd link for Windows, only link for Mac)\n" +
-                "**3)** Restart your PC\n" +
-                "**4)** Refer to the following steps\n" +
-                " \n" +
-                "**On Technic**\n" +
-                "**1)** Open the Technic launcher\n" +
-                "**2)** Click on the Launcher Settings button in the top right (Under the cross)\n" +
-                "**3)** Click on the second tab that says 'Java Settings'\n" +
-                "**4)** Click on 'Memory' and make sure that you allocate at least 2GB (2GB-3GB is recommended)\n" +
-                " \n" +
-                "**On Forge**\n" +
-                "**1)** Click on 'Installations' at the top of the launcher\n" +
-                "**2)** Select your correct forge profile\n" +
-                "**3)** Click on 'more options'\n" +
-                "**4)** Under 'JVM Arguments' fine the part that says '-Xmx(Number)G' near the beginning of all the arguments\n" +
-                "**5)** Change the '(Number)' to how many gigabytes of ram you want to use (Note: If you see 'M' instead of 'G' you'll have to set the number in megabytes instead, 1000M = 1GB)\n" +
-                "**6)** Click on 'Save'");
+                        "**2)** Download the appropriate link for your computer (3rd link for Windows, only link for Mac)\n" +
+                        "**3)** Restart your PC\n" +
+                        "**4)** Refer to the following steps\n" +
+                        " \n" +
+                        "**On Technic**\n" +
+                        "**1)** Open the Technic launcher\n" +
+                        "**2)** Click on the Launcher Settings button in the top right (Under the cross)\n" +
+                        "**3)** Click on the second tab that says 'Java Settings'\n" +
+                        "**4)** Click on 'Memory' and make sure that you allocate at least 2GB (2GB-3GB is recommended)\n" +
+                        " \n" +
+                        "**On Forge**\n" +
+                        "**1)** Click on 'Installations' at the top of the launcher\n" +
+                        "**2)** Select your correct forge profile\n" +
+                        "**3)** Click on 'more options'\n" +
+                        "**4)** Under 'JVM Arguments' fine the part that says '-Xmx(Number)G' near the beginning of all the arguments\n" +
+                        "**5)** Change the '(Number)' to how many gigabytes of ram you want to use (Note: If you see 'M' instead of 'G' you'll have to set the number in megabytes instead, 1000M = 1GB)\n" +
+                        "**6)** Click on 'Save'");
 
         return ramInfo;
     }
@@ -79,41 +79,63 @@ public class Embeds {
         return linkInfo;
     }
 
-    public static EmbedBuilder logInfo() {
-        EmbedBuilder logInfo = new EmbedBuilder();
+    public static EmbedBuilder logsWin() {
+        EmbedBuilder logsWin = new EmbedBuilder();
 
-        logInfo.setColor(Color.green).getDescriptionBuilder().append(
-                "This tutorial will explain how to access logs on **Technic** & **Forge** versions\n" +
+        logsWin.setColor(Color.green).getDescriptionBuilder().append(
+                "This tutorial will explain how to access logs on Windows!\n" +
                         " \n" +
-                        " \n" +
-                        "**For Technic**\n" +
-                        "-Windows Guide\n" +
-                        "**1)** Press on \"Win + R\"\n" +
-                        "**2)** Type in \"%appdata%\" and press Enter/Ok\n" +
-                        "**3)** Go to \".technic\\modpacks\\ultimate-reallife-roleplay\\logs\"\n" +
-                        "**4)** Look through your log files and find the appropriate one\n\t" +
-                        "(Pro Tips: Use the shortcut \"Ctrl + F\" to search for specific keywords! These can include player names, pokemon names, or commands!)\n" +
-                        "**5)** Save your evidence and message staff!\n" +
-                        " \n" +
-                        "-Mac Guide\n" +
-                        "**1)** Open the Technic Launcher and go to our Modpack\n" +
-                        "**2)** Click on \"Modpack Options\" and it should redirect you to the Modpack files\n" +
-                        "**3)** In the Modpack files, you should be able to see a \"Logs\" folder, click that\n" +
-                        "**4)** Look through your log files and find the appropriate one\n\t" +
-                        "(Pro Tips: Use the shortcut \"Cmd + F\" to search for specific keywords! These can include player names, pokemon names, or commands!)\n" +
-                        "**5)** Save your evidence and message staff!\n" +
-                        " \n" +
-                        " \n" +
-                        "**For Forge**\n" +
-                        "-Windows Guide\n" +
+                        "**Forge**\n" +
                         "**1)** Press on \"Win + R\"\n" +
                         "**2)** Type in \"%appdata%\" and press Enter/Ok\n" +
                         "**3)** Go to \".minecraft\\logs\"\n" +
                         "**4)** Look through your log files and find the appropriate one\n\t" +
-                        "(Pro Tips: Use the shortcut \"Ctrl + F\" to search for specific keywords! These can include player names, pokemon names, or commands!)\n" +
-                        "**5)** Save your evidence and message staff!"
+                        "(Pro Tips: Use the shortcut \"Ctrl + F\" to search for specific keywords! " +
+                        "These can include player names, pokemon names, or commands!)\n" +
+                        "**5)** Save your evidence and message staff!\n" +
+                        " \n" +
+                        "**Technic**\n" +
+                        "**1)** Press on \"Win + R\"\n" +
+                        "**2)** Type in \"%appdata%\" and press Enter/Ok\n" +
+                        "**3)** Go to \".technic\\modpacks\\ultimate-reallife-roleplay\\logs\"\n" +
+                        "**4)** Look through your log files and find the appropriate one\n\t" +
+                        "(Pro Tips: Use the shortcut \"Ctrl + F\" to search for specific keywords! " +
+                        "These can include player names, pokemon names, or commands!)\n"
         );
-        return logInfo;
+        return logsWin;
+    }
+
+    public static EmbedBuilder logsMac() {
+        EmbedBuilder logsMac = new EmbedBuilder();
+
+        logsMac.setColor(Color.green).getDescriptionBuilder().append(
+                "This tutorial will explain how to access logs on Windows!\n" +
+                        " \n" +
+                        "**Forge**\n" +
+                        "**1)** Open finder\n" +
+                        "**2)** To go \"help\" at the top left\n" +
+                        "**3)** Open the library folder\n" +
+                        "\t**3a)** Open finder and search for \"ÔlibraryÕ\" in help\n" +
+                        "\t**3b)** Follow the arrow from the help bar into the \"ÒGoÓ\" section of finder and double click the library icon\n" +
+                        "\t**3c)** Go directly into the Go section, hold down option to make library appear and open it\n" +
+                        "**4)** Go to \"Application Support\"\n" +
+                        "**5)** Go to your Minecraft folder\n" +
+                        "**6)** Go to \"logs\"\n" +
+                        "**6)** Look through your logs files and find the appropriate one\n\t" +
+                        "(Pro Tips: Use the shortcut \"Cmd + F\" to search for specific keywords!" +
+                        "These can include player names, pokemon names, or commands!)\n" +
+                        "**7)** Save your evidence and message staff!\n" +
+                        " \n" +
+                        "**Technic**\n" +
+                        "**1)** Open the Technic Launcher and go to our Modpack\n" +
+                        "**2)** Click on \"Modpack Options\" and it should redirect you to the Modpack files\n" +
+                        "**3)** In the Modpack files, you should be able to see a \"Logs\" folder, click that\n" +
+                        "**4)** Look through your log files and find the appropriate one\n\t" +
+                        "(Pro Tips: Use the shortcut \"Cmd + F\" to search for specific keywords! " +
+                        "These can include player names, pokemon names, or commands!)\n" +
+                        "**5)** Save your evidence and message staff!\n"
+        );
+        return logsMac;
     }
 
     public static EmbedBuilder appealInfo() {
@@ -253,5 +275,12 @@ public class Embeds {
         noArgs.setTitle("Server IPs").setColor(Color.red).getDescriptionBuilder()
                 .append("**.ip (server name)**\n\n**Servers:**\n\t*pokedash*\n\t*pokeverse*\n\t*pokelegends*\n\t*pokeclub*\n\t*pokebrawl*\n\t*pokezone*");
         return noArgs;
+    }
+
+    public static EmbedBuilder noArgsLogs() {
+        EmbedBuilder noArgsLogs = new EmbedBuilder();
+        noArgsLogs.setTitle("Minecraft Logs").setColor(Color.red).getDescriptionBuilder()
+                .append("**.logs (operating system)**\n\n**Operating Systems:**\n\t*windows*\n\t*mac*");
+        return noArgsLogs;
     }
 }
