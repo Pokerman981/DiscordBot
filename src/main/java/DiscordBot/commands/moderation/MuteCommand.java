@@ -5,7 +5,9 @@ import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.TextChannel;
 
 import java.awt.*;
 import java.lang.reflect.Array;
@@ -82,8 +84,12 @@ public class MuteCommand extends Command {
         Array.set(args, 0, "");
         String reason = Arrays.toString(Arrays.copyOfRange(args, 2, args.length)).replaceAll(",","");
         String time = (args[1]);
+        Guild server = event.getGuild();
+        TextChannel staffLogs = server.getTextChannelById("322915404043517952");
+
         event.reply(muteUser(member, time, reason).setFooter("Muted by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build());
         event.getGuild().addRoleToMember(member, event.getGuild().getRoleById("707675201181057084")).queue();
+        staffLogs.sendMessage((muteUser(member, time, reason).setFooter("Muted by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build())).queue();
     }
 
     public EmbedBuilder muteUser(Member user, String time, String reason) {
@@ -95,7 +101,6 @@ public class MuteCommand extends Command {
                 .getDescriptionBuilder()
                 .append("Muted user: " + user.getAsMention() + " (" + user.getUser().getId() + ")\nMute time: " + time + "\nReason: " + reason);
         return userMuteMessage;
-
     }
 
     private int timeAmount(String time) {

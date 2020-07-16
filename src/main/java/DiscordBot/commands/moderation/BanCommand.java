@@ -5,9 +5,7 @@ import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
-import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.exceptions.ErrorResponseException;
 
 import java.awt.*;
@@ -66,8 +64,12 @@ public class BanCommand extends Command {
             event.replyWarning("User not found in guild! Attempting to ban..");
         }
 
+        Guild server = event.getGuild();
+        TextChannel staffLogs = server.getTextChannelById("322915404043517952");
+
         event.getGuild().ban(resolvedUser,  7).queue();
-        event.reply(banUser(resolvedUser, reason).build());
+        event.reply(banUser(resolvedUser, reason).setFooter("Banned by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build());
+        staffLogs.sendMessage((banUser(resolvedUser, reason).setFooter("Banned by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build())).queue();
     }
 
     public EmbedBuilder banUser(User banid, String reason) {
@@ -79,6 +81,5 @@ public class BanCommand extends Command {
                 .getDescriptionBuilder()
                     .append("Banned user: " + banid.getAsMention() + " (" + banid.getName() + "#" + banid.getDiscriminator() + ")\nReason:" + reason + "");
         return userBanMessage;
-
     }
 }

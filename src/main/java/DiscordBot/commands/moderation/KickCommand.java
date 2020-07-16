@@ -5,9 +5,7 @@ import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
-import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.exceptions.ErrorResponseException;
 
 import java.awt.*;
@@ -52,15 +50,18 @@ public class KickCommand extends Command {
                 return;
             }
 
+            Guild server = event.getGuild();
+            TextChannel staffLogs = server.getTextChannelById("322915404043517952");
+
             event.getGuild().kick(resolvedMember, reason).queue();
-            event.reply(kickUser(resolvedMember.getUser(), reason).build());
+            event.reply(kickUser(resolvedMember.getUser(), reason).setFooter("Kicked by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build());
+            staffLogs.sendMessage((kickUser(resolvedMember.getUser(), reason).setFooter("Kicked by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build())).queue();
 
         } catch (ErrorResponseException e) {
             event.replyError("User not found in guild! Cannot kick!");
         } catch (NumberFormatException e) {
             event.replyError("Cannot find user id!");
         }
-
     }
 
     public EmbedBuilder kickUser(User user, String reason) {
@@ -72,7 +73,5 @@ public class KickCommand extends Command {
                 .getDescriptionBuilder()
                 .append("Kicked user: " + user.getAsMention() + " (" + user.getId() + ")\nReason:" + reason + "");
         return userKickMessage;
-
     }
-
 }

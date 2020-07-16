@@ -5,7 +5,10 @@ import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.TextChannel;
 
 import java.awt.*;
 import java.lang.reflect.Array;
@@ -50,9 +53,11 @@ public class WarnCommand extends Command {
 
         Array.set(args, 0, "");
         String reason = String.join(" ", args);
+        Guild server = event.getGuild();
+        TextChannel staffLogs = server.getTextChannelById("322915404043517952");
 
         event.reply(warnUser(member, reason).setFooter("Warned by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build());
-
+        staffLogs.sendMessage((warnUser(member, reason).setFooter("Warned by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build())).queue();
     }
 
     public EmbedBuilder warnUser(Member warnid, String reason) {
@@ -64,8 +69,5 @@ public class WarnCommand extends Command {
                 .getDescriptionBuilder()
                 .append("Warned user: " + warnid.getAsMention() + " (" + warnid.getUser().getId() + ")\nReason:" + reason + "");
         return userWarnMessage;
-
     }
-
-
 }

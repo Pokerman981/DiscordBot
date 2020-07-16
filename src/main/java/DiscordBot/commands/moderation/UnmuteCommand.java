@@ -4,7 +4,9 @@ import DiscordBot.main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.TextChannel;
 
 import java.awt.*;
 import java.lang.reflect.Array;
@@ -39,9 +41,12 @@ public class UnmuteCommand extends Command {
 
         Array.set(args, 0, "");
         String reason = String.join(" ", args);
+        Guild server = event.getGuild();
+        TextChannel staffLogs = server.getTextChannelById("322915404043517952");
+
         event.reply(muteUser(member, reason).setFooter("Unmuted by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build());
         event.getGuild().removeRoleFromMember(member, event.getGuild().getRoleById("707675201181057084")).submit();
-
+        staffLogs.sendMessage((muteUser(member, reason).setFooter("Unmuted by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build())).queue();
     }
 
     public EmbedBuilder muteUser(Member user, String reason) {
@@ -53,6 +58,5 @@ public class UnmuteCommand extends Command {
                 .getDescriptionBuilder()
                 .append("Unmuted user: " + user.getAsMention() + " (" + user.getUser().getId() + ")");
         return userUnmuteMessage;
-
     }
 }
