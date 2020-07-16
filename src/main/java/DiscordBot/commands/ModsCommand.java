@@ -5,19 +5,18 @@ import DiscordBot.main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 
-
-public class LogsCommand extends Command {
-
-    public LogsCommand(){
-        this.name = "logs";
+public class ModsCommand extends Command {
+    public ModsCommand(){
+        this.name = "mod";
         this.category = main.roleCategories.get("player");
-        this.help = "Displays how to access minecraft logs";
+        this.help = "Displays a tutorial on how to install mods";
+        this.aliases = new String[] {"mods"};
     }
 
     @Override
     protected void execute(CommandEvent event) {
         if(event.getArgs().isEmpty()) {
-            event.reply(Embeds.noArgsLogs().build());
+            event.reply(Embeds.noArgsMods().build());
             return;
         }
 
@@ -25,11 +24,11 @@ public class LogsCommand extends Command {
 
         switch (os[0].toLowerCase()) {
             case "windows": {
-                event.reply(Embeds.logsWin().build());
+                event.reply(Embeds.modsWin().build());
                 break;
             }
             case "mac": {
-                event.reply(Embeds.logsMac().build());
+                event.reply(Embeds.modsMac().build());
                 break;
             }
 
@@ -39,4 +38,9 @@ public class LogsCommand extends Command {
             }
         }
     }
+//    @Override
+//    protected void execute(CommandEvent event) {
+//        if (event.getChannel().getName().contains("-chat")) return;
+//        event.reply(Embeds.modInfo().build());
+//    }
 }

@@ -101,7 +101,7 @@ public class main extends ListenerAdapter {
 					new RamCommand(),
 					new IPCommand(),
                     new LinkCommand(),
-                    new ModCommand(),
+                    new ModsCommand(),
                     new InstallCommand(),
 					new ServerStatusCommand(),
 					new PricesCommand(),
