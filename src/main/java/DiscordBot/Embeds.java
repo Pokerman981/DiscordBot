@@ -150,14 +150,14 @@ public class Embeds {
                         "**Forge**\n" +
                         "**1)** Press Win + R\n" +
                         "**2)** Type in %appdata%\n" +
-                        "**3)** Go to .technic/modpacks/ultimate-reallife-roleplay/mods\n" +
+                        "**3)** Go to .minecraft/mods\n" +
                         "**4)** Drag the downloaded Mod into the mods folder\n" +
                         "**5)** Restart your Minecraft\n" +
                         " \n" +
                         "**Technic**\n" +
                         "**1)** Press Win + R\n" +
                         "**2)** Type in %appdata%\n" +
-                        "**3)** Go to .minecraft/mods\n" +
+                        "**3)** Go to .technic/modpacks/ultimate-reallife-roleplay/mods\n" +
                         "**4)** Drag the downloaded Mod into the mods folder\n" +
                         "**5)** Restart your Minecraft\n");
 
