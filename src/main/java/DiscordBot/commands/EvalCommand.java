@@ -5,8 +5,7 @@ import com.jagrosh.jdautilities.command.CommandEvent;
 
 public class EvalCommand extends Command {
 
-    public EvalCommand()
-    {
+    public EvalCommand() {
         this.name = "eval";
         this.help = "evaluates nashorn code";
         this.ownerCommand = true;

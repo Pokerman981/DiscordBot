@@ -21,12 +21,13 @@ public class ModsCommand extends Command {
         }
 
         String[] os = event.getArgs().split(" ");
-
         switch (os[0].toLowerCase()) {
+            case "win":
             case "windows": {
                 event.reply(Embeds.modsWin().build());
                 break;
             }
+            case "macintosh":
             case "mac": {
                 event.reply(Embeds.modsMac().build());
                 break;
@@ -38,9 +39,5 @@ public class ModsCommand extends Command {
             }
         }
     }
-//    @Override
-//    protected void execute(CommandEvent event) {
-//        if (event.getChannel().getName().contains("-chat")) return;
-//        event.reply(Embeds.modInfo().build());
-//    }
+
 }

@@ -8,7 +8,7 @@ import com.jagrosh.jdautilities.command.CommandEvent;
 
 public class IPCommand extends Command {
 
-    public IPCommand(){
+    public IPCommand() {
         this.name = "ip";
         this.category = main.roleCategories.get("player");
         this.help = "Displays a list of each server's IP address";
@@ -22,7 +22,6 @@ public class IPCommand extends Command {
         }
 
         String[] server = event.getArgs().split(" ");
-
         switch (server[0].toLowerCase()) {
             case "pd":
             case "dash":
@@ -67,4 +66,5 @@ public class IPCommand extends Command {
             }
         }
     }
+
 }

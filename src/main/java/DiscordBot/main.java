@@ -90,12 +90,12 @@ public class main extends ListenerAdapter {
 	    try {
 			//Command builder
 			CommandClientBuilder ccb = new CommandClientBuilder()
-			.setPrefix(".") //Prefix
-			.setAlternativePrefix("**") //Alt prefix
-			.setEmojis("\u2705", "\uD83D\uDCA1", "\uD83D\uDEAB") //Unicode emojis
+			.setPrefix(".") // Main prefix
+			.setAlternativePrefix("!") // Secondary prefix
+			.setEmojis("\u2705", "\uD83D\uDCA1", "\uD83D\uDEAB") // Unicode emojis
 			.setOwnerId("126427288496504834") // Owner ID
 			.setActivity(Activity.playing("¯\\_(ツ)_/¯"))
-			.addCommands( //Commands
+			.addCommands( // Commands
 					new AppealCommand(),
 					new LogsCommand(),
 					new RamCommand(),

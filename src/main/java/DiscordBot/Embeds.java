@@ -60,7 +60,9 @@ public class Embeds {
                         "**3)** Click on 'more options'\n" +
                         "**4)** Under 'JVM Arguments' fine the part that says '-Xmx(Number)G' near the beginning of all the arguments\n" +
                         "**5)** Change the '(Number)' to how many gigabytes of ram you want to use (Note: If you see 'M' instead of 'G' you'll have to set the number in megabytes instead, 1000M = 1GB)\n" +
-                        "**6)** Click on 'Save'\n");
+                        "**6)** Click on 'Save'\n" +
+                        " \n" +
+                        "*For further assistance, consider following this tutorial: http://bit.ly/RAMTutorial");
 
         return ramInfo;
     }

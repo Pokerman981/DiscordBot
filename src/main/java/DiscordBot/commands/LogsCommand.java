@@ -22,12 +22,13 @@ public class LogsCommand extends Command {
         }
 
         String[] os = event.getArgs().split(" ");
-
         switch (os[0].toLowerCase()) {
+            case "win":
             case "windows": {
                 event.reply(Embeds.logsWin().build());
                 break;
             }
+            case "macintosh":
             case "mac": {
                 event.reply(Embeds.logsMac().build());
                 break;
@@ -39,4 +40,5 @@ public class LogsCommand extends Command {
             }
         }
     }
+
 }

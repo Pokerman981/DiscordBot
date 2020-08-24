@@ -11,7 +11,7 @@ public class InstallCommand extends Command {
         this.name = "install";
         this.category = main.roleCategories.get("player");
         this.help = "Displays a tutorial on how to join our servers";
-        this.aliases = new String[] {"download", "modpack"};
+        this.aliases = new String[] { "download", "modpack" };
     }
 
     @Override
@@ -19,4 +19,5 @@ public class InstallCommand extends Command {
         if (event.getChannel().getName().contains("-chat")) return;
         event.reply(Embeds.reforgedInstallInfo().build());
     }
+
 }

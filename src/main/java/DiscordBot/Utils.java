@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Utils {
 
-	// Sendes message with expriy
+	// Sends message with expiry
 	public static void MessageChannelWithDelete(String message, int timer, TextChannel channel) throws InterruptedException, ExecutionException {
 		channel.sendMessage(message).submit().get().delete().queueAfter(timer, TimeUnit.SECONDS);
 	}
@@ -22,20 +22,20 @@ public class Utils {
 	}
 	
 	// Delete the users message
-	public static void DeleteUserMessageWithDelay(Message msg, int timer){
+	public static void DeleteUserMessageWithDelay(Message msg, int timer) {
 		msg.delete().queueAfter(timer, TimeUnit.SECONDS);
 	}
 
-	public static Boolean isStaff(CommandEvent event){
+	public static Boolean isStaff(CommandEvent event) {
 		Member member = event.getMember();
 		
-		if (member.hasPermission(Permission.BAN_MEMBERS)){
+		if (member.hasPermission(Permission.BAN_MEMBERS)) {
 			return true;
 		}
 		return false;
 	}
 
-	public static boolean CheckRequirements(CommandEvent event){
+	public static boolean CheckRequirements(CommandEvent event) {
 		String[] cmd = event.getArgs().split(" ");
 		if (event.getArgs().isEmpty()) {
 			event.replyError("You must supply an argument!");
@@ -58,7 +58,7 @@ public class Utils {
         }
 	}
 
-	public static Member getMember(CommandEvent event){
+	public static Member getMember(CommandEvent event) {
         try {
             String args = event.getArgs().replace("<@", "").replaceAll(">", "");
             event.getGuild().getMemberById(args);

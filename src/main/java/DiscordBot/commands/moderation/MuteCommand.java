@@ -1,5 +1,6 @@
 package DiscordBot.commands.moderation;
 
+import DiscordBot.TimeUtils;
 import DiscordBot.main;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
@@ -14,16 +15,14 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 // TODO Clean up class
 public class MuteCommand extends Command {
-
     int counter = 0;
 
     public MuteCommand() {
         this.name = "mute";
-        this.aliases = new String[]{"m"};
+        this.aliases = new String[] { "m", "tm", "tempmute" };
         this.guildOnly = true;
         this.help = "Mute a specified user";
         this.category = main.roleCategories.get("staff");
@@ -33,18 +32,15 @@ public class MuteCommand extends Command {
 
     @Override
     protected void execute(CommandEvent event) {
-
         String[] args = event.getArgs().split(" ");
         if (event.getArgs().isEmpty()){
             event.replyError("You must supply a user, a time and a reason!");
             return;
         }
-
-        if (args.length == 1){
+        if (args.length == 1) {
             event.replyError("You must supply a time and a reason!");
             return;
         }
-
         if (args.length == 2) {
             event.replyError("You must supply a reason!");
         }
@@ -55,7 +51,7 @@ public class MuteCommand extends Command {
         }
 
         Member member = event.getGuild().getMemberById(args[0].replaceAll("<@", "").replaceAll(">", "").replaceAll("!", ""));
-        if (member.hasPermission(Permission.KICK_MEMBERS)){
+        if (member.hasPermission(Permission.KICK_MEMBERS)) {
             event.replyError("You cannot mute another staff member!");
             return;
         }
@@ -70,8 +66,8 @@ public class MuteCommand extends Command {
             }
         };
 
-        long time1 = timeAmount(args[1]);
-        switch (timeUnit(args[1])) {
+        long time1 = TimeUtils.timeAmount(args[1]);
+        switch (TimeUtils.timeUnit(args[1])) {
             case DAYS : time1*=24;
             case HOURS : time1*=60;
             case MINUTES : time1*=60;
@@ -79,17 +75,20 @@ public class MuteCommand extends Command {
         }
         timer.schedule(task, 0, time1);
 
-
-
         Array.set(args, 0, "");
         String reason = Arrays.toString(Arrays.copyOfRange(args, 2, args.length)).replaceAll(",","");
         String time = (args[1]);
         Guild server = event.getGuild();
-        TextChannel staffLogs = server.getTextChannelById("322915404043517952");
 
         event.reply(muteUser(member, time, reason).setFooter("Muted by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build());
         event.getGuild().addRoleToMember(member, event.getGuild().getRoleById("707675201181057084")).queue();
-        staffLogs.sendMessage((muteUser(member, time, reason).setFooter("Muted by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build())).queue();
+
+        TextChannel staffLogs = server.getTextChannelById("322915404043517952");
+        staffLogs
+                .sendMessage((muteUser(member, time, reason)
+                .setFooter("Muted by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl())
+                .build()))
+                .queue();
     }
 
     public EmbedBuilder muteUser(Member user, String time, String reason) {
@@ -103,59 +102,5 @@ public class MuteCommand extends Command {
         return userMuteMessage;
     }
 
-    private int timeAmount(String time) {
-        TimeUnit unit = TimeUnit.SECONDS;
-        char[] t = time.toCharArray();
-        int breakPoint = 0;
-        String amount = "";
-        int parsedAmount = 0;
-        for (int i = 0; i < t.length; i++) {
-            if (t[i] == 's' || t[i] == 'S') {
-                unit = TimeUnit.SECONDS;
-                breakPoint = i;
-                break;
-            }	else if (t[i] == 'm' || t[i] == 'M') {
-                unit = TimeUnit.MINUTES;
-                breakPoint = i;
-                break;
-            }	else if (t[i] == 'h' || t[i] == 'H') {
-                unit = TimeUnit.HOURS;
-                breakPoint = i;
-                break;
-            }	else if (t[i] == 'd' || t[i] == 'D') {
-                unit = TimeUnit.DAYS;
-                breakPoint = i;
-                break;
-            }
-        }
 
-        for (int i = 0; i < breakPoint; i++) {
-            amount += t[i];
-        }
-        parsedAmount = Integer.parseInt(amount);
-        return parsedAmount;
-    }
-
-    private TimeUnit timeUnit(String time) {
-        TimeUnit unit = TimeUnit.SECONDS;
-        char[] t = time.toCharArray();
-        String amount = "";
-        int parsedAmount = 0;
-        for (int i = 0; i < t.length; i++) {
-            if (t[i] == 's' || t[i] == 'S') {
-                unit = TimeUnit.SECONDS;
-                break;
-            }	else if (t[i] == 'm' || t[i] == 'M') {
-                unit = TimeUnit.MINUTES;
-                break;
-            }	else if (t[i] == 'h' || t[i] == 'H') {
-                unit = TimeUnit.HOURS;
-                break;
-            }	else if (t[i] == 'd' || t[i] == 'D') {
-                unit = TimeUnit.DAYS;
-                break;
-            }
-        }
-        return unit;
-    }
 }

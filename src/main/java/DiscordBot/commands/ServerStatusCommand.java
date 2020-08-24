@@ -56,6 +56,7 @@ public class ServerStatusCommand extends Command {
             eb.getDescriptionBuilder().append("\n:x: **Pokedash**\n \t\t**"
                     + "Server Offline!**\n");
         }
+
         try {
             pokeverse = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.pokeverse.org").setPort(25565));
             eb.getDescriptionBuilder().append("\n<:pokeverse:714032214245113907> **Pokeverse**\n \t\t**"
@@ -65,6 +66,7 @@ public class ServerStatusCommand extends Command {
             eb.getDescriptionBuilder().append("\n:x: **Pokeverse**\n \t\t**"
                     + "Server Offline!**\n");
         }
+
         try {
             pokelegends = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.pokelegends.net").setPort(25565));
             eb.getDescriptionBuilder().append("\n<:pokelegends:722273123172614166> **PokeLegends**\n \t\t**"
@@ -74,6 +76,7 @@ public class ServerStatusCommand extends Command {
             eb.getDescriptionBuilder().append("\n:x: **PokeLegends**\n \t\t**"
                     + "Server Offline!**\n");
         }
+
         try {
             pokeclub = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.pokeclub.net").setPort(25565));
             eb.getDescriptionBuilder().append("\n<:pokeclub:725057231971942490> **PokeClub**\n \t\t**"
@@ -94,7 +97,6 @@ public class ServerStatusCommand extends Command {
                     + "Server Offline!**\n");
         }
 
-
         try {
             pokezone = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.pokezone.net").setPort(25565));
             eb.getDescriptionBuilder().append("\n<:pokezoneblue:722273150250909706> **PokeZone**\n \t\t**"
@@ -110,7 +112,7 @@ public class ServerStatusCommand extends Command {
 
             event.getChannel().editMessageById(id, eb.build()).queue();
 
-        } catch (ExecutionException | InterruptedException e){
+        } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
     }
