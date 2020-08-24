@@ -24,26 +24,38 @@ public class IPCommand extends Command {
         String[] server = event.getArgs().split(" ");
 
         switch (server[0].toLowerCase()) {
+            case "pd":
+            case "dash":
             case "pokedash": {
                 event.reply(Embeds.IPPD().build());
                 break;
             }
+            case "pv":
+            case "verse":
             case "pokeverse": {
                 event.reply(Embeds.IPPV().build());
                 break;
             }
+            case "pl":
+            case "legends":
             case "pokelegends": {
                 event.reply(Embeds.IPPL().build());
                 break;
             }
+            case "pc":
+            case "club":
             case "pokeclub": {
                 event.reply(Embeds.IPPC().build());
                 break;
             }
+            case "pb":
+            case "brawl":
             case "pokebrawl": {
                 event.reply(Embeds.IPPB().build());
                 break;
             }
+            case "pz":
+            case "zone":
             case "pokezone": {
                 event.reply(Embeds.IPPZ().build());
                 break;
