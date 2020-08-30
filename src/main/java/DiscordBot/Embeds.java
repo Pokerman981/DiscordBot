@@ -71,14 +71,14 @@ public class Embeds {
         EmbedBuilder linkInfo = new EmbedBuilder();
 
         linkInfo.setColor(Color.green).getDescriptionBuilder()
-                .append("This tutorial will show you how to link your discord account to your Minecraft IGN\n" +
-                        "(Note: This is only for donators or veteran ranked players!)\n" +
+                .append("This tutorial will show you how to link your discord account to your Minecraft Account\n" +
+                        "*(Note: This is for all players!)*\n" +
                         " \n" +
                         "**1)** On the server you play on, run the command \"/link\"\n" +
-                        "**2)** Note down the PIN given to you in game (Note: if you lose this PIN, message a staff member and they can recover it for you!)\n" +
-                        "**3)** Look for the bot that matches your server's name (Note: these are <@399343165145874444>, <@399344633861242911>, <@399345474156494848>, <@399345241699778560>, <@532768773980028928>, <@711171634492473404> and <@715424569027985420>)\n" +
-                        "**4)** Send a DM to the respective bot for your server saying \"!link <Your IGN> <Your Pin>\" (e.g !link Shmeeb 00000)\n" +
-                        "**5)** Return to our discord and make sure you have received the correct role(s) (Note: If you have any troubles message any staff!)\n");
+                        "**2)** Note down the PIN given to you in game (Note: if you lose this PIN, /link will restate it!)\n" +
+                        "**3)** Look for the bot that matches your server's name. It should tell you which one in game upon running /link. (Note: these are <@!399343165145874444>, <@!399344633861242911>, <@!399345474156494848>, <@!399345241699778560>, <@!532768773980028928>, <@!711171634492473404> and <@!715424569027985420>)\n" +
+                        "**4)** Send a DM to the bot for your server saying your pin (e.g. 111111)\n" +
+                        "**5)** Return to our discord and make sure you have received the correct role(s). These would be Verified, your server's role, and the ServerDonator role if you are a Donator or Veteran. (Note: If you have any troubles message any staff!)\n");
 
         return linkInfo;
     }
