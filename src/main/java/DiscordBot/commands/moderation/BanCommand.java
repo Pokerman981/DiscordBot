@@ -13,10 +13,9 @@ import java.lang.reflect.Array;
 
 public class BanCommand extends Command {
 
-
-    public BanCommand(){
+    public BanCommand() {
         this.name = "ban";
-        this.aliases = new String[] {"begonethot"};
+        this.aliases = new String[] { "b", "begonethot", "byebye" };
         this.guildOnly = true;
         this.help = "Ban a specified user";
         this.category = main.roleCategories.get("staff");
@@ -31,7 +30,6 @@ public class BanCommand extends Command {
             event.replyError("You must supply a user and a reason!");
             return;
         }
-
         if (args.length == 1){
             event.replyError("You must supply a reason!");
             return;
@@ -48,14 +46,12 @@ public class BanCommand extends Command {
         Array.set(args, 0, "");
         String reason = String.join(" ", args);
 
-
         User resolvedUser = event.getJDA().retrieveUserById(userID).complete();
         Member resolvedMember;
         Role resolvedRole;
         try {
             resolvedMember = event.getGuild().retrieveMember(resolvedUser).complete();
             resolvedRole = event.getGuild().getRoleById(main.staffRankID);
-
             if (resolvedMember.getRoles().contains(resolvedRole) || resolvedMember.hasPermission(Permission.BAN_MEMBERS)) {
                 event.replyError("You cannot ban another staff member!");
                 return;
@@ -65,11 +61,16 @@ public class BanCommand extends Command {
         }
 
         Guild server = event.getGuild();
-        TextChannel staffLogs = server.getTextChannelById("322915404043517952");
 
         event.getGuild().ban(resolvedUser,  7).queue();
         event.reply(banUser(resolvedUser, reason).setFooter("Banned by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build());
-        staffLogs.sendMessage((banUser(resolvedUser, reason).setFooter("Banned by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build())).queue();
+
+        TextChannel staffLogs = server.getTextChannelById("322915404043517952");
+        staffLogs
+                .sendMessage((banUser(resolvedUser, reason)
+                .setFooter("Banned by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl())
+                .build()))
+                .queue();
     }
 
     public EmbedBuilder banUser(User banid, String reason) {
@@ -82,4 +83,5 @@ public class BanCommand extends Command {
                     .append("Banned user: " + banid.getAsMention() + " (" + banid.getName() + "#" + banid.getDiscriminator() + ")\nReason:" + reason + "");
         return userBanMessage;
     }
+
 }

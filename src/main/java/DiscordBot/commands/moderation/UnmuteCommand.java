@@ -15,7 +15,7 @@ public class UnmuteCommand extends Command {
 
     public UnmuteCommand() {
         this.name = "unmute";
-        this.aliases = new String[]{"um"};
+        this.aliases = new String[] { "um" };
         this.guildOnly = true;
         this.help = "Unmute a specified user";
         this.category = main.roleCategories.get("staff");
@@ -27,7 +27,7 @@ public class UnmuteCommand extends Command {
     protected void execute(CommandEvent event) {
 
         String[] args = event.getArgs().split(" ");
-        if (event.getArgs().isEmpty()){
+        if (event.getArgs().isEmpty()) {
             event.replyError("You must supply a user and a reason!");
             return;
         }
@@ -42,11 +42,16 @@ public class UnmuteCommand extends Command {
         Array.set(args, 0, "");
         String reason = String.join(" ", args);
         Guild server = event.getGuild();
-        TextChannel staffLogs = server.getTextChannelById("322915404043517952");
 
         event.reply(muteUser(member, reason).setFooter("Unmuted by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build());
         event.getGuild().removeRoleFromMember(member, event.getGuild().getRoleById("707675201181057084")).submit();
-        staffLogs.sendMessage((muteUser(member, reason).setFooter("Unmuted by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build())).queue();
+
+        TextChannel staffLogs = server.getTextChannelById("322915404043517952");
+        staffLogs
+                .sendMessage((muteUser(member, reason)
+                .setFooter("Unmuted by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl())
+                .build()))
+                .queue();
     }
 
     public EmbedBuilder muteUser(Member user, String reason) {
@@ -59,4 +64,5 @@ public class UnmuteCommand extends Command {
                 .append("Unmuted user: " + user.getAsMention() + " (" + user.getUser().getId() + ")");
         return userUnmuteMessage;
     }
+
 }

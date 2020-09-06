@@ -44,10 +44,6 @@ public class SendMessageCommand extends Command {
             event.replyError("Unable to find: " + args[0]);
             return;
         }
-
-
-
-
         if (targetFile.getName().contains(".json")) {
             JsonParser jsonParser = new JsonParser();
             JsonObject jsonObject = null;
@@ -64,7 +60,6 @@ public class SendMessageCommand extends Command {
             String color = embedObject.get("color") != null ? embedObject.get("color").getAsString() : null;
 
 
-
             JsonObject footerObject = (JsonObject) embedObject.get("footer");
             String iconUrlFooter = null;
             String textFooter = null;
@@ -72,7 +67,6 @@ public class SendMessageCommand extends Command {
                 iconUrlFooter = footerObject.get("icon_url") != null ? footerObject.get("icon_url").getAsString() : null;
                 textFooter = footerObject.get("text") != null ? footerObject.get("text").getAsString() : null;
             }
-
 
             JsonObject thumbnailObject = (JsonObject) embedObject.get("thumbnail");
             String urlThumbnail = thumbnailObject.get("url") != null ? thumbnailObject.get("url").getAsString() : null;
@@ -92,8 +86,6 @@ public class SendMessageCommand extends Command {
                 urlAuthor = authorObject.get("url") != null ? authorObject.get("url").getAsString() : null;
                 iconUrlAuthor = authorObject.get("icon_url") != null ? authorObject.get("icon_url").getAsString() : null;
             }
-
-
 
             EmbedBuilder embedBuilder = new EmbedBuilder();
             embedBuilder.setDescription(description);

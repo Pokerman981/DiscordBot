@@ -21,28 +21,32 @@ public class NetworkCounter extends TimerTask {
         MinecraftPingReply pokelegends;
         MinecraftPingReply pokeclub;
         MinecraftPingReply pokebrawl;
+        MinecraftPingReply pokezoneblue;
+        MinecraftPingReply pokezonered;
+        MinecraftPingReply pokezonehub;
 
         int total = 0;
         try {
-                pokedash = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.pokedash.org").setPort(25565));
-                total = total + pokedash.getPlayers().getOnline();
+            pokedash = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.pokedash.org").setPort(25565));
+            total = total + pokedash.getPlayers().getOnline();
 
+            pokeverse = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.pokeverse.org").setPort(25565));
+            total = total + pokeverse.getPlayers().getOnline();
 
-                pokeverse = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.pokeverse.org").setPort(25565));
-                total = total + pokeverse.getPlayers().getOnline();
+            pokelegends = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.pokelegends.net").setPort(25565));
+            total = total + pokelegends.getPlayers().getOnline();
 
+            pokeclub = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.pokeclub.net").setPort(25565));
+            total = total + pokeclub.getPlayers().getOnline();
 
-                pokelegends = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.pokelegends.net").setPort(25565));
-                total = total + pokelegends.getPlayers().getOnline();
+            pokebrawl = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.poke-brawl.com").setPort(25565));
+            total = total + pokebrawl.getPlayers().getOnline();
 
-
-                pokeclub = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.pokeclub.net").setPort(25565));
-                total = total + pokeclub.getPlayers().getOnline();
-
-
-                pokebrawl = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("play.poke-brawl.com").setPort(25565));
-                total = total + pokebrawl.getPlayers().getOnline();
-        } catch (IOException e){
+            pokezoneblue = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("54.39.131.175").setPort(25572));
+            pokezonered = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("144.217.10.81").setPort(25571));
+            pokezonehub = new MinecraftPing().getPing(new MinecraftPingOptions().setHostname("144.217.10.81").setPort(25570));
+            total = total + pokezoneblue.getPlayers().getOnline() + pokezonered.getPlayers().getOnline() + pokezonehub.getPlayers().getOnline();
+        } catch (IOException e) {
             e.printStackTrace();
         }
 

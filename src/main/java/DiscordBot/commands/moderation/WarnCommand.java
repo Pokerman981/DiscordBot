@@ -7,7 +7,6 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.TextChannel;
 
 import java.awt.*;
@@ -17,7 +16,7 @@ public class WarnCommand extends Command {
 
     public WarnCommand() {
         this.name = "warn";
-        this.aliases = new String[]{"w"};
+        this.aliases = new String[] { "w" };
         this.guildOnly = true;
         this.help = "Warn a specified user";
         this.category = main.roleCategories.get("staff");
@@ -32,7 +31,6 @@ public class WarnCommand extends Command {
             event.replyError("You must supply a user and a reason!");
             return;
         }
-
         if (args.length == 1){
             event.replyError("You must supply a reason!");
             return;
@@ -45,7 +43,7 @@ public class WarnCommand extends Command {
 
         Member member = event.getGuild().getMemberById(args[0].replaceAll("<@", "").replaceAll(">", "").replaceAll("!", ""));
 
-        if (member.hasPermission(Permission.KICK_MEMBERS)){
+        if (member.hasPermission(Permission.KICK_MEMBERS)) {
             event.replyError("You cannot warn another staff member!");
             return;
         }
@@ -54,10 +52,15 @@ public class WarnCommand extends Command {
         Array.set(args, 0, "");
         String reason = String.join(" ", args);
         Guild server = event.getGuild();
-        TextChannel staffLogs = server.getTextChannelById("322915404043517952");
 
         event.reply(warnUser(member, reason).setFooter("Warned by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build());
-        staffLogs.sendMessage((warnUser(member, reason).setFooter("Warned by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build())).queue();
+
+        TextChannel staffLogs = server.getTextChannelById("322915404043517952");
+        staffLogs
+                .sendMessage((warnUser(member, reason)
+                .setFooter("Warned by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl())
+                .build()))
+                .queue();
     }
 
     public EmbedBuilder warnUser(Member warnid, String reason) {
@@ -70,4 +73,5 @@ public class WarnCommand extends Command {
                 .append("Warned user: " + warnid.getAsMention() + " (" + warnid.getUser().getId() + ")\nReason:" + reason + "");
         return userWarnMessage;
     }
+
 }

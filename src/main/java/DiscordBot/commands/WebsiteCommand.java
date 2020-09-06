@@ -6,9 +6,10 @@ import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 
 public class WebsiteCommand extends Command {
-    public WebsiteCommand(){
+
+    public WebsiteCommand() {
         this.name = "website";
-        this.aliases = new String[] { "site", "sites", "websites" };
+        this.aliases = new String[] { "site", "url" };
         this.category = main.roleCategories.get("player");
         this.help = "Displays links to all server websites!";
     }

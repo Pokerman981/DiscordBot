@@ -60,7 +60,9 @@ public class Embeds {
                         "**3)** Click on 'more options'\n" +
                         "**4)** Under 'JVM Arguments' fine the part that says '-Xmx(Number)G' near the beginning of all the arguments\n" +
                         "**5)** Change the '(Number)' to how many gigabytes of ram you want to use (Note: If you see 'M' instead of 'G' you'll have to set the number in megabytes instead, 1000M = 1GB)\n" +
-                        "**6)** Click on 'Save'\n");
+                        "**6)** Click on 'Save'\n" +
+                        " \n" +
+                        "*For further assistance, consider following this tutorial: http://bit.ly/RAMTutorial");
 
         return ramInfo;
     }
@@ -74,8 +76,8 @@ public class Embeds {
                         " \n" +
                         "**1)** On the server you play on, run the command \"/link\"\n" +
                         "**2)** Note down the PIN given to you in game (Note: if you lose this PIN, /link will restate it!)\n" +
-                        "**3)** Look for the bot that matches your server's name. It should tell you which one in game upon running /link. (Note: these are <@!399343165145874444>, <@!399344633861242911>, <@!399345474156494848>, <@!399345241699778560>, <@!532768773980028928>, <@!711171634492473404> and <@!715424569027985420>)\n" +
-                        "**4)** Send a Direct Message to the bot for your server saying your pin (e.g. 111111)\n" +
+                        "**3)** Look for the bot that matches your server's name. It should tell you which one in game upon running /link. (Note: these are <@!399343165145874444>, <@!399344633861242911>, <@!399345474156494848>, <@!399345241699778560>, <@!532768773980028928>, <@!749359623382892676> and <@!749359731612582030>)\n" +
+                        "**4)** Send a DM to the bot for your server saying your pin (e.g. 111111)\n" +
                         "**5)** Return to our discord and make sure you have received the correct role(s). These would be Verified, your server's role, and the ServerDonator role if you are a Donator or Veteran. (Note: If you have any troubles message any staff!)\n");
 
         return linkInfo;

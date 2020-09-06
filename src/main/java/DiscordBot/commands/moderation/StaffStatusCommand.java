@@ -6,6 +6,7 @@ import com.jagrosh.jdautilities.command.CommandEvent;
 
 
 public class StaffStatusCommand extends Command {
+
     public StaffStatusCommand() {
         this.name = "sstatus";
         this.guildOnly = true;
@@ -20,4 +21,5 @@ public class StaffStatusCommand extends Command {
         if (event.getArgs().isEmpty())
             event.replyError("You must specify a server! You can use the 2 letter abbreviation.");
     }
+
 }

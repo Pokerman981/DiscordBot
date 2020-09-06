@@ -15,6 +15,7 @@ public class KickCommand extends Command {
 
     public KickCommand() {
         this.name = "kick";
+        this.aliases = new String[] { "k" };
         this.guildOnly = true;
         this.help = "Kick a specified user";
         this.category = main.roleCategories.get("staff");
@@ -29,18 +30,15 @@ public class KickCommand extends Command {
             event.replyError("You must supply a user and a reason!");
             return;
         }
-
         if (args.length == 1){
             event.replyError("You must supply a reason!");
             return;
         }
 
         try {
-
             String userID = args[0].replaceAll("<@", "").replaceAll(">", "").replaceAll("!", "");
-
-            Array.set(args, 0, "");
             String reason = String.join(" ", args);
+            Array.set(args, 0, "");
 
             Member resolvedMember = event.getGuild().retrieveMemberById(userID).complete();
             Role resolvedRole = event.getGuild().getRoleById(main.staffRankID);
@@ -51,12 +49,15 @@ public class KickCommand extends Command {
             }
 
             Guild server = event.getGuild();
-            TextChannel staffLogs = server.getTextChannelById("322915404043517952");
 
             event.getGuild().kick(resolvedMember, reason).queue();
             event.reply(kickUser(resolvedMember.getUser(), reason).setFooter("Kicked by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build());
-            staffLogs.sendMessage((kickUser(resolvedMember.getUser(), reason).setFooter("Kicked by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl()).build())).queue();
 
+            TextChannel staffLogs = server.getTextChannelById("322915404043517952");
+            staffLogs.sendMessage((kickUser(resolvedMember.getUser(), reason)
+                    .setFooter("Kicked by " + event.getAuthor().getName() + "#" + event.getAuthor().getDiscriminator(), event.getAuthor().getAvatarUrl())
+                    .build()))
+                    .queue();
         } catch (ErrorResponseException e) {
             event.replyError("User not found in guild! Cannot kick!");
         } catch (NumberFormatException e) {
@@ -74,4 +75,5 @@ public class KickCommand extends Command {
                 .append("Kicked user: " + user.getAsMention() + " (" + user.getId() + ")\nReason:" + reason + "");
         return userKickMessage;
     }
+
 }
