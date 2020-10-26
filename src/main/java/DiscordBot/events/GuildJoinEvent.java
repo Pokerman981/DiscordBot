@@ -13,19 +13,30 @@ import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.time.OffsetDateTime;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class GuildJoinEvent implements EventListener {
 
 	@Override
 	public void onEvent(@NotNull GenericEvent e) {
-		if (e instanceof GuildMemberJoinEvent){
+
+		if (e instanceof GuildMemberJoinEvent) {
+
 			GuildMemberJoinEvent event = (GuildMemberJoinEvent) e;
 
 			TextChannel channel = event.getGuild().getTextChannelsByName("join-leave-log", true).get(0);
 			channel.sendMessage(onJoin((event).getUser(), (event).getGuild()).build()).queue();
-			
-			int memberCount = event.getGuild().getMembers().size();
-			event.getGuild().getVoiceChannelById("527244427920539688").getManager().setName("Member Count: " + memberCount).queue();
+
+
+			Timer timer = new Timer();
+			timer.schedule(new TimerTask() {
+				@Override
+				public void run() {
+					int memberCount = event.getGuild().getMembers().size();
+					event.getGuild().getVoiceChannelById("527244427920539688").getManager().setName("Member Count: " + memberCount).queue();
+				}
+			}, 0, 300 * 1000);
 		}
 	}
 	
