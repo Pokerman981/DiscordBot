@@ -7,17 +7,9 @@ import java.awt.*;
 public class Embeds {
 
     public static EmbedBuilder onServerStatusEmbed() {
-        EmbedBuilder eb = new EmbedBuilder().setTitle("**Pixelmon+ Server Stats**\n").setColor(Color.decode("#19750b"));
+        EmbedBuilder eb = new EmbedBuilder().setTitle("**PokeZone Server Stats**\n").setColor(Color.decode("#19750b"));
 
         return eb;
-    }
-
-    public static EmbedBuilder onUnsupportedTypes() {
-        EmbedBuilder error = new EmbedBuilder();
-        error.setColor(Color.RED).setTitle(":x: **Unsupported Argument!**").getDescriptionBuilder()
-                .append("This argument is not supported for this command!\n");
-
-        return error;
     }
 
     public static EmbedBuilder reforgedInstallInfo() {
@@ -198,55 +190,29 @@ public class Embeds {
         return modsMac;
     }
 
-    public static EmbedBuilder appealInfo() {
-        EmbedBuilder appealInfo = new EmbedBuilder();
-
-        appealInfo.setColor(Color.green).getDescriptionBuilder()
-                .append("This tutorial will explain how to appeal your punishments given on the server(s)\n" +
-                        "(Note: Pinging/Bothering staff about your appeal will **NOT** reduce the wait time)\n" +
-                        " \n" +
-                        "<:pokedash:725057210526335127> **PokeDash**\n" +
-                        "**1)** Click the following link: https://www.pokedash.org/appeal\n" +
-                        "**2)** Fill out the form & wait for staff to reply\n" +
-                        " \n" +
-                        "<:pokeverse:714032214245113907> **Pokeverse**\n" +
-                        "**1)** Read the Appeal format link before appealing: https://pxl.plus/pvappealform\n" +
-                        "**2)** Click the following link: https://www.pokeverse.org/appeal\n" +
-                        "**3)** Fill out the form & wait for staff to reply\n" +
-                        " \n" +
-                        "<:pokelegends:722273123172614166> **PokeLegends**\n" +
-                        "**1)** Click the following link: https://www.pokelegends.net/appeal\n" +
-                        "**2)** Fill out the form & wait for staff to reply\n" +
-                        " \n" +
-                        "<:pokeclub:725057231971942490> **PokeClub**\n" +
-                        "**1)** Click the following link: https://www.pokeclub.net/appeal\n" +
-                        "**2)** Fill out the form & wait for staff to reply\n" +
-                        " \n" +
-                        "<:pokebrawl:722273098744987740> **PokeBrawl**\n" +
-                        "**1)** Click the following link: https://www.poke-brawl.com/appeal\n" +
-                        "**2)** Fill out the form & wait for staff to reply\n" +
-                        " \n" +
-                        "<:pokezoneblue:722273150250909706> **PokeZone**\n" +
-                        "**1)** Click the following link: https://www.pokezone.net/appeal\n" +
-                        "**2)** Fill out the form & wait for staff to reply\n");
-
-        return appealInfo;
-    }
-
-    public static EmbedBuilder websiteInfo() {
+    public static EmbedBuilder siteInfo() {
         EmbedBuilder websiteInfo = new EmbedBuilder();
 
-        websiteInfo.setColor(Color.green).getDescriptionBuilder()
-                .append("This tutorial will display every server's website!\n" +
-                        " \n" +
-                        "<:pokedash:725057210526335127> **PokeDash**: https://www.pokedash.org\n" +
-                        "<:pokeverse:714032214245113907> **Pokeverse**: https://www.pokeverse.org\n" +
-                        "<:pokelegends:722273123172614166> **PokeLegends**: https://www.pokelegends.net\n" +
-                        "<:pokeclub:725057231971942490> **PokeClub**: https://www.pokeclub.net\n" +
-                        "<:pokebrawl:722273098744987740> **PokeBrawl**: https://www.poke-brawl.com\n" +
-                        "<:pokezoneblue:722273150250909706> **PokeZone**: https://www.pokezone.net\n");
+        websiteInfo
+                .setTitle("PokeZone Website")
+                .setColor(Color.green)
+                .setThumbnail("https://i.gyazo.com/ee5b702c85849b5f01cf8b9cee44d4fa.png").getDescriptionBuilder()
+                .append("**Site:**\thttps://www.pokezone.net\n");
 
         return websiteInfo;
+    }
+
+    public static EmbedBuilder appInfo() {
+        EmbedBuilder appealInfo = new EmbedBuilder();
+
+        appealInfo
+                .setTitle("PokeZone Appeals and Applications")
+                .setColor(Color.decode("#89d0e5"))
+                .setThumbnail("https://i.gyazo.com/ee5b702c85849b5f01cf8b9cee44d4fa.png")
+                .getDescriptionBuilder()
+                .append("**Site:**\thttps://www.pixelmonplus.com\n");
+
+        return appealInfo;
     }
 
     public static EmbedBuilder pricesInfo() {
@@ -264,80 +230,17 @@ public class Embeds {
 
         return pricesInfo;
     }
-    public static EmbedBuilder supplyServer() {
-        EmbedBuilder supplyServer = new EmbedBuilder();
-        supplyServer.setColor(Color.red).getDescriptionBuilder().append("Please supply a server");
 
-        return supplyServer;
-    }
+    public static EmbedBuilder ipInfo() {
+        EmbedBuilder ipInfo = new EmbedBuilder();
 
-    public static EmbedBuilder IPPD() {
-        EmbedBuilder pokedash = new EmbedBuilder();
-        pokedash.setTitle("PokeDash Info").setColor(Color.decode("#3cb0d6"))
-                .setThumbnail("https://i.gyazo.com/2169621b4509d80927fd18cc0533ea65.png").getDescriptionBuilder()
-                .append("**IP:**\tplay.pokedash.org\n**Version:**\t 1.12.2");
-
-        return pokedash;
-    }
-
-    public static EmbedBuilder IPPV() {
-        EmbedBuilder pokeverse = new EmbedBuilder();
-        pokeverse.setTitle("Pokeverse Info").setColor(Color.decode("#f1c40f"))
-                .setThumbnail("https://i.gyazo.com/d92082e99c3e2c17d675adc130e83091.png").getDescriptionBuilder()
-                .append("**IP:**\tplay.pokeverse.org\n**Version:**\t 1.12.2");
-
-        return pokeverse;
-    }
-
-    public static EmbedBuilder IPPC() {
-        EmbedBuilder pokeclub = new EmbedBuilder();
-        pokeclub.setTitle("PokeClub Info").setColor(Color.decode("#46ff8b"))
-                .setThumbnail("https://i.gyazo.com/647fe588ac9316cc53832cf3c4a78bcf.png").getDescriptionBuilder()
-                .append("**IP:**\tplay.pokeclub.net\n**Version:**\t 1.12.2");
-
-        return pokeclub;
-    }
-    public static EmbedBuilder IPPL() {
-        EmbedBuilder pokelegends = new EmbedBuilder();
-        pokelegends.setTitle("PokeLegends Info").setColor(Color.decode("#ff7da1"))
-                .setThumbnail("https://i.gyazo.com/0ae07820d91399c59af42c152e248323.png").getDescriptionBuilder()
-                .append("**IP:**\tplay.pokelegends.net\n**Version:**\t 1.12.2");
-
-        return pokelegends;
-    }
-
-    public static EmbedBuilder IPPB() {
-        EmbedBuilder pokebrawl = new EmbedBuilder();
-        pokebrawl.setTitle("PokeBrawl Info").setColor(Color.decode("#8573d1"))
-                .setThumbnail("https://i.gyazo.com/ecc1b06ec30234bf4fd70e5b9ef8431f.png").getDescriptionBuilder()
-                .append("**IP:**\tplay.poke-brawl.com\n**Version:**\t 1.12.2");
-
-        return pokebrawl;
-    }
-
-    public static EmbedBuilder IPPZ() {
-        EmbedBuilder pokezone = new EmbedBuilder();
-        pokezone.setTitle("PokeZone Info").setColor(Color.decode("#89d0e5"))
+        ipInfo
+                .setTitle("PokeZone IP")
+                .setColor(Color.decode("#89d0e5"))
                 .setThumbnail("https://i.gyazo.com/ee5b702c85849b5f01cf8b9cee44d4fa.png").getDescriptionBuilder()
-                .append("**IP:**\tplay.pokezone.net\n**Version:**\t 1.12.2");
+                .append("**IP:**\tplay.pokezone.net\n**Version:**\t 1.12.2\n**Modpack:**\t bit.ly/pixelmonplus\n");
 
-        return pokezone;
-    }
-
-    public EmbedBuilder onUnsupported() {
-        EmbedBuilder error = new EmbedBuilder();
-        error.setColor(Color.RED).setTitle(":x: **Unsupported server!**").getDescriptionBuilder().append(
-                "This server is not supported for this command!\nIf you believe this to be an error contact pokerman981#0420");
-
-        return error;
-    }
-
-    public static EmbedBuilder noArgsIP() {
-        EmbedBuilder noArgs = new EmbedBuilder();
-        noArgs.setTitle("Server IPs").setColor(Color.red).getDescriptionBuilder()
-                .append("**.ip (server name)**\n\n**Servers:**\n\t*pokedash*\n\t*pokeverse*\n\t*pokelegends*\n\t*pokeclub*\n\t*pokebrawl*\n\t*pokezone*");
-
-        return noArgs;
+        return ipInfo;
     }
 
     public static EmbedBuilder noArgsLogs() {

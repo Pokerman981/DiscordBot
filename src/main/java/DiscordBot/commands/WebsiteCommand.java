@@ -17,6 +17,6 @@ public class WebsiteCommand extends Command {
     @Override
     protected void execute(CommandEvent event) {
         if (event.getChannel().getName().contains("-chat")) return;
-        event.reply(Embeds.websiteInfo().build());
+        event.reply(Embeds.siteInfo().build());
     }
 }

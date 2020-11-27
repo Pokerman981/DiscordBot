@@ -104,7 +104,7 @@ public class main extends ListenerAdapter {
                     new LinkCommand(),
                     new ModsCommand(),
                     new InstallCommand(),
-					new ServerStatusCommand(),
+//					new ServerStatusCommand(),
 					new PricesCommand(),
 					new WebsiteCommand(),
 					new StaffStatusCommand(),
