@@ -16,10 +16,6 @@ public class IPCommand extends Command {
 
     @Override
     protected void execute(CommandEvent event) {
-        if (event.getArgs().isEmpty()) {
-            event.reply(Embeds.ipInfo().build());
-        } else {
-            event.reply(Embeds.ipInfo().build());
-        }
+        event.reply(Embeds.ipInfo().build());
     }
 }

@@ -197,7 +197,7 @@ public class Embeds {
                 .setTitle("PokeZone Website")
                 .setColor(Color.green)
                 .setThumbnail("https://i.gyazo.com/ee5b702c85849b5f01cf8b9cee44d4fa.png").getDescriptionBuilder()
-                .append("**Site:**\thttps://www.pokezone.net\n");
+                .append("**Site:**\thttps://pokezone.net\n");
 
         return websiteInfo;
     }
@@ -226,7 +226,8 @@ public class Embeds {
                         "\n<:pokelegends:722273123172614166> **PokeLegends** <:pokelegends:722273123172614166> https://pxl.plus/plprices " +
                         "\n<:pokeclub:725057231971942490> **PokeClub** <:pokeclub:725057231971942490> https://pxl.plus/pcprices" +
                         "\n<:pokebrawl:722273098744987740> **PokeBrawl** <:pokebrawl:722273098744987740> https://pxl.plus/pbprices" +
-                        "\n<:pokezoneblue:722273150250909706> **PokeZone** <:pokezoneblue:722273150250909706> https://pxl.plus/pzprices");
+                        "\n<:pokezoneblue:722273150250909706> **PokeSilver** <:pokezoneblue:722273150250909706> https://pxl.plus/psprices" +
+                        "\n<:pokezonered:722458281536258060> **PokeGold** <:pokezonered:722458281536258060> https://pxl.plus/pgprices");
 
         return pricesInfo;
     }

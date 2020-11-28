@@ -11,7 +11,7 @@ public class LinkCommand extends Command {
         this.name = "link";
         this.aliases = new String[]{"donor", "donator", "rank"};
         this.category = main.roleCategories.get("player");
-        this.help = "Displays a list of each server's IP address";
+        this.help = "Displays a list of the server's IP address";
     }
 
     @Override
